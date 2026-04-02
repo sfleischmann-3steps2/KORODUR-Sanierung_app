@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Referenz } from "../data/types";
 import { withBasePath } from "../lib/basePath";

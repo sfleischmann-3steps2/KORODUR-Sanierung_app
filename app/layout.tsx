@@ -1,15 +1,7 @@
 import type { Metadata } from "next";
-import { Gabarito } from "next/font/google";
 import "./globals.css";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-
-const gabarito = Gabarito({
-  subsets: ["latin"],
-  weight: ["400", "700", "800", "900"],
-  variable: "--font-gabarito",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Sanieren mit KORODUR",
@@ -23,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${gabarito.variable} antialiased`}>
+    <html lang="de" className="antialiased">
       <body className="min-h-screen flex flex-col" style={{ fontFamily: "'Gabarito', Arial, sans-serif" }}>
         <Navigation />
         <main className="flex-1">{children}</main>
