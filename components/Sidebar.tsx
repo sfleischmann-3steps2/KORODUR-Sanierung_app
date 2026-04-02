@@ -327,6 +327,8 @@ export default function Sidebar({
       <aside
         className="hidden lg:flex flex-col bg-white border-r border-[#e8edf5] shrink-0 transition-all duration-300 overflow-hidden"
         style={{ width: collapsed ? 64 : 272 }}
+        role="navigation"
+        aria-label="Main navigation"
       >
         {sidebarContent}
       </aside>
@@ -335,16 +337,21 @@ export default function Sidebar({
       {mobileOpen && (
         <div
           className="lg:hidden fixed inset-0 z-50 flex"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
         >
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/30"
+            className="absolute inset-0 bg-black/30 animate-overlay"
             onClick={onCloseMobile}
           />
           {/* Drawer */}
           <aside
-            className="relative z-10 flex flex-col bg-white shadow-2xl"
+            className="relative z-10 flex flex-col bg-white shadow-2xl animate-drawer"
             style={{ width: 280, maxWidth: "85vw" }}
+            role="navigation"
+            aria-label="Main navigation"
           >
             {sidebarContent}
           </aside>

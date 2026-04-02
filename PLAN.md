@@ -33,7 +33,17 @@
 - Wizard/Konfigurator in Sidebar (als "Tools" Sektion) und Startseite (als CTA-Karten) integriert
 - Alle Texte in DE/EN/FR übersetzt
 - **Build: 149 statische Seiten** (+6 neue: wizard + konfigurator × 3 Sprachen)
-### Phase 4: Polish & UX – AUSSTEHEND
+### Phase 4: Polish & UX - ABGESCHLOSSEN
+- CSS @import Reihenfolge behoben (keine Build-Warnings mehr)
+- `components/SearchOverlay.tsx` – Volltextsuche über Referenzen, Kategorien, Produkte
+- Cmd/Ctrl+K Tastenkombination zum Öffnen der Suche
+- Suchfeld mit Tastatur-Navigation (Pfeiltasten + Enter)
+- Desktop-Suchbar in TopBar, Mobile-Suchicon
+- Animationen: fadeInUp, slideInRight, drawer-Animation, overlay-Fade
+- Staggered Animation Delays (.stagger-1 bis .stagger-6)
+- Accessibility: Skip-to-Content Link, ARIA-Labels, role="dialog" für Mobile-Drawer
+- Focus-Visible Styling für Keyboard-Navigation
+- Alte Navigation.tsx entfernt (durch AppShell ersetzt)
 
 ---
 

@@ -36,9 +36,12 @@ export default async function LangLayout({
         className="min-h-screen"
         style={{ fontFamily: "'Gabarito', Arial, sans-serif" }}
       >
+        <a href="#main-content" className="skip-to-content">
+          {lang === "de" ? "Zum Inhalt springen" : lang === "fr" ? "Aller au contenu" : "Skip to content"}
+        </a>
         <LocaleProvider lang={lang as Locale} dict={dict}>
           <AppShell lang={lang as Locale} dict={dict}>
-            {children}
+            <div id="main-content">{children}</div>
           </AppShell>
         </LocaleProvider>
       </body>
