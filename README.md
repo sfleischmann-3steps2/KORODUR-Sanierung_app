@@ -10,7 +10,35 @@ Die bestehende PowerPoint-Präsentation (119 Folien) in eine moderne, erweiterba
 - **Für Vertriebler** als Gesprächstool im Kundentermin funktioniert
 - **Für Kunden** über die Website selbstständig erkundbar ist
 - **Erweiterbar** ist – neue Referenzen, Produkte und Bereiche einfach hinzufügbar
-- **Performant** bleibt – trotz vieler Bilder und Referenzen schnell lädt
+- **Performant** bleibt – trotz vieler Bitos und Referenzen schnell lädt
+
+## Lokal starten
+
+```bash
+npm install
+npm run dev
+```
+
+App öffnen: [http://localhost:3000](http://localhost:3000)
+
+## Tech Stack
+
+- **Next.js 16** (App Router, Static Export)
+- **Tailwind CSS 4**
+- **TypeScript**
+- **GitHub Pages** (automatisches Deployment via GitHub Actions)
+
+## Seiten (22 statische Seiten)
+
+| Seite | Route | Beschreibung |
+|---|---|---|
+| Startseite | `/` | Hero, Stats, Warum Sanierung, Portfolio-Kacheln, CTA |
+| Portfolio | `/portfolio` | Übersicht der 3 Bereiche als Kacheln |
+| Industrieboden | `/portfolio/industrieboden` | Schwerlast, Dünnschicht, Schnelle Reparaturen |
+| Industriebau | `/portfolio/industriebau` | Fugen, Treppen, Überladebrücken |
+| Infrastruktur | `/portfolio/infrastruktur` | Verkehr & Wasser |
+| Referenzen | `/referenzen` | Alle Referenzen mit Filter (Bereich, Anwendung, Produkt) |
+| Referenz-Detail | `/referenzen/[slug]` | Herausforderungen, Lösung, Vorteile, Produktdaten |
 
 ## Inhaltsstruktur
 
@@ -18,164 +46,106 @@ Die bestehende PowerPoint-Präsentation (119 Folien) in eine moderne, erweiterba
 Startseite: "Sanieren mit KORODUR"
 │
 ├── Warum Sanierung?
-│   ├── Vorteile der Sanierung
-│   ├── Herausforderungen im Bestand
-│   └── Warum KORODUR? (Qualität, Service, 90 Jahre Erfahrung)
+│   ├── Minimale Ausfallzeiten
+│   ├── Dauerhafte Ergebnisse
+│   └── Nachhaltig & Wirtschaftlich
+│
+├── Referenzen (mit Filter)
 │
 └── Produktportfolio
-     │
      ├── Industrieboden
-     │   ├── Übersicht & 3-Schritte-Prozess
-     │   ├── Schwerste Belastung
-     │   │   ├── Sanierung übers Wochenende (Antolin)
-     │   │   ├── WEAG Entsorgungsbetrieb
-     │   │   ├── Wochenend-Sanierung Werkstatt (Neutraubling)
-     │   │   ├── Strandkorbhalle Sylt
-     │   │   ├── Produktionshalle Kleemann
-     │   │   ├── Sanierung im laufenden Betrieb (Loosen)
-     │   │   ├── Produktionsfläche Monheim
-     │   │   ├── Ausstellungshalle Neuhaus Neotec
-     │   │   ├── Restaurant HÄRG Tallinn
-     │   │   └── Helipad Sanierung Polen
-     │   ├── Dünnschicht
-     │   │   ├── Produktionshalle Guben
-     │   │   ├── Nike Store Polen
-     │   │   └── Obstplantage Ibbenbüren
-     │   └── Schnelle Reparaturen
-     │       ├── DHL Überladebrücken
-     │       ├── Fugensanierung Lyreco
-     │       ├── Sanierung einer Sanierung
-     │       ├── Helipad Sanierung Polen
-     │       └── LKW Waschstraße
-     │
+     │   ├── Schwerlast (Antolin, Kleemann, Monheim)
+     │   ├── Dünnschicht (Guben, Nike Store)
+     │   └── Schnelle Reparaturen (DHL, LKW Waschstraße)
      ├── Industriebau
-     │   ├── DHL Überladebrücken
-     │   ├── Fugensanierung Lyreco
-     │   ├── Absenksteine (LKW-Tankstelle)
-     │   ├── Treppenstufen Sanierung
-     │   ├── Sinusfugen Sanierung
-     │   ├── Trennfugen Sanierung (Bohnenkamp)
-     │   └── LKW Einstellplatz (Berlin)
-     │
+     │   └── Schnelle Reparaturen (Lyreco, Treppenstufen)
      └── Infrastruktur
-         ├── Verkehr
-         │   ├── Hafen Catania
-         │   ├── Theodor-Heuss-Brücke
-         │   ├── Autohaus Versmold
-         │   ├── Hubschrauber-Landeplatz Finnland
-         │   ├── LKW Umfahrt Darmstadt
-         │   └── Parkhaus Flughafen Zürich
-         └── Wasser
-             ├── Trinkwasser-Hochbehälter Haidberg
-             ├── Trinkwasserbehälter Bad Nauheim
-             └── Trinkwasserturm Budapest
+          ├── Verkehr (Catania, Parkhaus Zürich)
+          └── Wasser (Haidberg, Bad Nauheim)
 ```
 
-## Produkte (referenziert in den Cases)
+## Produktdatenbank
 
-| Produkt | Typ | Einsatz |
+14 Produkte mit technischen Daten, Qualitätsklassen und Normen:
+
+| Produkt | Qualitätsklasse | Einsatz |
 |---|---|---|
-| **NEODUR HE 60 rapid** | Hartstoff-Schnellestrich | 24h-Sanierung, 10-60 mm |
-| **NEODUR HE 65 Plus** | Hochbelastbarer Hartstoffestrich | Extrem-Belastung, Innen/Außen, 15-30 mm |
-| **NEODUR Level** | Selbstverlaufender Dünnestrich | Präzise Sanierung, 4-10 mm |
-| **KORODUR HB 5 / HB 5 rapid** | Haftbrücke / Grundierung | Verbund zum Untergrund |
-| **KORODUR PC** | Grundierung | Dünnestrich-Vorbereitung |
-| **Rapid Set CEMENT ALL** | Schnellzement | Punktuelle Reparaturen |
-| **Rapid Set MORTAR MIX** | Schnellmörtel | Fugen, Reprofilierung |
-| **KOROCRETE** | Schnellbeton | Großflächen, volumetrisch |
-| **MICROTOP TW** | Trinkwasser-Beschichtung | Behälter-Sanierung |
-| **DUROP** | Hartstoff-Abstreumaterial | Oberflächenschutz |
-| **KOROTEX / KOROMINERAL CURE** | Nachbehandlung | Curing & Silikatisierung |
-| **ASPHALT REPAIR MIX** | Asphalt-Reparatur | Verkehrsflächen |
+| NEODUR HE 60 rapid | CT-C60-F8-A6 | 24h-Sanierung, 10–60 mm |
+| NEODUR HE 65 Plus | CT-C70-F9-A6 | Extrem-Belastung, Innen/Außen |
+| NEODUR Level | CT-C40-F8-AR0,5 | Dünnestrich, 4–10 mm |
+| KORODUR HB 5 rapid | – | Haftbrücke |
+| Rapid Set CEMENT ALL | – | Schnellreparatur (1 h belastbar) |
+| Rapid Set MORTAR MIX | – | Fugen & Reprofilierung |
+| KOROCRETE Schnellbeton | – | Großflächen |
+| MICROTOP TW | – | Trinkwasser (DVGW) |
+| TRU Self-Leveling | – | Sichtestrich / Design |
 
-## Tech Stack (geplant)
+Jede Referenz-Detail-Seite zeigt die technischen Daten und Normen der eingesetzten Produkte.
 
-- **Framework:** Next.js (React) mit App Router
-- **Styling:** Tailwind CSS
-- **Content:** MDX oder JSON-basierte Datenstruktur für einfache Erweiterbarkeit
-- **Bilder:** Optimiert via Next.js Image, lazy loading
-- **Deployment:** Vercel oder ähnlich (statisch exportierbar)
-- **Sprache:** Deutsch (perspektivisch mehrsprachig)
+## Corporate Design
 
-## Konzeptentscheidungen
+KORODUR Styleguide implementiert:
 
-### Warum Web App statt PowerPoint?
+- **Farben:** Navy `#002d59`, Cyan `#009ee3`, Weiß, Grautöne
+- **Font:** Gabarito (400, 700, 800, 900)
+- **Cards:** 14px Radius, Schatten, Hover-Effekte
+- **Buttons:** Cyan primary, Ghost secondary
+- **Responsive:** Desktop-first, Breakpoints 1100px / 768px / 480px
 
-| Aspekt | PowerPoint | Web App |
-|---|---|---|
-| Dateigröße | ~23 MB, wächst weiter | Bilder on-demand geladen |
-| Erweiterbarkeit | Mühsam, Folien-Limit | Unbegrenzt, einfach neue Referenzen |
-| Zugriff | Datei teilen/installieren | URL öffnen, fertig |
-| Aktualisierung | Neue Datei verteilen | Einmal deployen, alle sehen es |
-| Interaktivität | Begrenzt (Hyperlinks) | Volle Web-Interaktivität |
-| Mobile | Schlecht | Responsive Design |
-| Suche/Filter | Nicht möglich | Nach Branche, Produkt, Region filtern |
-
-### Navigationskonzept
-
-Die Kachel-basierte Navigation bleibt das Herzstück. Der Vertriebler kann:
-
-1. **Startseite** → Überblick & Einstieg
-2. **Produktportfolio** → Kacheln für Industrieboden / Industriebau / Infrastruktur
-3. **Kategorie** → Kacheln für Unterkategorien (z.B. Schwerlast, Dünnschicht)
-4. **Referenz** → Vollbild-Story mit Herausforderung → Lösung → Vorteile
-5. Jederzeit über Breadcrumb oder Kachel-Navigation zu anderem Thema springen
-
-### Datenmodell (Entwurf)
-
-Jede Referenz wird als strukturiertes Datenobjekt gespeichert:
+## Projektstruktur
 
 ```
-Referenz {
-  id, slug, titel, untertitel,
-  kategorie: [industrieboden | industriebau | infrastruktur],
-  unterkategorie: [schwerlast | duennschicht | schnelle-reparaturen | verkehr | wasser],
-  ort, land, fläche,
-  produkte: [...],
-  herausforderungen: [...],
-  lösung: string,
-  vorteile: [...],
-  bilder: [...],
-  tags: [...]
-}
-```
-
-## Projektstruktur (geplant)
-
-```
-/
 ├── app/                    # Next.js App Router
 │   ├── page.tsx            # Startseite
-│   ├── portfolio/
-│   │   ├── page.tsx        # Portfolio-Übersicht (3 Kacheln)
+│   ├── portfolio/          # Portfolio-Seiten
 │   │   ├── industrieboden/
 │   │   ├── industriebau/
 │   │   └── infrastruktur/
 │   └── referenzen/
-│       └── [slug]/page.tsx # Einzelne Referenz-Seite
-├── components/
-│   ├── TileGrid.tsx        # Kachel-Navigation
-│   ├── ReferenceCard.tsx   # Referenz-Vorschau
-│   ├── ReferenceDetail.tsx # Vollansicht einer Referenz
-│   ├── ProductBadge.tsx    # Produkt-Tag
-│   └── Navigation.tsx      # Breadcrumb + Hauptnav
+│       ├── page.tsx        # Referenz-Übersicht mit Filter
+│       └── [slug]/page.tsx # Referenz-Detail
+├── components/             # React Components
+│   ├── Navigation.tsx      # Sticky Nav, responsive
+│   ├── Breadcrumb.tsx
+│   ├── TileGrid.tsx
+│   ├── CategoryTile.tsx
+│   ├── ReferenceCard.tsx
+│   ├── SubcategoryTile.tsx
+│   └── Footer.tsx
 ├── data/
-│   ├── referenzen/         # JSON/MDX pro Referenz
-│   └── produkte.ts         # Produktdaten
-├── public/
-│   └── images/             # Referenzbilder
-└── docs/
-    └── praesentation/      # Original-PDFs als Referenz
+│   ├── types.ts            # TypeScript Interfaces
+│   ├── kategorien.ts       # 3 Bereiche + Unterkategorien
+│   ├── referenzen.ts       # 13 Referenzen mit Daten
+│   └── produkte.ts         # 14 Produkte mit Specs & Normen
+├── lib/
+│   └── basePath.ts         # GitHub Pages basePath Helper
+├── public/images/
+│   ├── hero.jpg            # Hero-Bild (1920x1080)
+│   └── referenzen/         # 13 Referenzfotos aus PDFs
+└── .github/workflows/
+    └── deploy.yml          # GitHub Pages Auto-Deploy
 ```
+
+## Deployment
+
+GitHub Pages via GitHub Actions:
+
+1. **Repo Settings → Pages → Source: "GitHub Actions"** aktivieren
+2. Bei jedem Push auf `main` wird automatisch gebaut und deployt
+3. Live unter: `https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/`
 
 ## Status
 
-- [x] Präsentation analysiert und Inhalte strukturiert
-- [ ] Bilder aus Präsentation extrahieren
-- [ ] Next.js Projekt aufsetzen
-- [ ] Datenmodell & Referenzdaten anlegen
-- [ ] Kachel-Navigation implementieren
-- [ ] Referenz-Detail-Seiten bauen
-- [ ] Produkt-Übersichten
-- [ ] Responsive Design & Mobile-Optimierung
-- [ ] Deployment einrichten
+- [x] Präsentation analysiert (119 Folien, 2 PDFs)
+- [x] Next.js Projekt aufgesetzt
+- [x] KORODUR Corporate Design implementiert
+- [x] 13 Referenzen mit Daten & echten Fotos
+- [x] 14 Produkte mit technischen Daten & Normen
+- [x] Kachel-Navigation & Referenz-Detail-Seiten
+- [x] Referenz-Übersicht mit Filter
+- [x] Produkt-Verlinkung zu korodur.de
+- [x] GitHub Pages Deployment
+- [ ] Design-Review & Optimierung
+- [ ] Weitere Referenzen ergänzen
+- [ ] Bildoptimierung (WebP, Lazy Loading)
+- [ ] Mehrsprachigkeit (perspektivisch)
