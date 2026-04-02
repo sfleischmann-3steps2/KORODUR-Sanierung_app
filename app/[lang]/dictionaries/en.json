@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "referenzen": "References",
+    "home": "Home"
+  },
+  "home": {
+    "tagline": "Your Partner for Renovation",
+    "hero_title_prefix": "Renovate with",
+    "hero_title_brand": "KORODUR",
+    "hero_description": "We are not just a supplier, but a renovation partner. From analysis to aftercare, we offer solutions that deliver on their promises.",
+    "cta_portfolio": "View Portfolio",
+    "cta_referenzen": "View References",
+    "stat_experience": "Experience",
+    "stat_area": "laid worldwide",
+    "stat_quality": "Made in Germany",
+    "why_title": "Why Renovation?",
+    "why_subtitle": "Renovation is more economical, sustainable, and faster than new construction. KORODUR delivers the right solution.",
+    "why_card1_title": "Minimal Downtime",
+    "why_card1_text": "Fast-curing systems enable reuse in hours instead of days.",
+    "why_card2_title": "Lasting Results",
+    "why_card2_text": "Heavy-duty materials for high-load areas, wet rooms, and extreme conditions.",
+    "why_card3_title": "Sustainable & Economical",
+    "why_card3_text": "EPD-certified products, renovation instead of demolition. Good for budget and environment.",
+    "portfolio_title": "Our Product Portfolio",
+    "portfolio_subtitle": "Three areas, one standard: maximum quality with minimal downtime.",
+    "cta_bottom_title": "Ready for Your Renovation?",
+    "cta_bottom_text": "Contact us for individual consultation or browse through our references.",
+    "cta_bottom_button": "Discover References"
+  },
+  "portfolio": {
+    "breadcrumb": "Portfolio",
+    "title": "Product Portfolio",
+    "description": "KORODUR offers well-designed renovation systems for three key application areas. Each system is engineered for maximum durability, minimal downtime, and long-term cost-effectiveness.",
+    "learn_more": "Learn more"
+  },
+  "referenzen": {
+    "breadcrumb": "References",
+    "title": "All References",
+    "description_prefix": "Projects in industrial flooring, structural renovation, and infrastructure – filter by area, application, or product.",
+    "filter_all_areas": "All Areas",
+    "filter_all_applications": "All Applications",
+    "filter_all_products": "All Products",
+    "filter_reset": "Reset filters",
+    "of": "of",
+    "references": "References",
+    "no_results": "No references found for this filter selection.",
+    "show_all": "Show all references"
+  },
+  "detail": {
+    "challenges": "Challenges",
+    "solution": "Our Solution",
+    "benefits": "Benefits",
+    "products_used": "Products Used",
+    "products_subtitle": "Technical data and standards of the KORODUR products used",
+    "technical_data": "Technical Data",
+    "norms": "Standards & Certifications",
+    "view_on_website": "View on korodur.de",
+    "related": "More References",
+    "all_category_refs": "All {category} References"
+  },
+  "common": {
+    "reference_singular": "Reference",
+    "reference_plural": "References",
+    "home": "Home",
+    "back": "Back"
+  },
+  "categories": {
+    "industrieboden": "Industrial Flooring",
+    "industriebau": "Structural Renovation",
+    "infrastruktur": "Infrastructure"
+  },
+  "footer": {
+    "tagline": "Systematic renovation. Since 1936.",
+    "copyright": "All rights reserved."
+  }
+}

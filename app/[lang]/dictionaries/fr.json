@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "referenzen": "Références",
+    "home": "Accueil"
+  },
+  "home": {
+    "tagline": "Votre partenaire pour la rénovation",
+    "hero_title_prefix": "Rénover avec",
+    "hero_title_brand": "KORODUR",
+    "hero_description": "Nous ne sommes pas seulement un fournisseur, mais un partenaire de rénovation. De l'analyse au suivi, nous offrons des solutions qui tiennent leurs promesses.",
+    "cta_portfolio": "Voir le portfolio",
+    "cta_referenzen": "Voir les références",
+    "stat_experience": "Expérience",
+    "stat_area": "posés dans le monde",
+    "stat_quality": "Made in Germany",
+    "why_title": "Pourquoi la rénovation ?",
+    "why_subtitle": "La rénovation est plus économique, durable et rapide que la construction neuve. KORODUR fournit la solution adaptée.",
+    "why_card1_title": "Temps d'arrêt minimal",
+    "why_card1_text": "Les systèmes à durcissement rapide permettent une réutilisation en heures au lieu de jours.",
+    "why_card2_title": "Résultats durables",
+    "why_card2_text": "Matériaux haute résistance pour zones de charges lourdes, pièces humides et conditions extrêmes.",
+    "why_card3_title": "Durable & Économique",
+    "why_card3_text": "Produits certifiés EPD, rénovation au lieu de démolition. Bon pour le budget et l'environnement.",
+    "portfolio_title": "Notre portefeuille de produits",
+    "portfolio_subtitle": "Trois domaines, une exigence : qualité maximale avec un temps d'arrêt minimal.",
+    "cta_bottom_title": "Prêt pour votre rénovation ?",
+    "cta_bottom_text": "Contactez-nous pour un conseil individuel ou parcourez nos références.",
+    "cta_bottom_button": "Découvrir les références"
+  },
+  "portfolio": {
+    "breadcrumb": "Portfolio",
+    "title": "Portefeuille de produits",
+    "description": "KORODUR propose des systèmes de rénovation bien conçus pour trois domaines d'application clés. Chaque système est conçu pour une durabilité maximale, un temps d'arrêt minimal et une rentabilité à long terme.",
+    "learn_more": "En savoir plus"
+  },
+  "referenzen": {
+    "breadcrumb": "Références",
+    "title": "Toutes les références",
+    "description_prefix": "Projets dans le domaine des sols industriels, de la rénovation structurelle et de l'infrastructure – filtrez par domaine, application ou produit.",
+    "filter_all_areas": "Tous les domaines",
+    "filter_all_applications": "Toutes les applications",
+    "filter_all_products": "Tous les produits",
+    "filter_reset": "Réinitialiser les filtres",
+    "of": "sur",
+    "references": "Références",
+    "no_results": "Aucune référence trouvée pour cette sélection de filtres.",
+    "show_all": "Afficher toutes les références"
+  },
+  "detail": {
+    "challenges": "Défis",
+    "solution": "Notre solution",
+    "benefits": "Avantages",
+    "products_used": "Produits utilisés",
+    "products_subtitle": "Données techniques et normes des produits KORODUR utilisés",
+    "technical_data": "Données techniques",
+    "norms": "Normes & Certifications",
+    "view_on_website": "Voir sur korodur.de",
+    "related": "Autres références",
+    "all_category_refs": "Toutes les références {category}"
+  },
+  "common": {
+    "reference_singular": "Référence",
+    "reference_plural": "Références",
+    "home": "Accueil",
+    "back": "Retour"
+  },
+  "categories": {
+    "industrieboden": "Sols industriels",
+    "industriebau": "Rénovation structurelle",
+    "infrastruktur": "Infrastructure"
+  },
+  "footer": {
+    "tagline": "Rénovation systématique. Depuis 1936.",
+    "copyright": "Tous droits réservés."
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "portfolio": "Portfolio",
+    "referenzen": "Referenzen",
+    "home": "Startseite"
+  },
+  "home": {
+    "tagline": "Ihr Partner für Sanierung",
+    "hero_title_prefix": "Sanieren mit",
+    "hero_title_brand": "KORODUR",
+    "hero_description": "Wir sind nicht nur Lieferant, sondern Sanierungspartner. Von der Analyse bis zur Nachbetreuung bieten wir Lösungen, die halten, was sie versprechen.",
+    "cta_portfolio": "Zum Portfolio",
+    "cta_referenzen": "Referenzen ansehen",
+    "stat_experience": "Erfahrung",
+    "stat_area": "verlegt weltweit",
+    "stat_quality": "Made in Germany",
+    "why_title": "Warum Sanierung?",
+    "why_subtitle": "Sanierung ist wirtschaftlicher, nachhaltiger und schneller als Neubau. KORODUR liefert die passende Lösung.",
+    "why_card1_title": "Minimale Ausfallzeiten",
+    "why_card1_text": "Schnellaushärtende Systeme ermöglichen eine Wiedernutzung in Stunden statt Tagen.",
+    "why_card2_title": "Dauerhafte Ergebnisse",
+    "why_card2_text": "Hochbelastbare Materialien für Schwerlastbereiche, Nassräume und extreme Bedingungen.",
+    "why_card3_title": "Nachhaltig & Wirtschaftlich",
+    "why_card3_text": "EPD-zertifizierte Produkte, Sanierung statt Abriss. Gut für Budget und Umwelt.",
+    "portfolio_title": "Unser Produktportfolio",
+    "portfolio_subtitle": "Drei Bereiche, ein Anspruch: maximale Qualität bei minimaler Ausfallzeit.",
+    "cta_bottom_title": "Bereit für Ihre Sanierung?",
+    "cta_bottom_text": "Kontaktieren Sie uns für eine individuelle Beratung oder stöbern Sie durch unsere Referenzen.",
+    "cta_bottom_button": "Referenzen entdecken"
+  },
+  "portfolio": {
+    "breadcrumb": "Portfolio",
+    "title": "Produktportfolio",
+    "description": "KORODUR bietet durchdachte Sanierungssysteme für drei zentrale Anwendungsbereiche. Jedes System ist auf maximale Belastbarkeit, minimale Ausfallzeiten und langfristige Wirtschaftlichkeit ausgelegt.",
+    "learn_more": "Mehr erfahren"
+  },
+  "referenzen": {
+    "breadcrumb": "Referenzen",
+    "title": "Alle Referenzen",
+    "description_prefix": "Projekte aus Industrieboden, Industriebau und Infrastruktur – filtern Sie nach Bereich, Anwendung oder Produkt.",
+    "filter_all_areas": "Alle Bereiche",
+    "filter_all_applications": "Alle Anwendungen",
+    "filter_all_products": "Alle Produkte",
+    "filter_reset": "Filter zurücksetzen",
+    "of": "von",
+    "references": "Referenzen",
+    "no_results": "Keine Referenzen für diese Filterauswahl gefunden.",
+    "show_all": "Alle Referenzen anzeigen"
+  },
+  "detail": {
+    "challenges": "Herausforderungen",
+    "solution": "Unsere Lösung",
+    "benefits": "Vorteile",
+    "products_used": "Eingesetzte Produkte",
+    "products_subtitle": "Technische Daten und Normen der verwendeten KORODUR-Produkte",
+    "technical_data": "Technische Daten",
+    "norms": "Normen & Zulassungen",
+    "view_on_website": "Auf korodur.de ansehen",
+    "related": "Weitere Referenzen",
+    "all_category_refs": "Alle {category}-Referenzen"
+  },
+  "common": {
+    "reference_singular": "Referenz",
+    "reference_plural": "Referenzen",
+    "home": "Home",
+    "back": "Zurück"
+  },
+  "categories": {
+    "industrieboden": "Industrieboden",
+    "industriebau": "Industriebau",
+    "infrastruktur": "Infrastruktur"
+  },
+  "footer": {
+    "tagline": "Sanieren mit System. Seit 1936.",
+    "copyright": "Alle Rechte vorbehalten."
+  }
+}

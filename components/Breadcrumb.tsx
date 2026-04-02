@@ -5,12 +5,18 @@ interface BreadcrumbItem {
   href?: string;
 }
 
-export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
+export default function Breadcrumb({
+  items,
+  lang,
+}: {
+  items: BreadcrumbItem[];
+  lang: string;
+}) {
   return (
     <nav aria-label="Breadcrumb" className="py-4">
       <ol className="flex flex-wrap items-center gap-1 list-none m-0 p-0 text-[14px]">
         <li>
-          <Link href="/" className="text-[#009ee3] no-underline hover:underline">
+          <Link href={`/${lang}`} className="text-[#009ee3] no-underline hover:underline">
             Home
           </Link>
         </li>

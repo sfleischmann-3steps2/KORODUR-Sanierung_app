@@ -1,5 +1,25 @@
 # KORODUR Sanierung App – Redesign-Plan
 
+## Status (Stand: 2026-04-02)
+
+### Phase 1: i18n-Infrastruktur - ABGESCHLOSSEN
+- `lib/i18n.ts` – Locale-Typen, Konstanten, Validierung
+- `lib/LocaleContext.tsx` – Client-Context für Locale + Dictionary
+- `app/[lang]/dictionaries.ts` – Dictionary-Loader mit `server-only`
+- `app/[lang]/dictionaries/{de,en,fr}.json` – Vollständige UI-Übersetzungen
+- `app/[lang]/layout.tsx` – Neues Root-Layout mit `generateStaticParams`, `LocaleProvider`
+- Alle Seiten unter `app/[lang]/` verschoben (Home, Portfolio, 3 Kategorien, Referenzen, Detail)
+- Alle Components aktualisiert: Navigation, Footer, Breadcrumb, ReferenceCard, CategoryTile, SubcategoryTile
+- Redirect-Stubs für alte URLs (`/portfolio` → `/de/portfolio`, etc.)
+- `next.config.ts`: `trailingSlash: true` hinzugefügt
+- **Build: 143 statische Seiten** (3 Sprachen × alle Routes + Redirects)
+
+### Phase 2: App-Shell Navigation – AUSSTEHEND
+### Phase 3: Interaktive Features – AUSSTEHEND
+### Phase 4: Polish & UX – AUSSTEHEND
+
+---
+
 ## Ziel
 Die Website in eine moderne, mehrsprachige Web-Applikation umbauen mit:
 - App-Shell Layout (Sidebar + Top-Bar)
