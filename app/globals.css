@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800;900&display=swap");
+
+:root {
+  /* KORODUR Brand Colors */
+  --navy: #002d59;
+  --cyan: #009ee3;
+  --cyan-hover: #0090d0;
+  --white: #ffffff;
+  --icon-bg: #f5f5f6;
+  --bullet-bg: #e8edf5;
+  --light-gray: #ececed;
+  --mid-gray: #d9dada;
+  --footer-dark: #001a35;
+
+  /* Semantic */
+  --background: var(--white);
+  --foreground: var(--navy);
+  --accent: var(--cyan);
+}
+
+@theme inline {
+  --color-navy: var(--navy);
+  --color-cyan: var(--cyan);
+  --color-cyan-hover: var(--cyan-hover);
+  --color-icon-bg: var(--icon-bg);
+  --color-bullet-bg: var(--bullet-bg);
+  --color-light-gray: var(--light-gray);
+  --color-mid-gray: var(--mid-gray);
+  --color-footer-dark: var(--footer-dark);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Gabarito", Arial, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Gabarito", Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  color: var(--navy);
+}
+
+/* Highlight cyan spans in headings */
+.highlight-cyan {
+  color: var(--cyan);
+}
