@@ -14,7 +14,15 @@
 - `next.config.ts`: `trailingSlash: true` hinzugefügt
 - **Build: 143 statische Seiten** (3 Sprachen × alle Routes + Redirects)
 
-### Phase 2: App-Shell Navigation – AUSSTEHEND
+### Phase 2: App-Shell Navigation - ABGESCHLOSSEN
+- `components/AppShell.tsx` – Wrapper mit Sidebar-State (open/collapsed), localStorage-Persistenz
+- `components/Sidebar.tsx` – Kategorie-Baum mit aufklappbaren Unterkategorien, active-state Highlighting
+- `components/TopBar.tsx` – Mobile-Hamburger, Logo (mobile), Sprachschalter
+- `components/LanguageSwitcher.tsx` – DE/EN/FR Pill-Schalter mit `usePathname()` zum Locale-Tausch
+- `app/[lang]/layout.tsx` – Umgebaut auf AppShell (ersetzt altes Navigation+Footer Pattern)
+- `app/globals.css` – CSS-Variablen für Sidebar/TopBar-Dimensionen, Custom Scrollbar
+- **Responsive**: Desktop=Sidebar 272px (auf 64px klappbar), Mobile=Drawer-Overlay
+- **Build: 143 statische Seiten** (unverändert)
 ### Phase 3: Interaktive Features – AUSSTEHEND
 ### Phase 4: Polish & UX – AUSSTEHEND
 

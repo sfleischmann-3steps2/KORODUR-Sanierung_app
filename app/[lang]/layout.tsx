@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import Navigation from "../../components/Navigation";
-import Footer from "../../components/Footer";
+import AppShell from "../../components/AppShell";
 import { getDictionary, hasLocale } from "./dictionaries";
 import { LOCALES } from "../../lib/i18n";
 import { LocaleProvider } from "../../lib/LocaleContext";
@@ -34,13 +33,13 @@ export default async function LangLayout({
   return (
     <html lang={lang} className="antialiased">
       <body
-        className="min-h-screen flex flex-col"
+        className="min-h-screen"
         style={{ fontFamily: "'Gabarito', Arial, sans-serif" }}
       >
         <LocaleProvider lang={lang as Locale} dict={dict}>
-          <Navigation lang={lang as Locale} dict={dict} />
-          <main className="flex-1">{children}</main>
-          <Footer lang={lang as Locale} dict={dict} />
+          <AppShell lang={lang as Locale} dict={dict}>
+            {children}
+          </AppShell>
         </LocaleProvider>
       </body>
     </html>
