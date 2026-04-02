@@ -118,6 +118,62 @@ export default function Sidebar({
           {!collapsed && <span>{dict.nav.home}</span>}
         </Link>
 
+        {/* Interactive tools */}
+        {!collapsed && (
+          <div
+            className="text-[11px] uppercase tracking-wider text-[#002d59] opacity-40 mt-4 mb-2"
+            style={{ fontWeight: 700, padding: "0 12px" }}
+          >
+            Tools
+          </div>
+        )}
+
+        {collapsed && <div className="border-t border-[#e8edf5] my-2" />}
+
+        {/* Wizard link */}
+        <Link
+          href={`/${lang}/wizard`}
+          onClick={onCloseMobile}
+          className={`flex items-center gap-3 rounded-lg no-underline mb-0.5 transition-colors duration-150 ${
+            isActive(`/${lang}/wizard`)
+              ? "bg-[#009ee3]/10 text-[#009ee3]"
+              : "text-[#002d59] hover:bg-[#f5f5f6]"
+          }`}
+          style={{
+            padding: collapsed ? "10px 12px" : "10px 12px",
+            fontWeight: 700,
+            fontSize: 14,
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+            <circle cx="11" cy="11" r="8" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg>
+          {!collapsed && <span>{dict.nav_wizard}</span>}
+        </Link>
+
+        {/* Konfigurator link */}
+        <Link
+          href={`/${lang}/konfigurator`}
+          onClick={onCloseMobile}
+          className={`flex items-center gap-3 rounded-lg no-underline mb-1 transition-colors duration-150 ${
+            isActive(`/${lang}/konfigurator`)
+              ? "bg-[#009ee3]/10 text-[#009ee3]"
+              : "text-[#002d59] hover:bg-[#f5f5f6]"
+          }`}
+          style={{
+            padding: collapsed ? "10px 12px" : "10px 12px",
+            fontWeight: 700,
+            fontSize: 14,
+          }}
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+          {!collapsed && <span>{dict.nav_konfigurator}</span>}
+        </Link>
+
         {/* Portfolio section label */}
         {!collapsed && (
           <div

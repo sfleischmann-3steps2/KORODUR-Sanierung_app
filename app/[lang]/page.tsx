@@ -189,6 +189,96 @@ export default async function Home({
         </div>
       </section>
 
+      {/* Interactive Tools */}
+      <section style={{ padding: "88px 32px 100px" }}>
+        <div className="mx-auto" style={{ maxWidth: 1320 }}>
+          <h2
+            className="text-center mb-4"
+            style={{ fontSize: "clamp(24px, 4vw, 36px)", fontWeight: 900, lineHeight: 1.12 }}
+          >
+            {dict.home_interactive.title}
+          </h2>
+          <p className="text-center text-[#002d59] opacity-60 mb-12 mx-auto" style={{ maxWidth: 600, fontSize: 18 }}>
+            {dict.home_interactive.subtitle}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto" style={{ maxWidth: 900 }}>
+            {/* Wizard Card */}
+            <Link
+              href={`/${lang}/wizard`}
+              className="no-underline group block"
+            >
+              <div
+                className="bg-white p-8 flex flex-col items-start gap-4 transition-all duration-200 group-hover:-translate-y-1.5"
+                style={{
+                  borderRadius: 14,
+                  boxShadow: "0 8px 40px rgba(0,45,89,0.10)",
+                  borderTop: "4px solid #009ee3",
+                }}
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: "rgba(0,158,227,0.08)" }}
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#009ee3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <path d="M21 21l-4.35-4.35" />
+                  </svg>
+                </div>
+                <h3 className="text-[#002d59] text-[22px] m-0" style={{ fontWeight: 900 }}>
+                  {dict.home_interactive.wizard_title}
+                </h3>
+                <p className="text-[#002d59] text-[16px] leading-[1.65] m-0 opacity-70">
+                  {dict.home_interactive.wizard_desc}
+                </p>
+                <span className="text-[#009ee3] text-[15px] font-bold flex items-center gap-1">
+                  {dict.home_interactive.wizard_cta}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 3l5 5-5 5" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+
+            {/* Konfigurator Card */}
+            <Link
+              href={`/${lang}/konfigurator`}
+              className="no-underline group block"
+            >
+              <div
+                className="bg-white p-8 flex flex-col items-start gap-4 transition-all duration-200 group-hover:-translate-y-1.5"
+                style={{
+                  borderRadius: 14,
+                  boxShadow: "0 8px 40px rgba(0,45,89,0.10)",
+                  borderTop: "4px solid #002d59",
+                }}
+              >
+                <div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center"
+                  style={{ backgroundColor: "rgba(0,45,89,0.06)" }}
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#002d59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 20h9" />
+                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                  </svg>
+                </div>
+                <h3 className="text-[#002d59] text-[22px] m-0" style={{ fontWeight: 900 }}>
+                  {dict.home_interactive.konfigurator_title}
+                </h3>
+                <p className="text-[#002d59] text-[16px] leading-[1.65] m-0 opacity-70">
+                  {dict.home_interactive.konfigurator_desc}
+                </p>
+                <span className="text-[#002d59] text-[15px] font-bold flex items-center gap-1">
+                  {dict.home_interactive.konfigurator_cta}
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M6 3l5 5-5 5" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-[#002d59] text-white text-center" style={{ padding: "72px 32px" }}>
         <div className="mx-auto" style={{ maxWidth: 700 }}>

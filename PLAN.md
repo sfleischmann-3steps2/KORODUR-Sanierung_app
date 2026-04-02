@@ -23,7 +23,16 @@
 - `app/globals.css` – CSS-Variablen für Sidebar/TopBar-Dimensionen, Custom Scrollbar
 - **Responsive**: Desktop=Sidebar 272px (auf 64px klappbar), Mobile=Drawer-Overlay
 - **Build: 143 statische Seiten** (unverändert)
-### Phase 3: Interaktive Features – AUSSTEHEND
+### Phase 3: Interaktive Features - ABGESCHLOSSEN
+- `data/usecases.ts` – Use-Case Definitionen: 4 Problembereiche mit 8 spezifischen Problemen → Produkt-Mappings
+- `data/konfigurator.ts` – 4-Schritte-Fragebogen mit Scoring-System für Produktempfehlungen
+- `components/StepIndicator.tsx` – Fortschrittsanzeige (Dots + Verbindungslinien)
+- `components/ResultsPanel.tsx` – Produkt-Karten + passende Referenzen
+- `app/[lang]/wizard/page.tsx` – Lösungsfinder: Problembereich → Problem → Empfehlung (3 Schritte)
+- `app/[lang]/konfigurator/page.tsx` – Produktberater: Bereich → Belastung → Zeit → Anforderungen → Ranking
+- Wizard/Konfigurator in Sidebar (als "Tools" Sektion) und Startseite (als CTA-Karten) integriert
+- Alle Texte in DE/EN/FR übersetzt
+- **Build: 149 statische Seiten** (+6 neue: wizard + konfigurator × 3 Sprachen)
 ### Phase 4: Polish & UX – AUSSTEHEND
 
 ---
