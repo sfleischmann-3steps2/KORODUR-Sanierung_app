@@ -219,6 +219,89 @@ export const produkte: Produkt[] = [
     ],
   },
 
+  {
+    id: "rapid-set-mortar-mix-dur",
+    name: "Rapid Set MORTAR MIX DUR",
+    kategorie: "schnellzement",
+    kurzbeschreibung: "Schnellmörtel mit integriertem Verschleißträger für Fugenreparaturen",
+    normen: [
+      "ASTM C928",
+      "DIN EN 1504-3",
+    ],
+    technischeDaten: [
+      { label: "Druckfestigkeit (1 h)", wert: "≥ 21 N/mm²" },
+      { label: "Druckfestigkeit (24 h)", wert: "≥ 42 N/mm²" },
+      { label: "Verarbeitbar", wert: "pastös bis plastisch" },
+      { label: "Belastbar nach", wert: "ca. 2 h" },
+    ],
+    besonderheiten: [
+      "Integrierter Verschleißträger",
+      "Für Schwerlastfugen geeignet",
+      "Schwundneutral",
+      "Pastöse Konsistenz einstellbar",
+    ],
+  },
+  {
+    id: "asphalt-repair-mix",
+    name: "ASPHALT REPAIR MIX",
+    kategorie: "schnellzement",
+    kurzbeschreibung: "Schnellreparaturmischung für Asphaltflächen – ohne Haftbrücke",
+    normen: [
+      "DIN EN 1504-3",
+    ],
+    technischeDaten: [
+      { label: "Schichtdicke", wert: "30–80 mm" },
+      { label: "Belastbar nach", wert: "ca. 2 h" },
+      { label: "Haftbrücke", wert: "Nicht erforderlich" },
+    ],
+    besonderheiten: [
+      "Für Asphaltflächen geeignet",
+      "Ohne Haftbrücke",
+      "Einfache Verarbeitung",
+      "Hohe Belastbarkeit",
+    ],
+  },
+  {
+    id: "korodur-fscem-screed",
+    name: "KORODUR FSCem Screed",
+    kategorie: "estrich",
+    kurzbeschreibung: "Ausgleichsestrich für unterschiedliche Einbauhöhen",
+    normen: [
+      "DIN EN 13813",
+      "DIN 18560",
+    ],
+    technischeDaten: [
+      { label: "Schichtdicke", wert: "45–115 mm" },
+      { label: "Anwendung", wert: "Ausgleichsschicht" },
+    ],
+    besonderheiten: [
+      "Große Schichtdicken möglich",
+      "Als Ausgleichsschicht einsetzbar",
+      "Schnelle Erhärtung",
+    ],
+  },
+  {
+    id: "neodur-he-65",
+    name: "NEODUR HE 65",
+    kategorie: "estrich",
+    kurzbeschreibung: "Hartstoffestrich für Innen- und Außenbereiche mit Silotechnik",
+    normen: [
+      "DIN EN 13813",
+      "DIN 18560",
+    ],
+    technischeDaten: [
+      { label: "Druckfestigkeit", wert: "≥ 65 N/mm²" },
+      { label: "Verschleißwiderstand", wert: "A6 (≤ 6 cm³/50 cm²)" },
+      { label: "Verarbeitung", wert: "Silosystem / Pumptechnik" },
+    ],
+    besonderheiten: [
+      "Witterungsbeständig",
+      "Mit Silosystem verarbeitbar",
+      "Wirtschaftlich auf Großflächen",
+      "Kraftschlüssiger Verbund",
+    ],
+  },
+
   // === BESCHICHTUNGEN ===
   {
     id: "microtop-tw",
@@ -286,6 +369,24 @@ export const produkte: Produkt[] = [
   },
 
   // === NACHBEHANDLUNG ===
+  {
+    id: "korocure",
+    name: "KOROCURE",
+    kategorie: "nachbehandlung",
+    kurzbeschreibung: "Curing-Compound zur kontrollierten Nachbehandlung von Estrichflächen",
+    normen: [
+      "DIN EN 13813",
+    ],
+    technischeDaten: [
+      { label: "Wirkung", wert: "Feuchtigkeitsretention / Curing" },
+      { label: "Anwendung", wert: "Sprüh- oder Rollauftrag" },
+    ],
+    besonderheiten: [
+      "Kontrollierte Aushärtung",
+      "Für Außenflächen geeignet",
+      "Reduziert Schwindrisse",
+    ],
+  },
   {
     id: "koromineral-cure",
     name: "KOROMINERAL CURE",

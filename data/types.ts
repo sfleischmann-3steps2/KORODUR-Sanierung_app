@@ -4,6 +4,7 @@ export type Unterkategorie =
   | "schwerlast"
   | "duennschicht"
   | "schnelle-reparaturen"
+  | "fugen"
   | "verkehr"
   | "wasser";
 
