@@ -30,7 +30,7 @@ export default function Navigation() {
             Portfolio
           </Link>
           <Link
-            href="/portfolio"
+            href="/referenzen"
             className="text-white text-[15px] no-underline px-[24px] py-[10px] rounded-[6px] bg-[#009ee3] hover:bg-[#0090d0] transition-colors duration-200"
             style={{ fontWeight: 800 }}
           >
@@ -71,7 +71,7 @@ export default function Navigation() {
               Portfolio
             </Link>
             <Link
-              href="/portfolio"
+              href="/referenzen"
               onClick={() => setMenuOpen(false)}
               className="text-[#009ee3] text-[16px] font-bold no-underline py-3"
             >

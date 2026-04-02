@@ -8,6 +8,7 @@ export interface Produkt {
   normen: string[];
   technischeDaten: { label: string; wert: string }[];
   besonderheiten: string[];
+  websiteUrl?: string;
 }
 
 export const produkte: Produkt[] = [
