@@ -134,18 +134,24 @@ GitHub Pages via GitHub Actions:
 2. Bei jedem Push auf `main` wird automatisch gebaut und deployt
 3. Live unter: `https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/`
 
-## Status
+## Status: 🔧 In Bearbeitung – MVP/Prototyp
 
+### Erledigt (Prototyp)
 - [x] Präsentation analysiert (119 Folien, 2 PDFs)
-- [x] Next.js Projekt aufgesetzt
-- [x] KORODUR Corporate Design implementiert
-- [x] 13 Referenzen mit Daten & echten Fotos
+- [x] Next.js Projekt aufgesetzt (Static Export)
+- [x] KORODUR Corporate Design implementiert (Gabarito, Navy/Cyan)
+- [x] 13 Referenzen mit Daten & echten Fotos aus PDFs
 - [x] 14 Produkte mit technischen Daten & Normen
 - [x] Kachel-Navigation & Referenz-Detail-Seiten
-- [x] Referenz-Übersicht mit Filter
+- [x] Referenz-Übersicht mit Filter (Bereich, Anwendung, Produkt)
 - [x] Produkt-Verlinkung zu korodur.de
-- [x] GitHub Pages Deployment
-- [ ] Design-Review & Optimierung
-- [ ] Weitere Referenzen ergänzen
+- [x] GitHub Pages Deployment (Actions Workflow)
+
+### Offen – Nächste Schritte
+- [ ] Design-Review nach erstem Live-Check
+- [ ] UX-Optimierung basierend auf Feedback
+- [ ] Weitere Referenzen aus der Präsentation ergänzen
 - [ ] Bildoptimierung (WebP, Lazy Loading)
+- [ ] Referenzen mit korodur.de Website verknüpfen (sobald dort live)
+- [ ] Offline-Nutzbarkeit prüfen (PWA / Service Worker)
 - [ ] Mehrsprachigkeit (perspektivisch)
