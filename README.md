@@ -10,7 +10,11 @@ Die bestehende PowerPoint-Präsentation (119 Folien) in eine moderne, erweiterba
 - **Für Vertriebler** als Gesprächstool im Kundentermin funktioniert
 - **Für Kunden** über die Website selbstständig erkundbar ist
 - **Erweiterbar** ist – neue Referenzen, Produkte und Bereiche einfach hinzufügbar
-- **Performant** bleibt – trotz vieler Bitos und Referenzen schnell lädt
+- **Performant** bleibt – trotz vieler Bilder und Referenzen schnell lädt
+
+## Live ansehen
+
+**[https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/)**
 
 ## Lokal starten
 
@@ -18,8 +22,6 @@ Die bestehende PowerPoint-Präsentation (119 Folien) in eine moderne, erweiterba
 npm install
 npm run dev
 ```
-
-App öffnen: [http://localhost:3000](http://localhost:3000)
 
 ## Tech Stack
 
