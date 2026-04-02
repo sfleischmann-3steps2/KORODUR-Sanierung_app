@@ -4,6 +4,7 @@ import ReferenceCard from "../../../components/ReferenceCard";
 import TileGrid from "../../../components/TileGrid";
 import { referenzen, getReferenzBySlug } from "../../../data/referenzen";
 import { kategorien } from "../../../data/kategorien";
+import { getProdukteByNames } from "../../../data/produkte";
 import { withBasePath } from "../../../lib/basePath";
 import { notFound } from "next/navigation";
 
@@ -29,8 +30,8 @@ export default async function ReferenzDetailPage({
   }
 
   const kategorieLabel = getKategorieLabel(referenz.kategorie);
+  const produktDetails = getProdukteByNames(referenz.produkte);
 
-  // Related references: same category, different slug, max 3
   const related = referenzen
     .filter((r) => r.kategorie === referenz.kategorie && r.slug !== referenz.slug)
     .slice(0, 3);
@@ -122,7 +123,7 @@ export default async function ReferenzDetailPage({
         </div>
       </section>
 
-      {/* Herausforderungen */}
+      {/* Herausforderungen & Lösung */}
       <section className="bg-[#f5f5f6]" style={{ padding: "64px 32px 72px" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -154,7 +155,6 @@ export default async function ReferenzDetailPage({
               </ul>
             </div>
 
-            {/* Loesung */}
             <div>
               <h2
                 className="mb-6"
@@ -164,7 +164,7 @@ export default async function ReferenzDetailPage({
                   lineHeight: 1.15,
                 }}
               >
-                Unsere Loesung
+                Unsere Lösung
               </h2>
               <p
                 className="text-[#002d59] leading-[1.7]"
@@ -213,26 +213,116 @@ export default async function ReferenzDetailPage({
         </div>
       </section>
 
-      {/* Produkte */}
-      <section className="bg-[#f5f5f6]" style={{ padding: "48px 32px 56px" }}>
+      {/* Eingesetzte Produkte – mit technischen Daten */}
+      <section className="bg-[#002d59]" style={{ padding: "64px 32px 72px" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
-          <h3
-            className="mb-5"
-            style={{ fontSize: 20, fontWeight: 900 }}
+          <h2
+            className="text-white mb-3"
+            style={{
+              fontSize: "clamp(22px, 3vw, 32px)",
+              fontWeight: 900,
+              lineHeight: 1.15,
+            }}
           >
             Eingesetzte Produkte
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            {referenz.produkte.map((p) => (
-              <span
-                key={p}
-                className="text-[14px] text-[#002d59] px-5 py-2.5 rounded-[8px] bg-white"
-                style={{ fontWeight: 700, boxShadow: "0 2px 8px rgba(0,45,89,0.06)" }}
+          </h2>
+          <p className="text-white opacity-50 mb-10" style={{ fontSize: 16 }}>
+            Technische Daten und Normen der verwendeten KORODUR-Produkte
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {produktDetails.map((produkt) => (
+              <div
+                key={produkt.id}
+                className="bg-white/10 backdrop-blur-sm overflow-hidden"
+                style={{ borderRadius: 14, border: "1px solid rgba(255,255,255,0.10)" }}
               >
-                {p}
-              </span>
+                {/* Produkt-Header */}
+                <div
+                  className="p-6 pb-4"
+                  style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
+                >
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <h3 className="text-white text-[18px] m-0" style={{ fontWeight: 900 }}>
+                      {produkt.name}
+                    </h3>
+                    {produkt.qualitaetsklasse && (
+                      <span
+                        className="text-[10px] text-[#009ee3] uppercase tracking-wider px-2.5 py-1 rounded-[4px] whitespace-nowrap"
+                        style={{ backgroundColor: "rgba(0,158,227,0.15)", fontWeight: 700 }}
+                      >
+                        {produkt.qualitaetsklasse}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-white opacity-60 text-[14px] m-0 leading-[1.5]">
+                    {produkt.kurzbeschreibung}
+                  </p>
+                  {produkt.schichtdicke && (
+                    <p className="text-[#009ee3] text-[13px] mt-2 m-0" style={{ fontWeight: 700 }}>
+                      Schichtdicke: {produkt.schichtdicke}
+                    </p>
+                  )}
+                </div>
+
+                {/* Technische Daten */}
+                <div className="p-6 pt-4">
+                  <p className="text-white opacity-40 text-[11px] uppercase tracking-wider mb-3" style={{ fontWeight: 700 }}>
+                    Technische Daten
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    {produkt.technischeDaten.slice(0, 5).map((td, i) => (
+                      <div key={i} className="flex justify-between items-baseline gap-4">
+                        <span className="text-white opacity-60 text-[13px]">{td.label}</span>
+                        <span className="text-white text-[13px] text-right" style={{ fontWeight: 700 }}>
+                          {td.wert}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Normen */}
+                  {produkt.normen.length > 0 && (
+                    <div className="mt-4 pt-4" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+                      <p className="text-white opacity-40 text-[11px] uppercase tracking-wider mb-2" style={{ fontWeight: 700 }}>
+                        Normen & Zulassungen
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {produkt.normen.map((norm) => (
+                          <span
+                            key={norm}
+                            className="text-[11px] text-white opacity-70 px-2.5 py-1 rounded-[4px]"
+                            style={{ backgroundColor: "rgba(255,255,255,0.08)", fontWeight: 600 }}
+                          >
+                            {norm}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
+
+          {/* Fallback: Produkte ohne Detaildaten */}
+          {referenz.produkte.filter(
+            (name) => !produktDetails.find((p) => p.name === name)
+          ).length > 0 && (
+            <div className="flex flex-wrap gap-3 mt-6">
+              {referenz.produkte
+                .filter((name) => !produktDetails.find((p) => p.name === name))
+                .map((p) => (
+                  <span
+                    key={p}
+                    className="text-[14px] text-white px-5 py-2.5 rounded-[8px]"
+                    style={{ fontWeight: 700, backgroundColor: "rgba(255,255,255,0.10)" }}
+                  >
+                    {p}
+                  </span>
+                ))}
+            </div>
+          )}
         </div>
       </section>
 
