@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Gabarito:wght@400;700;800;900&display=swap");
+@import "tailwindcss";
 
 :root {
   /* KORODUR Brand Colors */
@@ -17,6 +17,11 @@
   --background: var(--white);
   --foreground: var(--navy);
   --accent: var(--cyan);
+
+  /* App Shell Layout */
+  --sidebar-width: 272px;
+  --sidebar-collapsed: 64px;
+  --topbar-height: 56px;
 }
 
 @theme inline {
@@ -47,4 +52,115 @@ h1, h2, h3, h4, h5, h6 {
 /* Highlight cyan spans in headings */
 .highlight-cyan {
   color: var(--cyan);
+}
+
+/* Smooth scrollbar styling */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: var(--mid-gray) transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: var(--mid-gray);
+  border-radius: 3px;
+}
+
+/* Entrance animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.3s ease-out both;
+}
+
+/* Staggered animation delays */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* Mobile drawer animation */
+@keyframes slideInFromLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-drawer {
+  animation: slideInFromLeft 0.25s ease-out both;
+}
+
+.animate-overlay {
+  animation: fadeInOverlay 0.2s ease-out both;
+}
+
+/* Focus visible styling */
+*:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--cyan);
+  color: white;
+  padding: 8px 16px;
+  z-index: 100;
+  font-weight: 700;
+  font-size: 14px;
+  transition: top 0.2s;
+}
+
+.skip-to-content:focus {
+  top: 0;
 }

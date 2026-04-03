@@ -4,16 +4,23 @@ import Link from "next/link";
 import { Referenz } from "../data/types";
 import { withBasePath } from "../lib/basePath";
 
-export default function ReferenceCard({ referenz }: { referenz: Referenz }) {
-  const categoryLabel =
-    referenz.kategorie === "industrieboden"
-      ? "Industrieboden"
-      : referenz.kategorie === "industriebau"
-      ? "Industriebau"
-      : "Infrastruktur";
+const categoryLabels: Record<string, Record<string, string>> = {
+  de: { industrieboden: "Industrieboden", industriebau: "Industriebau", infrastruktur: "Infrastruktur" },
+  en: { industrieboden: "Industrial Flooring", industriebau: "Structural Renovation", infrastruktur: "Infrastructure" },
+  fr: { industrieboden: "Sols industriels", industriebau: "Rénovation structurelle", infrastruktur: "Infrastructure" },
+};
+
+export default function ReferenceCard({
+  referenz,
+  lang = "de",
+}: {
+  referenz: Referenz;
+  lang?: string;
+}) {
+  const label = categoryLabels[lang]?.[referenz.kategorie] ?? referenz.kategorie;
 
   return (
-    <Link href={`/referenzen/${referenz.slug}`} className="no-underline group block">
+    <Link href={`/${lang}/referenzen/${referenz.slug}`} className="no-underline group block">
       <div
         className="bg-white overflow-hidden flex flex-col transition-all duration-200 group-hover:-translate-y-1.5"
         style={{
@@ -39,7 +46,7 @@ export default function ReferenceCard({ referenz }: { referenz: Referenz }) {
             className="self-start text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
             style={{ backgroundColor: "#009ee3", fontWeight: 700 }}
           >
-            {categoryLabel}
+            {label}
           </span>
           <h3 className="text-[#002d59] text-[18px] m-0 leading-tight" style={{ fontWeight: 900 }}>
             {referenz.titel}

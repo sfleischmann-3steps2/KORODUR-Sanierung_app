@@ -36,10 +36,16 @@ export const kategorien: KategorieInfo[] = [
     icon: "building",
     unterkategorien: [
       {
+        id: "fugen",
+        titel: "Fugen & Profile",
+        beschreibung:
+          "Sinus-, Trenn- und Schwerlastfugen – präzise saniert mit Schnellmörteln und Spezialprofilen.",
+      },
+      {
         id: "schnelle-reparaturen",
         titel: "Schnelle Reparaturen",
         beschreibung:
-          "Fugen, Treppen, Überladebrücken und Absenksteine – schnell und dauerhaft repariert.",
+          "Treppen, Überladebrücken, Absenksteine und Einstellplätze – schnell und dauerhaft repariert.",
       },
     ],
   },

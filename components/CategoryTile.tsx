@@ -7,6 +7,7 @@ interface CategoryTileProps {
   description: string;
   icon: string;
   href: string;
+  learnMoreLabel?: string;
 }
 
 function IconSVG({ name }: { name: string }) {
@@ -49,7 +50,13 @@ function IconSVG({ name }: { name: string }) {
   }
 }
 
-export default function CategoryTile({ title, description, icon, href }: CategoryTileProps) {
+export default function CategoryTile({
+  title,
+  description,
+  icon,
+  href,
+  learnMoreLabel = "Mehr erfahren",
+}: CategoryTileProps) {
   return (
     <Link href={href} className="no-underline group block">
       <div
@@ -78,7 +85,7 @@ export default function CategoryTile({ title, description, icon, href }: Categor
           {description}
         </p>
         <span className="text-[#009ee3] text-[15px] font-bold flex items-center gap-1">
-          Mehr erfahren
+          {learnMoreLabel}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M6 3l5 5-5 5" />
           </svg>
