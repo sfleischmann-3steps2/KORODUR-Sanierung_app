@@ -6,9 +6,26 @@ import Breadcrumb from "../../../components/Breadcrumb";
 import { referenzen as alleReferenzen } from "../../../data/referenzen";
 import { kategorien } from "../../../data/kategorien";
 import { useLocale } from "../../../lib/LocaleContext";
+import { referenzenEN } from "../../../data/i18n/referenzen.en";
+import { referenzenFR } from "../../../data/i18n/referenzen.fr";
+import { referenzenPL } from "../../../data/i18n/referenzen.pl";
+import type { Referenz } from "../../../data/types";
 
 // Microtop/Wasser-Referenzen aus der Hauptliste ausschließen
-const referenzen = alleReferenzen.filter((r) => r.unterkategorie !== "wasser");
+const baseReferenzen = alleReferenzen.filter((r) => r.unterkategorie !== "wasser");
+
+const translationMap: Record<string, Record<string, Partial<Referenz>>> = {
+  en: referenzenEN as Record<string, Partial<Referenz>>,
+  fr: referenzenFR as Record<string, Partial<Referenz>>,
+  pl: referenzenPL as Record<string, Partial<Referenz>>,
+};
+
+function localizeRef(ref: Referenz, lang: string): Referenz {
+  if (lang === "de") return ref;
+  const overrides = translationMap[lang]?.[ref.id];
+  if (!overrides) return ref;
+  return { ...ref, ...overrides };
+}
 
 type FilterState = {
   kategorie: string;
@@ -23,6 +40,12 @@ export default function ReferenzenPage() {
     unterkategorie: "",
   });
 
+  // Lokalisierte Referenzen
+  const referenzen = useMemo(
+    () => baseReferenzen.map((r) => localizeRef(r, lang)),
+    [lang]
+  );
+
   const verfuegbareUnterkategorien = useMemo(() => {
     if (!filters.kategorie) return [];
     const kat = kategorien.find((k) => k.id === filters.kategorie);
@@ -36,7 +59,7 @@ export default function ReferenzenPage() {
         return false;
       return true;
     });
-  }, [filters]);
+  }, [filters, referenzen]);
 
   const updateFilter = (key: keyof FilterState, value: string) => {
     setFilters((prev) => {

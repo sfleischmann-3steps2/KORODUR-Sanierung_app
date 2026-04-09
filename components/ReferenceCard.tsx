@@ -9,6 +9,7 @@ const categoryLabels: Record<string, Record<string, string>> = {
   de: { industrieboden: "Industrieboden", industriebau: "Industriebau", infrastruktur: "Infrastruktur" },
   en: { industrieboden: "Industrial Flooring", industriebau: "Structural Renovation", infrastruktur: "Infrastructure" },
   fr: { industrieboden: "Sols industriels", industriebau: "Rénovation structurelle", infrastruktur: "Infrastructure" },
+  pl: { industrieboden: "Posadzki przemysłowe", industriebau: "Budownictwo przemysłowe", infrastruktur: "Infrastruktura" },
 };
 
 export default function ReferenceCard({
