@@ -10,12 +10,11 @@ Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierun
 
 ## Features
 
-- **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte)
-- **Sanierung finden** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
-- **28 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen und Produktdaten
-- **18 Produkte** mit technischen Daten, Normen und Qualitätsklassen
-- **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur
-- **MICROTOP-Bereich** – Eigene Sektion für Trinkwasser-Infrastruktur (abgetrennte Zielgruppe)
+- **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte), gegen KORODUR-Glossar geprüft
+- **Produktfinder** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
+- **29 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen und Produktdaten
+- **19 Produkte** mit technischen Daten, Normen und Qualitätsklassen
+- **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur – jeweils mit Anwendungs-Filter
 - **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
 - **Responsive** – Desktop, Tablet, Mobile
 - **PWA-fähig** – Service Worker, Manifest
@@ -34,19 +33,18 @@ npm install
 npm run dev
 ```
 
-## Informationsarchitektur (V2)
+## Informationsarchitektur
 
 ```
 /[lang]/
-├── Startseite (Hero, Stats, Warum Sanierung, Referenz-Highlights, Portfolio, Microtop-CTA)
-├── sanierung-finden/ (3-Schritte-Assistent → Produktempfehlung + Referenzen)
+├── Startseite (Hero, Stats, Warum Sanierung, Referenz-Highlights, Portfolio)
+├── sanierung-finden/ (Produktfinder: 3-Schritte-Assistent → Empfehlung + Referenzen)
 ├── portfolio/
-│   ├── industrieboden/ (#schwerlast, #duennschicht, #schnelle-reparaturen)
-│   ├── industriebau/ (#fugen, #schnelle-reparaturen)
-│   └── infrastruktur/ (#verkehr)
-├── referenzen/ (Filterliste + Detail-Seiten)
-├── produkte/ (Produktübersicht + Detail-Seiten)
-└── microtop/ (Trinkwasser-Bereich: Produktinfo + 3 Referenzen)
+│   ├── industrieboden/ (Filter: Schwerlast / Dünnschicht / Schnelle Reparaturen)
+│   ├── industriebau/ (Filter: Fugen / Schnelle Reparaturen)
+│   └── infrastruktur/ (Verkehr)
+├── referenzen/ (Filterliste nach Bereich + Anwendung)
+└── produkte/ (Produktübersicht + Detail-Seiten)
 ```
 
 ## Projektstruktur
@@ -54,27 +52,27 @@ npm run dev
 ```
 ├── app/[lang]/              # Locale-prefixed Routes (de/en/fr/pl)
 │   ├── page.tsx             # Startseite
-│   ├── sanierung-finden/    # Kombinierter Assistent
-│   ├── portfolio/           # Portfolio mit Kategorie-Seiten
+│   ├── sanierung-finden/    # Produktfinder (3-Schritte-Assistent)
+│   ├── portfolio/           # Portfolio mit Filter-Kategorieseiten
 │   ├── referenzen/          # Referenz-Übersicht + Detail
 │   ├── produkte/            # Produktübersicht + Detail
-│   ├── microtop/            # Trinkwasser-Bereich
 │   └── dictionaries/        # UI-Strings (de/en/fr/pl.json)
 ├── components/
 │   ├── AppShell.tsx         # Layout-Wrapper
 │   ├── TopNav.tsx           # Horizontale Navigation + Mobile Drawer
+│   ├── CategoryFilterView.tsx # Wiederverwendbare Filterleiste für Kategorieseiten
 │   ├── SearchOverlay.tsx    # Volltextsuche (Cmd+K)
 │   ├── LanguageSwitcher.tsx # DE/EN/FR/PL Umschalter
 │   └── ...                  # TileGrid, ReferenceCard, CategoryTile, etc.
 ├── data/
-│   ├── referenzen.ts        # 28 Referenzen (DE-Basis)
-│   ├── produkte.ts          # 18 Produkte mit technischen Daten
+│   ├── referenzen.ts        # 29 Referenzen (DE-Basis)
+│   ├── produkte.ts          # 19 Produkte mit technischen Daten
 │   ├── kategorien.ts        # 3 Bereiche + Unterkategorien
-│   ├── sanierung-finden.ts  # Assistent: Schritte + Scoring-Logik
+│   ├── sanierung-finden.ts  # Produktfinder: Schritte + Scoring-Logik
 │   └── i18n/                # Inhalts-Übersetzungen (EN/FR/PL)
 ├── lib/
 │   ├── i18n.ts              # Locale-Typen, LOCALES Konstante
-│   ├── LocaleContext.tsx     # Client-Context für Locale + Dictionary
+│   ├── LocaleContext.tsx    # Client-Context für Locale + Dictionary
 │   └── basePath.ts          # GitHub Pages basePath Helper
 └── .github/workflows/
     └── deploy.yml           # GitHub Pages Auto-Deploy
@@ -86,20 +84,26 @@ GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch g
 
 ## Status: V2 – Live
 
-### V2 Redesign (April 2026)
-- [x] Microtop in eigene Route `/microtop/` ausgelagert
+### V2.1 (April 2026)
+- [x] Filterleiste für alle Portfolio-Kategorieseiten (gleiche UI wie Referenzen-Seite)
+- [x] Referenz-Karten in Listenansicht jetzt lokalisiert (waren vorher nur DE)
+- [x] Übersetzungen gegen KORODUR Notion-Glossar geprüft und korrigiert (EN/FR/PL)
+- [x] Microtop entfernt (eigene externe Landingpage)
+- [x] Produktfilter entfernt, Sprachschalter PL-Bug gefixt
+- [x] Produktfinder (ehem. "Sanierung finden") umbenannt
+- [x] 270 statische Seiten (4 Sprachen × alle Routes)
+
+### V2.0 (April 2026)
 - [x] Wizard + Konfigurator zu `/sanierung-finden/` zusammengeführt
 - [x] Sidebar-Navigation durch horizontale TopNav ersetzt
-- [x] Startseite: Hero-CTA auf Assistent, Referenz-Highlights, Microtop-Footer
+- [x] Startseite redesigned: Hero-CTA, Referenz-Highlights
 - [x] Polnisch (PL) als 4. Sprache komplett eingebaut
-- [x] 274 statische Seiten (4 Sprachen × alle Routes)
 
 ### V1 Basis
-- [x] Präsentation analysiert (119 Folien, 2 PDFs)
 - [x] Next.js Projekt mit Static Export
 - [x] KORODUR Corporate Design (Gabarito, Navy/Cyan)
-- [x] 28 Referenzen mit Daten & Fotos
-- [x] 18 Produkte mit technischen Daten & Normen
+- [x] 29 Referenzen mit Daten & Fotos
+- [x] 19 Produkte mit technischen Daten & Normen
 - [x] Mehrsprachigkeit DE/EN/FR mit i18n-Infrastruktur
-- [x] App-Shell mit Sidebar, Volltextsuche, Accessibility
+- [x] App-Shell, Volltextsuche, Accessibility
 - [x] GitHub Pages Deployment
