@@ -94,11 +94,11 @@ export default function ReferenzenPage() {
 
       {/* Filters */}
       <section
-        className="bg-[#f5f5f6] sticky top-[72px] z-30"
-        style={{ padding: "20px 32px", borderBottom: "1px solid #e8edf5" }}
+        className="bg-[#f5f5f6] sticky top-0 z-30"
+        style={{ padding: "16px 16px", borderBottom: "1px solid #e8edf5" }}
       >
-        <div className="mx-auto" style={{ maxWidth: 1320 }}>
-          <div className="flex flex-wrap items-center gap-3">
+        <div className="mx-auto sm:px-4" style={{ maxWidth: 1320 }}>
+          <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
             <select
               value={filters.kategorie}
               onChange={(e) => updateFilter("kategorie", e.target.value)}

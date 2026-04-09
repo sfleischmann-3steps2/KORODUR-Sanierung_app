@@ -431,6 +431,10 @@ export function getProduktByName(name: string): Produkt | undefined {
   );
 }
 
+export function getProduktById(id: string): Produkt | undefined {
+  return produkte.find((p) => p.id === id);
+}
+
 export function getProdukteByNames(names: string[]): Produkt[] {
   return names
     .map((name) => getProduktByName(name))

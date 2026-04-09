@@ -69,7 +69,7 @@ export default function SearchOverlay({
         type: "produkt",
         title: prod.name,
         subtitle: prod.kurzbeschreibung.slice(0, 80),
-        href: `https://korodur.de/?s=${encodeURIComponent(prod.name)}`,
+        href: `/${lang}/produkte/${prod.id}`,
       });
     });
 

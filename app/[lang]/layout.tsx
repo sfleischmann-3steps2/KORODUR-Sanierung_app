@@ -6,11 +6,20 @@ import { LOCALES } from "../../lib/i18n";
 import { LocaleProvider } from "../../lib/LocaleContext";
 import type { Locale } from "../../lib/i18n";
 import { notFound } from "next/navigation";
+import { withBasePath } from "../../lib/basePath";
+import ServiceWorkerRegistrar from "../../components/ServiceWorkerRegistrar";
 
 export const metadata: Metadata = {
-  title: "Sanieren mit KORODUR",
+  title: {
+    template: "%s | KORODUR Sanierung",
+    default: "Sanieren mit KORODUR",
+  },
   description:
     "KORODUR bietet professionelle Sanierungslösungen für Industrieboden, Industriebau und Infrastruktur. Schnelle Reparaturen, dauerhafte Ergebnisse.",
+  openGraph: {
+    type: "website",
+    siteName: "KORODUR Sanierung",
+  },
 };
 
 export async function generateStaticParams() {
@@ -32,6 +41,12 @@ export default async function LangLayout({
 
   return (
     <html lang={lang} className="antialiased">
+      <head>
+        <meta name="theme-color" content="#002d59" />
+        <link rel="manifest" href={withBasePath("/manifest.json")} />
+        <link rel="icon" href={withBasePath("/icons/icon-192.svg")} type="image/svg+xml" />
+        <link rel="apple-touch-icon" href={withBasePath("/icons/icon-192.svg")} />
+      </head>
       <body
         className="min-h-screen"
         style={{ fontFamily: "'Gabarito', Arial, sans-serif" }}
@@ -44,6 +59,7 @@ export default async function LangLayout({
             <div id="main-content">{children}</div>
           </AppShell>
         </LocaleProvider>
+        <ServiceWorkerRegistrar />
       </body>
     </html>
   );

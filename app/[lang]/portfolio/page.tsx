@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import Breadcrumb from "../../../components/Breadcrumb";
 import CategoryTile from "../../../components/CategoryTile";
 import TileGrid from "../../../components/TileGrid";
 import { kategorien } from "../../../data/kategorien";
 import { getDictionary, hasLocale } from "../dictionaries";
 import { notFound } from "next/navigation";
+import { localizeKategorien } from "../../../data/i18n/getLocalized";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return {
+    title: dict.portfolio.title,
+    description: dict.portfolio.description,
+  };
+}
 
 export default async function PortfolioPage({
   params,
@@ -13,6 +25,7 @@ export default async function PortfolioPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
+  const localizedKategorien = await localizeKategorien(kategorien, lang as "de" | "en" | "fr");
 
   return (
     <>
@@ -41,7 +54,7 @@ export default async function PortfolioPage({
             {dict.portfolio.description}
           </p>
           <TileGrid columns={3}>
-            {kategorien.map((kat) => (
+            {localizedKategorien.map((kat) => (
               <CategoryTile
                 key={kat.id}
                 title={dict.categories[kat.id as keyof typeof dict.categories] || kat.titel}

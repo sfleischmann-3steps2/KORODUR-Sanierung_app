@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Referenz } from "../data/types";
 import { withBasePath } from "../lib/basePath";
 
@@ -34,11 +35,13 @@ export default function ReferenceCard({
           (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 40px rgba(0,45,89,0.10)";
         }}
       >
-        <div className="aspect-video overflow-hidden">
-          <img
+        <div className="aspect-video overflow-hidden relative">
+          <Image
             src={withBasePath(referenz.bild)}
             alt={referenz.bildAlt}
-            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
         </div>
         <div className="p-6 flex flex-col gap-3">

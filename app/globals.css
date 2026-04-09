@@ -140,6 +140,18 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeInOverlay 0.2s ease-out both;
 }
 
+/* Responsive section padding */
+.section-px {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+@media (min-width: 640px) {
+  .section-px {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
 /* Focus visible styling */
 *:focus-visible {
   outline: 2px solid var(--cyan);

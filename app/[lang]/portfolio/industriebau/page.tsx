@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Breadcrumb from "../../../../components/Breadcrumb";
 import SubcategoryTile from "../../../../components/SubcategoryTile";
 import ReferenceCard from "../../../../components/ReferenceCard";
@@ -6,6 +7,14 @@ import { kategorien } from "../../../../data/kategorien";
 import { getReferenzenByUnterkategorie } from "../../../../data/referenzen";
 import { getDictionary, hasLocale } from "../../dictionaries";
 import { notFound } from "next/navigation";
+import { localizeKategorie, localizeReferenzen } from "../../../../data/i18n/getLocalized";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  if (!hasLocale(lang)) return {};
+  const dict = await getDictionary(lang);
+  return { title: dict.categories.industriebau, description: kategorien.find((k) => k.id === "industriebau")!.beschreibung };
+}
 
 export default async function IndustriebauPage({
   params,
@@ -15,7 +24,8 @@ export default async function IndustriebauPage({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
-  const kategorie = kategorien.find((k) => k.id === "industriebau")!;
+  const baseKategorie = kategorien.find((k) => k.id === "industriebau")!;
+  const kategorie = await localizeKategorie(baseKategorie, lang as "de" | "en" | "fr");
   const categoryLabel = dict.categories.industriebau;
 
   return (
@@ -53,8 +63,9 @@ export default async function IndustriebauPage({
         </div>
       </section>
 
-      {kategorie.unterkategorien.map((sub) => {
-        const refs = getReferenzenByUnterkategorie("industriebau", sub.id);
+      {await Promise.all(kategorie.unterkategorien.map(async (sub) => {
+        const baseRefs = getReferenzenByUnterkategorie("industriebau", sub.id);
+        const refs = await localizeReferenzen(baseRefs, lang as "de" | "en" | "fr");
         return (
           <section
             key={sub.id}
@@ -80,7 +91,7 @@ export default async function IndustriebauPage({
             </div>
           </section>
         );
-      })}
+      }))}
     </>
   );
 }

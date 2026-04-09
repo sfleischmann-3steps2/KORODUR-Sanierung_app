@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Breadcrumb from "../../../../components/Breadcrumb";
 import ReferenceCard from "../../../../components/ReferenceCard";
 import TileGrid from "../../../../components/TileGrid";
@@ -9,6 +11,24 @@ import { withBasePath } from "../../../../lib/basePath";
 import { getDictionary, hasLocale } from "../../dictionaries";
 import { LOCALES } from "../../../../lib/i18n";
 import { notFound } from "next/navigation";
+import { localizeReferenz, localizeReferenzen, localizeProdukte } from "../../../../data/i18n/getLocalized";
+
+export async function generateMetadata({ params }: { params: Promise<{ lang: string; slug: string }> }): Promise<Metadata> {
+  const { lang, slug } = await params;
+  if (!hasLocale(lang)) return {};
+  const base = getReferenzBySlug(slug);
+  if (!base) return {};
+  const ref = await localizeReferenz(base, lang as "de" | "en" | "fr");
+  return {
+    title: `${ref.titel} – ${ref.ort}`,
+    description: ref.untertitel,
+    openGraph: {
+      title: ref.titel,
+      description: ref.untertitel,
+      images: [withBasePath(ref.bild)],
+    },
+  };
+}
 
 export function generateStaticParams() {
   return referenzen.flatMap((r) =>
@@ -25,20 +45,24 @@ export default async function ReferenzDetailPage({
   if (!hasLocale(lang)) notFound();
 
   const dict = await getDictionary(lang);
-  const referenz = getReferenzBySlug(slug);
+  const baseReferenz = getReferenzBySlug(slug);
 
-  if (!referenz) {
+  if (!baseReferenz) {
     notFound();
   }
+
+  const referenz = await localizeReferenz(baseReferenz, lang as "de" | "en" | "fr");
 
   const kategorieLabel =
     dict.categories[referenz.kategorie as keyof typeof dict.categories] ||
     referenz.kategorie;
-  const produktDetails = getProdukteByNames(referenz.produkte);
+  const baseProduktDetails = getProdukteByNames(referenz.produkte);
+  const produktDetails = await localizeProdukte(baseProduktDetails, lang as "de" | "en" | "fr");
 
-  const related = referenzen
+  const baseRelated = referenzen
     .filter((r) => r.kategorie === referenz.kategorie && r.slug !== referenz.slug)
     .slice(0, 3);
+  const related = await localizeReferenzen(baseRelated, lang as "de" | "en" | "fr");
 
   return (
     <>
@@ -59,13 +83,16 @@ export default async function ReferenzDetailPage({
       <section style={{ padding: "0 32px 48px" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           <div
-            className="overflow-hidden w-full"
+            className="overflow-hidden w-full relative"
             style={{ borderRadius: 14, aspectRatio: "21/9" }}
           >
-            <img
+            <Image
               src={withBasePath(referenz.bild)}
               alt={referenz.bildAlt}
-              className="w-full h-full object-cover"
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 1320px"
+              className="object-cover"
             />
           </div>
         </div>
@@ -303,20 +330,16 @@ export default async function ReferenzDetailPage({
                   )}
 
                   <div className="mt-4 pt-4" style={{ borderTop: "1px solid #e8edf5" }}>
-                    <a
-                      href={`https://korodur.de/?s=${encodeURIComponent(produkt.name)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href={`/${lang}/produkte/${produkt.id}`}
                       className="inline-flex items-center gap-2 text-[#009ee3] text-[13px] no-underline hover:underline"
                       style={{ fontWeight: 700 }}
                     >
-                      {dict.detail.view_on_website}
+                      {dict.sanierung.view_product}
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                        <polyline points="15 3 21 3 21 9" />
-                        <line x1="10" y1="14" x2="21" y2="3" />
+                        <path d="M9 18l6-6-6-6" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

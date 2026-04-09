@@ -62,12 +62,6 @@ export const kategorien: KategorieInfo[] = [
         beschreibung:
           "Brücken, Parkhäuser, Häfen und Verkehrsflächen – Sanierung unter Verkehr, mit Tragfähigkeit und Witterungsschutz.",
       },
-      {
-        id: "wasser",
-        titel: "Wasser",
-        beschreibung:
-          "Trinkwasserbehälter und -türme – mineralische Sanierung nach DVGW-Standards.",
-      },
     ],
   },
 ];

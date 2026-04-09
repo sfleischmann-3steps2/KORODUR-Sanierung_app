@@ -1,6 +1,16 @@
 # KORODUR Sanierung App – Redesign-Plan
 
-## Status (Stand: 2026-04-02)
+## Status (Stand: 2026-04-09)
+
+### V2-Umbau: Nutzerorientierte Umstrukturierung - ABGESCHLOSSEN
+- **Microtop ausgelagert**: Eigene Route `/microtop/` mit 3 Referenzen (Haidberg, Bad Nauheim, Budapest) und Produktinfo
+- **"Wasser" aus Hauptflow entfernt**: Nicht mehr in Wizard, Konfigurator, Kategorien oder Sidebar
+- **Neuer Assistent**: `/sanierung-finden/` ersetzt Wizard + Konfigurator (3 Schritte: Bereich → Maßnahme → Zeitrahmen)
+- **Alte Routes → Redirects**: `/wizard/` und `/konfigurator/` leiten auf `/sanierung-finden/` um
+- **Navigation vereinfacht**: Sidebar durch horizontale TopNav ersetzt (Logo | Sanierung finden | Portfolio ▾ | Referenzen | Sprache)
+- **Startseite redesigned**: Hero-CTA auf "Sanierung finden", 3 Referenz-Highlights, Microtop Footer-CTA
+- **Aufgeräumt**: Alte Dateien gelöscht (usecases.ts, konfigurator.ts, Sidebar.tsx, TopBar.tsx, ResultsPanel.tsx, usecases i18n)
+- **Build: 215 statische Seiten** (3 Sprachen × alle Routes)
 
 ### Phase 1: i18n-Infrastruktur - ABGESCHLOSSEN
 - `lib/i18n.ts` – Locale-Typen, Konstanten, Validierung
