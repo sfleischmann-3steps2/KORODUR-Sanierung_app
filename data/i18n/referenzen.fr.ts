@@ -196,7 +196,7 @@ export const referenzenFR: Record<string, {
       "Exigences d'un aspect haut de gamme et d'une résistance durable",
     ],
     loesung:
-      "Rénovation du sol avec KORODUR FSCem Screed comme couche de ragréage et NEODUR HE 60 rapid comme chape d'usure robuste – complété par un traitement de surface de haute qualité.",
+      "Rénovation du sol avec KORODUR FSCem Screed comme couche d'égalisation et NEODUR HE 60 rapid comme chape d'usure robuste – complété par un traitement de surface de haute qualité.",
     vorteile: [
       "Sol rapidement opérationnel – temps d'arrêt nettement réduits",
       "Extrêmement résistant aux charges, à l'abrasion et aux liquides",
@@ -484,7 +484,7 @@ export const referenzenFR: Record<string, {
       "Sollicitations mécaniques par hélicoptères et engins de déneigement",
     ],
     loesung:
-      "Mise en oeuvre du mortier sec à haute résistance modifié aux polymères NEODUR HE 65 Plus comme couche d'usure. Le système a été choisi pour sa haute résistance au gel/sels de déverglaçage et à l'abrasion. Exécution sur l'héliport en toiture avec protection contre les intempéries pendant la mise en place et le durcissement. Pas de pont d'adhérence supplémentaire.",
+      "Mise en oeuvre du matériau sec à granulats durs modifié aux polymères NEODUR HE 65 Plus comme couche d'usure. Le système a été choisi pour sa haute résistance au gel/sels de déverglaçage et à l'abrasion. Exécution sur l'héliport en toiture avec protection contre les intempéries pendant la mise en place et le durcissement. Pas de pont d'adhérence supplémentaire.",
     vorteile: [
       "Protection durable contre le gel/sels de déverglaçage – haute résistance de la surface",
       "Haute résistance à l'abrasion et antidérapant – exploitation sûre au décollage/atterrissage et au déneigement",

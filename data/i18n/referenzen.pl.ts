@@ -102,7 +102,7 @@ export const referenzenPL: Record<string, {
       "Wysokie wymagania dotyczące odporności na ścieranie i trwałości w warunkach przemysłowych",
     ],
     loesung:
-      "Szybkotwardniejący mostek sczepny KORODUR HB 5 rapid oraz jastrych z kruszywem twardym NEODUR HE 60 rapid zostały nałożone i zatarte. Pomimo niskich temperatur powierzchnia była w pełni pochód i użytkowa w krótkim czasie.",
+      "Szybkotwardniejący mostek sczepny KORODUR HB 5 rapid oraz jastrych z kruszywem twardym NEODUR HE 60 rapid zostały nałożone i zatarte. Pomimo niskich temperatur powierzchnia była w pełni przejezdna i użytkowa w krótkim czasie.",
     vorteile: [
       "Ekstremalnie krótki czas przestoju (renowacja w weekend)",
       "Wysoka odporność na ścieranie dzięki technologii kruszywa twardego",
@@ -229,7 +229,7 @@ export const referenzenPL: Record<string, {
     vorteile: [
       "Przywrócona płaskość – bezpieczna i estetycznie czysta",
       "Szybka dostępność: krótki czas przestoju",
-      "Prosta aplikacja za pomocą mieszalnika wymuszonego lub odpowiedniej techniki mieszania i pompowania",
+      "Prosta aplikacja za pomocą mieszarki wymuszonej lub odpowiedniej techniki mieszania i pompowania",
     ],
     bildAlt: "Korekta nieudanej renowacji posadzki za pomocą NEODUR Level",
   },
