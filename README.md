@@ -2,26 +2,23 @@
 
 Interaktive Web-Applikation zur Präsentation des KORODUR-Sanierungsportfolios. Zielgruppe: Vertriebler, Bauherren, Architekten und Interessenten.
 
-## Ziel
-
-Die bestehende PowerPoint-Präsentation (119 Folien) in eine moderne, erweiterbare Web-Applikation überführen, die:
-
-- **Interaktiv & klickbar** ist – Kachel-Navigation ermöglicht es, gezielt auf Kundenbedürfnisse einzugehen
-- **Für Vertriebler** als Gesprächstool im Kundentermin funktioniert
-- **Für Kunden** über die Website selbstständig erkundbar ist
-- **Erweiterbar** ist – neue Referenzen, Produkte und Bereiche einfach hinzufügbar
-- **Performant** bleibt – trotz vieler Bilder und Referenzen schnell lädt
-
 ## Live ansehen
 
-**[https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/)**
+**[https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/de/](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/de/)**
 
-## Lokal starten
+Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/de/) · [English](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/en/) · [Français](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/fr/) · [Polski](https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/pl/)
 
-```bash
-npm install
-npm run dev
-```
+## Features
+
+- **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte)
+- **Sanierung finden** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
+- **28 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen und Produktdaten
+- **18 Produkte** mit technischen Daten, Normen und Qualitätsklassen
+- **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur
+- **MICROTOP-Bereich** – Eigene Sektion für Trinkwasser-Infrastruktur (abgetrennte Zielgruppe)
+- **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
+- **Responsive** – Desktop, Tablet, Mobile
+- **PWA-fähig** – Service Worker, Manifest
 
 ## Tech Stack
 
@@ -30,130 +27,79 @@ npm run dev
 - **TypeScript**
 - **GitHub Pages** (automatisches Deployment via GitHub Actions)
 
-## Seiten (22 statische Seiten)
+## Lokal starten
 
-| Seite | Route | Beschreibung |
-|---|---|---|
-| Startseite | `/` | Hero, Stats, Warum Sanierung, Portfolio-Kacheln, CTA |
-| Portfolio | `/portfolio` | Übersicht der 3 Bereiche als Kacheln |
-| Industrieboden | `/portfolio/industrieboden` | Schwerlast, Dünnschicht, Schnelle Reparaturen |
-| Industriebau | `/portfolio/industriebau` | Fugen, Treppen, Überladebrücken |
-| Infrastruktur | `/portfolio/infrastruktur` | Verkehr & Wasser |
-| Referenzen | `/referenzen` | Alle Referenzen mit Filter (Bereich, Anwendung, Produkt) |
-| Referenz-Detail | `/referenzen/[slug]` | Herausforderungen, Lösung, Vorteile, Produktdaten |
-
-## Inhaltsstruktur
-
-```
-Startseite: "Sanieren mit KORODUR"
-│
-├── Warum Sanierung?
-│   ├── Minimale Ausfallzeiten
-│   ├── Dauerhafte Ergebnisse
-│   └── Nachhaltig & Wirtschaftlich
-│
-├── Referenzen (mit Filter)
-│
-└── Produktportfolio
-     ├── Industrieboden
-     │   ├── Schwerlast (Antolin, Kleemann, Monheim)
-     │   ├── Dünnschicht (Guben, Nike Store)
-     │   └── Schnelle Reparaturen (DHL, LKW Waschstraße)
-     ├── Industriebau
-     │   └── Schnelle Reparaturen (Lyreco, Treppenstufen)
-     └── Infrastruktur
-          ├── Verkehr (Catania, Parkhaus Zürich)
-          └── Wasser (Haidberg, Bad Nauheim)
+```bash
+npm install
+npm run dev
 ```
 
-## Produktdatenbank
+## Informationsarchitektur (V2)
 
-14 Produkte mit technischen Daten, Qualitätsklassen und Normen:
-
-| Produkt | Qualitätsklasse | Einsatz |
-|---|---|---|
-| NEODUR HE 60 rapid | CT-C60-F8-A6 | 24h-Sanierung, 10–60 mm |
-| NEODUR HE 65 Plus | CT-C70-F9-A6 | Extrem-Belastung, Innen/Außen |
-| NEODUR Level | CT-C40-F8-AR0,5 | Dünnestrich, 4–10 mm |
-| KORODUR HB 5 rapid | – | Haftbrücke |
-| Rapid Set CEMENT ALL | – | Schnellreparatur (1 h belastbar) |
-| Rapid Set MORTAR MIX | – | Fugen & Reprofilierung |
-| KOROCRETE Schnellbeton | – | Großflächen |
-| MICROTOP TW | – | Trinkwasser (DVGW) |
-| TRU Self-Leveling | – | Sichtestrich / Design |
-
-Jede Referenz-Detail-Seite zeigt die technischen Daten und Normen der eingesetzten Produkte.
-
-## Corporate Design
-
-KORODUR Styleguide implementiert:
-
-- **Farben:** Navy `#002d59`, Cyan `#009ee3`, Weiß, Grautöne
-- **Font:** Gabarito (400, 700, 800, 900)
-- **Cards:** 14px Radius, Schatten, Hover-Effekte
-- **Buttons:** Cyan primary, Ghost secondary
-- **Responsive:** Desktop-first, Breakpoints 1100px / 768px / 480px
+```
+/[lang]/
+├── Startseite (Hero, Stats, Warum Sanierung, Referenz-Highlights, Portfolio, Microtop-CTA)
+├── sanierung-finden/ (3-Schritte-Assistent → Produktempfehlung + Referenzen)
+├── portfolio/
+│   ├── industrieboden/ (#schwerlast, #duennschicht, #schnelle-reparaturen)
+│   ├── industriebau/ (#fugen, #schnelle-reparaturen)
+│   └── infrastruktur/ (#verkehr)
+├── referenzen/ (Filterliste + Detail-Seiten)
+├── produkte/ (Produktübersicht + Detail-Seiten)
+└── microtop/ (Trinkwasser-Bereich: Produktinfo + 3 Referenzen)
+```
 
 ## Projektstruktur
 
 ```
-├── app/                    # Next.js App Router
-│   ├── page.tsx            # Startseite
-│   ├── portfolio/          # Portfolio-Seiten
-│   │   ├── industrieboden/
-│   │   ├── industriebau/
-│   │   └── infrastruktur/
-│   └── referenzen/
-│       ├── page.tsx        # Referenz-Übersicht mit Filter
-│       └── [slug]/page.tsx # Referenz-Detail
-├── components/             # React Components
-│   ├── Navigation.tsx      # Sticky Nav, responsive
-│   ├── Breadcrumb.tsx
-│   ├── TileGrid.tsx
-│   ├── CategoryTile.tsx
-│   ├── ReferenceCard.tsx
-│   ├── SubcategoryTile.tsx
-│   └── Footer.tsx
+├── app/[lang]/              # Locale-prefixed Routes (de/en/fr/pl)
+│   ├── page.tsx             # Startseite
+│   ├── sanierung-finden/    # Kombinierter Assistent
+│   ├── portfolio/           # Portfolio mit Kategorie-Seiten
+│   ├── referenzen/          # Referenz-Übersicht + Detail
+│   ├── produkte/            # Produktübersicht + Detail
+│   ├── microtop/            # Trinkwasser-Bereich
+│   └── dictionaries/        # UI-Strings (de/en/fr/pl.json)
+├── components/
+│   ├── AppShell.tsx         # Layout-Wrapper
+│   ├── TopNav.tsx           # Horizontale Navigation + Mobile Drawer
+│   ├── SearchOverlay.tsx    # Volltextsuche (Cmd+K)
+│   ├── LanguageSwitcher.tsx # DE/EN/FR/PL Umschalter
+│   └── ...                  # TileGrid, ReferenceCard, CategoryTile, etc.
 ├── data/
-│   ├── types.ts            # TypeScript Interfaces
-│   ├── kategorien.ts       # 3 Bereiche + Unterkategorien
-│   ├── referenzen.ts       # 13 Referenzen mit Daten
-│   └── produkte.ts         # 14 Produkte mit Specs & Normen
+│   ├── referenzen.ts        # 28 Referenzen (DE-Basis)
+│   ├── produkte.ts          # 18 Produkte mit technischen Daten
+│   ├── kategorien.ts        # 3 Bereiche + Unterkategorien
+│   ├── sanierung-finden.ts  # Assistent: Schritte + Scoring-Logik
+│   └── i18n/                # Inhalts-Übersetzungen (EN/FR/PL)
 ├── lib/
-│   └── basePath.ts         # GitHub Pages basePath Helper
-├── public/images/
-│   ├── hero.jpg            # Hero-Bild (1920x1080)
-│   └── referenzen/         # 13 Referenzfotos aus PDFs
+│   ├── i18n.ts              # Locale-Typen, LOCALES Konstante
+│   ├── LocaleContext.tsx     # Client-Context für Locale + Dictionary
+│   └── basePath.ts          # GitHub Pages basePath Helper
 └── .github/workflows/
-    └── deploy.yml          # GitHub Pages Auto-Deploy
+    └── deploy.yml           # GitHub Pages Auto-Deploy
 ```
 
 ## Deployment
 
-GitHub Pages via GitHub Actions:
+GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch gebaut und deployt.
 
-1. **Repo Settings → Pages → Source: "GitHub Actions"** aktivieren
-2. Bei jedem Push auf `main` wird automatisch gebaut und deployt
-3. Live unter: `https://sfleischmann-3steps2.github.io/KORODUR-Sanierung_app/`
+## Status: V2 – Live
 
-## Status: 🔧 In Bearbeitung – MVP/Prototyp
+### V2 Redesign (April 2026)
+- [x] Microtop in eigene Route `/microtop/` ausgelagert
+- [x] Wizard + Konfigurator zu `/sanierung-finden/` zusammengeführt
+- [x] Sidebar-Navigation durch horizontale TopNav ersetzt
+- [x] Startseite: Hero-CTA auf Assistent, Referenz-Highlights, Microtop-Footer
+- [x] Polnisch (PL) als 4. Sprache komplett eingebaut
+- [x] 274 statische Seiten (4 Sprachen × alle Routes)
 
-### Erledigt (Prototyp)
+### V1 Basis
 - [x] Präsentation analysiert (119 Folien, 2 PDFs)
-- [x] Next.js Projekt aufgesetzt (Static Export)
-- [x] KORODUR Corporate Design implementiert (Gabarito, Navy/Cyan)
-- [x] 13 Referenzen mit Daten & echten Fotos aus PDFs
-- [x] 14 Produkte mit technischen Daten & Normen
-- [x] Kachel-Navigation & Referenz-Detail-Seiten
-- [x] Referenz-Übersicht mit Filter (Bereich, Anwendung, Produkt)
-- [x] Produkt-Verlinkung zu korodur.de
-- [x] GitHub Pages Deployment (Actions Workflow)
-
-### Offen – Nächste Schritte
-- [ ] Design-Review nach erstem Live-Check
-- [ ] UX-Optimierung basierend auf Feedback
-- [ ] Weitere Referenzen aus der Präsentation ergänzen
-- [ ] Bildoptimierung (WebP, Lazy Loading)
-- [ ] Referenzen mit korodur.de Website verknüpfen (sobald dort live)
-- [ ] Offline-Nutzbarkeit prüfen (PWA / Service Worker)
-- [ ] Mehrsprachigkeit (perspektivisch)
+- [x] Next.js Projekt mit Static Export
+- [x] KORODUR Corporate Design (Gabarito, Navy/Cyan)
+- [x] 28 Referenzen mit Daten & Fotos
+- [x] 18 Produkte mit technischen Daten & Normen
+- [x] Mehrsprachigkeit DE/EN/FR mit i18n-Infrastruktur
+- [x] App-Shell mit Sidebar, Volltextsuche, Accessibility
+- [x] GitHub Pages Deployment
