@@ -52,7 +52,7 @@ export default async function LangLayout({
         style={{ fontFamily: "'Gabarito', Arial, sans-serif" }}
       >
         <a href="#main-content" className="skip-to-content">
-          {lang === "de" ? "Zum Inhalt springen" : lang === "fr" ? "Aller au contenu" : "Skip to content"}
+          {lang === "de" ? "Zum Inhalt springen" : lang === "fr" ? "Aller au contenu" : lang === "pl" ? "Przejdź do treści" : "Skip to content"}
         </a>
         <LocaleProvider lang={lang as Locale} dict={dict}>
           <AppShell lang={lang as Locale} dict={dict}>

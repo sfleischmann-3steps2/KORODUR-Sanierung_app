@@ -158,7 +158,7 @@ export default function SearchOverlay({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder={lang === "de" ? "Suchen..." : lang === "fr" ? "Rechercher..." : "Search..."}
+            placeholder={lang === "de" ? "Suchen..." : lang === "fr" ? "Rechercher..." : lang === "pl" ? "Szukaj..." : "Search..."}
             className="flex-1 text-[16px] text-[#002d59] bg-transparent border-none outline-none placeholder:text-[#002d59] placeholder:opacity-30"
             style={{ fontFamily: "inherit", fontWeight: 600 }}
           />
@@ -213,7 +213,7 @@ export default function SearchOverlay({
         {/* Empty state */}
         {query.trim() && results.length === 0 && (
           <div className="text-center py-10 text-[#002d59] opacity-30 text-[14px]" style={{ fontWeight: 600 }}>
-            {lang === "de" ? "Keine Ergebnisse" : lang === "fr" ? "Aucun résultat" : "No results"}
+            {lang === "de" ? "Keine Ergebnisse" : lang === "fr" ? "Aucun résultat" : lang === "pl" ? "Brak wyników" : "No results"}
           </div>
         )}
 
@@ -224,6 +224,8 @@ export default function SearchOverlay({
               ? "Referenzen, Kategorien und Produkte durchsuchen"
               : lang === "fr"
               ? "Rechercher dans les références, catégories et produits"
+              : lang === "pl"
+              ? "Szukaj referencji, kategorii i produktów"
               : "Search references, categories and products"}
           </div>
         )}

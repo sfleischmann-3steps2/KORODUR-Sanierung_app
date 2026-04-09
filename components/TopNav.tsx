@@ -198,7 +198,7 @@ export default function TopNav({ lang, dict }: TopNavProps) {
               onClick={() => setSearchOpen(true)}
               className="hidden lg:flex items-center gap-2 bg-[#f5f5f6] hover:bg-[#e8edf5] border-none rounded-lg cursor-pointer transition-colors duration-150"
               style={{ padding: "8px 12px", fontFamily: "inherit" }}
-              aria-label={lang === "de" ? "Suchen" : lang === "fr" ? "Rechercher" : "Search"}
+              aria-label={lang === "de" ? "Suchen" : lang === "fr" ? "Rechercher" : lang === "pl" ? "Szukaj" : "Search"}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#002d59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.4">
                 <circle cx="11" cy="11" r="8" />
@@ -213,7 +213,7 @@ export default function TopNav({ lang, dict }: TopNavProps) {
             <button
               onClick={() => setSearchOpen(true)}
               className="lg:hidden p-2 bg-transparent border-none cursor-pointer"
-              aria-label={lang === "de" ? "Suchen" : lang === "fr" ? "Rechercher" : "Search"}
+              aria-label={lang === "de" ? "Suchen" : lang === "fr" ? "Rechercher" : lang === "pl" ? "Szukaj" : "Search"}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#002d59" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5">
                 <circle cx="11" cy="11" r="8" />
@@ -227,7 +227,7 @@ export default function TopNav({ lang, dict }: TopNavProps) {
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               className="lg:hidden flex flex-col gap-[4px] p-2 bg-transparent border-none cursor-pointer"
-              aria-label={lang === "de" ? "Menü öffnen" : lang === "fr" ? "Ouvrir le menu" : "Open menu"}
+              aria-label={lang === "de" ? "Menü öffnen" : lang === "fr" ? "Ouvrir le menu" : lang === "pl" ? "Otwórz menu" : "Open menu"}
             >
               <span className="block w-[20px] h-[2px] bg-[#002d59]" />
               <span className="block w-[20px] h-[2px] bg-[#002d59]" />

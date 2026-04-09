@@ -18,9 +18,14 @@ const translations = {
     produkte: () => import("./produkte.fr").then((m) => m.produkteFR),
     referenzen: () => import("./referenzen.fr").then((m) => m.referenzenFR),
   },
+  pl: {
+    kategorien: () => import("./kategorien.pl").then((m) => ({ kat: m.kategorienPL, sub: m.unterkategorienPL })),
+    produkte: () => import("./produkte.pl").then((m) => m.produktePL),
+    referenzen: () => import("./referenzen.pl").then((m) => m.referenzenPL),
+  },
 };
 
-type Lang = "de" | "en" | "fr";
+type Lang = "de" | "en" | "fr" | "pl";
 
 // Cache for loaded translations
 const cache: Record<string, unknown> = {};
@@ -37,7 +42,7 @@ async function getTranslation<T>(lang: Lang, key: string, loader: () => Promise<
 /** Localize a single reference */
 export async function localizeReferenz(ref: Referenz, lang: Lang): Promise<Referenz> {
   if (lang === "de") return ref;
-  const t = translations[lang as "en" | "fr"];
+  const t = translations[lang as "en" | "fr" | "pl"];
   if (!t) return ref;
   const data = await getTranslation(lang, "referenzen", t.referenzen);
   if (!data) return ref;
@@ -55,7 +60,7 @@ export async function localizeReferenzen(refs: Referenz[], lang: Lang): Promise<
 /** Localize a single product */
 export async function localizeProdukt(produkt: Produkt, lang: Lang): Promise<Produkt> {
   if (lang === "de") return produkt;
-  const t = translations[lang as "en" | "fr"];
+  const t = translations[lang as "en" | "fr" | "pl"];
   if (!t) return produkt;
   const data = await getTranslation(lang, "produkte", t.produkte);
   if (!data) return produkt;
@@ -73,7 +78,7 @@ export async function localizeProdukte(prods: Produkt[], lang: Lang): Promise<Pr
 /** Localize a kategorie */
 export async function localizeKategorie(kat: KategorieInfo, lang: Lang): Promise<KategorieInfo> {
   if (lang === "de") return kat;
-  const t = translations[lang as "en" | "fr"];
+  const t = translations[lang as "en" | "fr" | "pl"];
   if (!t) return kat;
   const data = await getTranslation(lang, "kategorien", t.kategorien);
   if (!data) return kat;

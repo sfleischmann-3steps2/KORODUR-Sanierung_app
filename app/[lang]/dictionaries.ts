@@ -4,6 +4,7 @@ const dictionaries = {
   de: () => import("./dictionaries/de.json").then((m) => m.default),
   en: () => import("./dictionaries/en.json").then((m) => m.default),
   fr: () => import("./dictionaries/fr.json").then((m) => m.default),
+  pl: () => import("./dictionaries/pl.json").then((m) => m.default),
 };
 
 export type Locale = keyof typeof dictionaries;
