@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import Breadcrumb from "../../../../components/Breadcrumb";
-import SubcategoryTile from "../../../../components/SubcategoryTile";
-import ReferenceCard from "../../../../components/ReferenceCard";
-import TileGrid from "../../../../components/TileGrid";
+import CategoryFilterView from "../../../../components/CategoryFilterView";
 import { kategorien } from "../../../../data/kategorien";
-import { getReferenzenByUnterkategorie } from "../../../../data/referenzen";
 import { getDictionary, hasLocale } from "../../dictionaries";
 import { notFound } from "next/navigation";
-import { localizeKategorie, localizeReferenzen } from "../../../../data/i18n/getLocalized";
+import { localizeKategorie } from "../../../../data/i18n/getLocalized";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -25,7 +22,7 @@ export default async function InfrastrukturPage({
   if (!hasLocale(lang)) notFound();
   const dict = await getDictionary(lang);
   const baseKategorie = kategorien.find((k) => k.id === "infrastruktur")!;
-  const kategorie = await localizeKategorie(baseKategorie, lang as "de" | "en" | "fr");
+  const kategorie = await localizeKategorie(baseKategorie, lang as "de" | "en" | "fr" | "pl");
   const categoryLabel = dict.categories.infrastruktur;
 
   return (
@@ -42,7 +39,7 @@ export default async function InfrastrukturPage({
         </div>
       </section>
 
-      <section style={{ padding: "40px 32px 64px" }}>
+      <section style={{ padding: "40px 32px 0" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           <h1
             className="uppercase mb-4"
@@ -63,35 +60,7 @@ export default async function InfrastrukturPage({
         </div>
       </section>
 
-      {await Promise.all(kategorie.unterkategorien.map(async (sub) => {
-        const baseRefs = getReferenzenByUnterkategorie("infrastruktur", sub.id);
-        const refs = await localizeReferenzen(baseRefs, lang as "de" | "en" | "fr");
-        return (
-          <section
-            key={sub.id}
-            className="bg-[#f5f5f6]"
-            style={{ padding: "64px 32px 80px" }}
-            id={sub.id}
-          >
-            <div className="mx-auto" style={{ maxWidth: 1320 }}>
-              <SubcategoryTile
-                title={sub.titel}
-                description={sub.beschreibung}
-                count={refs.length}
-                refSingular={dict.common.reference_singular}
-                refPlural={dict.common.reference_plural}
-              />
-              <div className="mt-8">
-                <TileGrid columns={refs.length >= 3 ? 3 : 2}>
-                  {refs.map((ref) => (
-                    <ReferenceCard key={ref.id} referenz={ref} lang={lang} />
-                  ))}
-                </TileGrid>
-              </div>
-            </div>
-          </section>
-        );
-      }))}
+      <CategoryFilterView kategorieId="infrastruktur" lang={lang} dict={dict} />
     </>
   );
 }
