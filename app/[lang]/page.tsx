@@ -294,40 +294,6 @@ export default async function Home({
         </div>
       </section>
 
-      {/* Microtop Footer CTA */}
-      <section className="bg-[#f5f5f6]" style={{ padding: "48px 32px" }}>
-        <div
-          className="mx-auto flex flex-col sm:flex-row items-center gap-6"
-          style={{ maxWidth: 900 }}
-        >
-          <div
-            className="w-14 h-14 rounded-xl flex items-center justify-center shrink-0"
-            style={{ backgroundColor: "rgba(0,158,227,0.08)" }}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#009ee3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2c-4 6-8 9.5-8 13a8 8 0 1 0 16 0c0-3.5-4-7-8-13z" />
-            </svg>
-          </div>
-          <div className="flex-1 text-center sm:text-left">
-            <h3 className="text-[#002d59] text-[17px] m-0 mb-1" style={{ fontWeight: 800 }}>
-              {dict.home.microtop_cta_title}
-            </h3>
-            <p className="text-[#002d59] opacity-60 text-[14px] m-0 leading-[1.5]">
-              {dict.home.microtop_cta_text}
-            </p>
-          </div>
-          <Link
-            href={`/${lang}/microtop`}
-            className="inline-flex items-center gap-1.5 text-[#009ee3] text-[14px] no-underline hover:underline shrink-0"
-            style={{ fontWeight: 700 }}
-          >
-            {dict.home.microtop_cta_button}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </Link>
-        </div>
-      </section>
     </>
   );
 }

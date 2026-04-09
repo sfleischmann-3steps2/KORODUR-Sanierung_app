@@ -3,14 +3,16 @@
 import { useState, useMemo } from "react";
 import ReferenceCard from "../../../components/ReferenceCard";
 import Breadcrumb from "../../../components/Breadcrumb";
-import { referenzen } from "../../../data/referenzen";
+import { referenzen as alleReferenzen } from "../../../data/referenzen";
 import { kategorien } from "../../../data/kategorien";
 import { useLocale } from "../../../lib/LocaleContext";
+
+// Microtop/Wasser-Referenzen aus der Hauptliste ausschließen
+const referenzen = alleReferenzen.filter((r) => r.unterkategorie !== "wasser");
 
 type FilterState = {
   kategorie: string;
   unterkategorie: string;
-  produkt: string;
 };
 
 export default function ReferenzenPage() {
@@ -19,14 +21,7 @@ export default function ReferenzenPage() {
   const [filters, setFilters] = useState<FilterState>({
     kategorie: "",
     unterkategorie: "",
-    produkt: "",
   });
-
-  const alleProdukte = useMemo(() => {
-    const set = new Set<string>();
-    referenzen.forEach((r) => r.produkte.forEach((p) => set.add(p)));
-    return Array.from(set).sort();
-  }, []);
 
   const verfuegbareUnterkategorien = useMemo(() => {
     if (!filters.kategorie) return [];
@@ -38,8 +33,6 @@ export default function ReferenzenPage() {
     return referenzen.filter((r) => {
       if (filters.kategorie && r.kategorie !== filters.kategorie) return false;
       if (filters.unterkategorie && r.unterkategorie !== filters.unterkategorie)
-        return false;
-      if (filters.produkt && !r.produkte.includes(filters.produkt))
         return false;
       return true;
     });
@@ -56,11 +49,11 @@ export default function ReferenzenPage() {
   };
 
   const resetFilters = () => {
-    setFilters({ kategorie: "", unterkategorie: "", produkt: "" });
+    setFilters({ kategorie: "", unterkategorie: "" });
   };
 
   const hasActiveFilters =
-    filters.kategorie || filters.unterkategorie || filters.produkt;
+    filters.kategorie || filters.unterkategorie;
 
   return (
     <>
@@ -130,20 +123,6 @@ export default function ReferenzenPage() {
                 ))}
               </select>
             )}
-
-            <select
-              value={filters.produkt}
-              onChange={(e) => updateFilter("produkt", e.target.value)}
-              className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
-              style={{ fontWeight: 700, fontFamily: "inherit" }}
-            >
-              <option value="">{dict.referenzen.filter_all_products}</option>
-              {alleProdukte.map((p) => (
-                <option key={p} value={p}>
-                  {p}
-                </option>
-              ))}
-            </select>
 
             {hasActiveFilters && (
               <button

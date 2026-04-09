@@ -11,7 +11,7 @@ export default function LanguageSwitcher({ lang }: { lang: Locale }) {
   // Replace the locale segment in the current path
   const getLocalePath = (targetLocale: string) => {
     // pathname is e.g. "/de/portfolio/industrieboden"
-    const rest = pathname.replace(/^\/(de|en|fr)/, "");
+    const rest = pathname.replace(/^\/(de|en|fr|pl)/, "");
     return `/${targetLocale}${rest}`;
   };
 
