@@ -25,7 +25,7 @@
     "why_card3_text": "Produkty z certyfikatem EPD, renowacja zamiast rozbiórki. Dobre dla budżetu i środowiska.",
     "portfolio_title": "Nasze portfolio produktów",
     "portfolio_subtitle": "Trzy obszary, jedno wymaganie: maksymalna jakość przy minimalnym przestoju.",
-    "cta_sanierung": "Znajdź renowację",
+    "cta_sanierung": "Wyszukiwarka produktów",
     "featured_refs_title": "Wybrane referencje",
     "featured_refs_subtitle": "Udane projekty renowacyjne z systemami KORODUR.",
     "featured_refs_cta": "Zobacz wszystkie referencje",
@@ -96,7 +96,7 @@
     "all_products": "Wszystkie produkty"
   },
   "sanierung": {
-    "title": "Znajdź renowację",
+    "title": "Wyszukiwarka produktów",
     "subtitle": "Odpowiednie rozwiązanie KORODUR w 3 krokach.",
     "step1_question": "Co renowujesz?",
     "step1_label": "Obszar",

@@ -25,7 +25,7 @@
     "why_card3_text": "EPD-zertifizierte Produkte, Sanierung statt Abriss. Gut für Budget und Umwelt.",
     "portfolio_title": "Unser Produktportfolio",
     "portfolio_subtitle": "Drei Bereiche, ein Anspruch: maximale Qualität bei minimaler Ausfallzeit.",
-    "cta_sanierung": "Sanierung finden",
+    "cta_sanierung": "Produktfinder",
     "featured_refs_title": "Ausgewählte Referenzen",
     "featured_refs_subtitle": "Erfolgreiche Sanierungsprojekte mit KORODUR-Systemen.",
     "featured_refs_cta": "Alle Referenzen ansehen",
@@ -96,7 +96,7 @@
     "all_products": "Alle Produkte"
   },
   "sanierung": {
-    "title": "Sanierung finden",
+    "title": "Produktfinder",
     "subtitle": "In 3 Schritten zur passenden KORODUR-Lösung.",
     "step1_question": "Was sanieren Sie?",
     "step1_label": "Bereich",

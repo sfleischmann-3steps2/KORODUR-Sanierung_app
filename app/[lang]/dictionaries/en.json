@@ -25,7 +25,7 @@
     "why_card3_text": "EPD-certified products, renovation instead of demolition. Good for budget and environment.",
     "portfolio_title": "Our Product Portfolio",
     "portfolio_subtitle": "Three areas, one standard: maximum quality with minimal downtime.",
-    "cta_sanierung": "Find Your Renovation",
+    "cta_sanierung": "Product Finder",
     "featured_refs_title": "Featured References",
     "featured_refs_subtitle": "Successful renovation projects with KORODUR systems.",
     "featured_refs_cta": "View all references",
@@ -96,7 +96,7 @@
     "all_products": "All Products"
   },
   "sanierung": {
-    "title": "Find Your Renovation",
+    "title": "Product Finder",
     "subtitle": "The right KORODUR solution in 3 steps.",
     "step1_question": "What are you renovating?",
     "step1_label": "Area",
