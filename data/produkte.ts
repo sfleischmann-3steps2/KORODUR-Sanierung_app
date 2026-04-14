@@ -43,6 +43,7 @@ export const produkte: Produkt[] = [
       "Schnelle Erhärtung",
       "Schwindarm",
     ],
+    eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "chemikalien", "kurze-sperrzeit"],
   },
   {
     id: "neodur-he-65-plus",
@@ -70,6 +71,7 @@ export const produkte: Produkt[] = [
       "WHG-tauglich",
       "Polymermodifiziert & faserverstärkt",
     ],
+    eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "chemikalien", "tausalz", "aussenbereich"],
   },
   {
     id: "neodur-level",
@@ -96,6 +98,7 @@ export const produkte: Produkt[] = [
       "Integrierter Verschleißträger",
       "Maschinell verarbeitbar",
     ],
+    eignungen: ["grossflaechige-sanierung", "leichte-nutzung", "rollende-lasten"],
   },
 
   // === GRUNDIERUNGEN / HAFTBRÜCKEN ===
@@ -117,6 +120,7 @@ export const produkte: Produkt[] = [
       "Hohe Haftzugwerte",
       "Frisch-in-frisch Verarbeitung",
     ],
+    eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
   },
   {
     id: "korodur-pc",
@@ -134,6 +138,7 @@ export const produkte: Produkt[] = [
       "Speziell für Dünnestrich-Systeme",
       "Polymermodifiziert",
     ],
+    eignungen: ["grossflaechige-sanierung"],
   },
 
   // === SCHNELLZEMENTE / MÖRTEL ===
@@ -158,6 +163,7 @@ export const produkte: Produkt[] = [
       "Innen und Außen einsetzbar",
       "Schwundkompensiert",
     ],
+    eignungen: ["kleine-reparatur", "kurze-sperrzeit", "aussenbereich"],
   },
   {
     id: "rapid-set-mortar-mix",
@@ -180,6 +186,7 @@ export const produkte: Produkt[] = [
       "Pastöse bis steife Konsistenz einstellbar",
       "Nur mit Wasser mischen",
     ],
+    eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
   },
   {
     id: "rapid-set-concrete-mix",
@@ -200,6 +207,7 @@ export const produkte: Produkt[] = [
       "Hohe Endfestigkeit",
       "Frostbeständig",
     ],
+    eignungen: ["kleine-reparatur", "schwerlast", "kurze-sperrzeit", "tausalz", "aussenbereich"],
   },
   {
     id: "korocrete",
@@ -222,6 +230,7 @@ export const produkte: Produkt[] = [
       "Großflächig einsetzbar",
       "Hochbelastbar",
     ],
+    eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "kurze-sperrzeit"],
   },
 
   {
@@ -245,6 +254,7 @@ export const produkte: Produkt[] = [
       "Schwundneutral",
       "Pastöse Konsistenz einstellbar",
     ],
+    eignungen: ["kleine-reparatur", "schwerlast", "punktlasten", "kurze-sperrzeit"],
   },
   {
     id: "asphalt-repair-mix",
@@ -265,6 +275,7 @@ export const produkte: Produkt[] = [
       "Einfache Verarbeitung",
       "Hohe Belastbarkeit",
     ],
+    eignungen: ["kleine-reparatur", "grossflaechige-sanierung", "schwerlast", "rollende-lasten", "kurze-sperrzeit", "aussenbereich"],
   },
   {
     id: "korodur-fscem-screed",
@@ -284,6 +295,7 @@ export const produkte: Produkt[] = [
       "Als Ausgleichsschicht einsetzbar",
       "Schnelle Erhärtung",
     ],
+    eignungen: ["grossflaechige-sanierung", "kurze-sperrzeit"],
   },
   {
     id: "neodur-he-65",
@@ -305,6 +317,7 @@ export const produkte: Produkt[] = [
       "Wirtschaftlich auf Großflächen",
       "Kraftschlüssiger Verbund",
     ],
+    eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "aussenbereich"],
   },
 
   // === BESCHICHTUNGEN ===
@@ -332,6 +345,7 @@ export const produkte: Produkt[] = [
       "Fugenlose Oberfläche",
       "Farblich gestaltbar",
     ],
+    eignungen: ["grossflaechige-sanierung", "chemikalien"],
   },
   {
     id: "tru-self-leveling",
@@ -352,6 +366,7 @@ export const produkte: Produkt[] = [
       "Ohne Haftbrücke",
       "Hygienisch & pflegeleicht",
     ],
+    eignungen: ["grossflaechige-sanierung", "leichte-nutzung"],
   },
   {
     id: "durop",
@@ -371,6 +386,7 @@ export const produkte: Produkt[] = [
       "Polierresistent",
       "Rollgeräuschreduzierend",
     ],
+    eignungen: ["rutschhemmung", "rollende-lasten"],
   },
 
   // === NACHBEHANDLUNG ===
@@ -391,6 +407,7 @@ export const produkte: Produkt[] = [
       "Für Außenflächen geeignet",
       "Reduziert Schwindrisse",
     ],
+    eignungen: ["grossflaechige-sanierung", "aussenbereich"],
   },
   {
     id: "koromineral-cure",
@@ -409,6 +426,7 @@ export const produkte: Produkt[] = [
       "Reduziert Staubbildung",
       "Verbessert chemische Beständigkeit",
     ],
+    eignungen: ["grossflaechige-sanierung", "chemikalien"],
   },
   {
     id: "korotex",
@@ -427,6 +445,7 @@ export const produkte: Produkt[] = [
       "Reduziert Schwindrisse",
       "Sprühbare Anwendung",
     ],
+    eignungen: ["grossflaechige-sanierung"],
   },
 ];
 
