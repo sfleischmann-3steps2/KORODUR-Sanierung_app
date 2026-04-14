@@ -53,8 +53,8 @@ export default async function Home({
 
   return (
     <>
-      {/* Section 1: Hero (Full-width Image) */}
-      <section className="relative text-white overflow-hidden" style={{ minHeight: 520 }}>
+      {/* Section 1: Hero (Full-width Image with Gradient) */}
+      <section className="relative text-white overflow-hidden" style={{ minHeight: 560 }}>
         <Image
           src={withBasePath("/images/hero.jpg")}
           alt=""
@@ -63,24 +63,36 @@ export default async function Home({
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[#002d59]/75" />
+        {/* Gradient: links stark Navy → rechts transparent, Bild rechts sichtbar */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to right, rgba(0,45,89,0.92) 0%, rgba(0,45,89,0.85) 35%, rgba(0,45,89,0.45) 65%, rgba(0,45,89,0.15) 100%)",
+          }}
+        />
         <div
           className="relative mx-auto flex flex-col justify-center"
-          style={{ maxWidth: 1320, padding: "100px 32px 120px", minHeight: 520 }}
+          style={{ maxWidth: 1320, padding: "120px 32px 140px", minHeight: 560 }}
         >
+          <p
+            className="text-[#009ee3] text-[13px] uppercase tracking-[0.2em] mb-5"
+            style={{ fontWeight: 700 }}
+          >
+            KORODUR Sanierung
+          </p>
           <h1
             className="text-white leading-[1.08] mb-6"
             style={{
-              fontSize: "clamp(30px, 5vw, 52px)",
+              fontSize: "clamp(32px, 5vw, 54px)",
               fontWeight: 900,
-              maxWidth: 700,
+              maxWidth: 650,
             }}
           >
             {dict.home.hero_title}
           </h1>
           <p
-            className="text-white opacity-80 mb-10 leading-[1.65]"
-            style={{ fontSize: 18, maxWidth: 600 }}
+            className="text-white/80 mb-10 leading-[1.7]"
+            style={{ fontSize: 18, maxWidth: 520 }}
           >
             {dict.home.hero_subtitle}
           </p>
@@ -88,7 +100,7 @@ export default async function Home({
             <Link
               href={`/${lang}/loesungsfinder/`}
               className="inline-block text-white no-underline rounded-[6px] bg-[#009ee3] hover:bg-[#0090d0] transition-colors duration-200"
-              style={{ padding: "16px 30px", fontWeight: 800, fontSize: 16 }}
+              style={{ padding: "18px 36px", fontWeight: 800, fontSize: 16 }}
             >
               {dict.home.hero_cta}
             </Link>
