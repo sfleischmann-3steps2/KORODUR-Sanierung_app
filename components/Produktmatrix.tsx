@@ -19,15 +19,16 @@ const SPALTEN = [
   { id: "aussenbereich", label: "Außenbereich" },
 ] as const;
 
-// Reihenfolge: Estriche + Schnellzemente oben (Fokus), Rest darunter
 const KATEGORIEN = [
   { id: "estrich", label: "Estriche" },
   { id: "schnellzement", label: "Schnellzemente & Mörtel" },
   { id: "grundierung", label: "Grundierungen & Haftbrücken" },
-  { id: "beschichtung", label: "Beschichtungen" },
   { id: "nachbehandlung", label: "Nachbehandlung" },
   { id: "sonstige", label: "Sonstige" },
 ] as const;
+
+// Produkte die nicht in der Matrix erscheinen sollen
+const AUSGESCHLOSSEN = ["microtop-tw"];
 
 function KategorieGruppe({
   label,
@@ -52,8 +53,8 @@ function KategorieGruppe({
               width: "100%",
               display: "flex",
               alignItems: "center",
-              justifyContent: "space-between",
-              padding: "18px 16px 18px 0",
+              gap: 12,
+              padding: "18px 0",
               background: "none",
               border: "none",
               borderBottom: "2px solid #e8edf5",
@@ -65,36 +66,37 @@ function KategorieGruppe({
               letterSpacing: "0.01em",
             }}
           >
-            <span style={{ display: "flex", alignItems: "center", gap: 10 }}>
-              {label}
-              <span
-                style={{
-                  fontSize: 12,
-                  fontWeight: 600,
-                  color: "#002d59",
-                  opacity: 0.4,
-                }}
-              >
-                {gruppenProdukte.length} {gruppenProdukte.length === 1 ? "Produkt" : "Produkte"}
-              </span>
-            </span>
+            {/* Pfeil LINKS */}
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="#002d59"
+              stroke="#009ee3"
               strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
               style={{
                 transition: "transform 200ms",
                 transform: open ? "rotate(180deg)" : "rotate(0deg)",
-                opacity: 0.4,
+                flexShrink: 0,
               }}
             >
               <path d="M6 9l6 6 6-6" />
             </svg>
+            <span>{label}</span>
+            {/* Anzahl RECHTS */}
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: "#002d59",
+                opacity: 0.4,
+                marginLeft: "auto",
+              }}
+            >
+              {gruppenProdukte.length} {gruppenProdukte.length === 1 ? "Produkt" : "Produkte"}
+            </span>
           </button>
         </td>
       </tr>
@@ -160,7 +162,10 @@ function KategorieGruppe({
 
 export default function Produktmatrix({ lang }: { lang: Locale }) {
   const filtered = produkte.filter(
-    (p) => p.eignungen && p.eignungen.length > 0
+    (p) =>
+      p.eignungen &&
+      p.eignungen.length > 0 &&
+      !AUSGESCHLOSSEN.includes(p.id)
   );
 
   const grouped = KATEGORIEN
@@ -180,7 +185,7 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
           ))}
         </colgroup>
         <thead>
-          <tr>
+          <tr style={{ height: 160 }}>
             <th
               style={{
                 position: "sticky",
@@ -193,6 +198,7 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
                 color: "#002d59",
                 fontSize: 14,
                 borderBottom: "2px solid #002d59",
+                verticalAlign: "bottom",
               }}
             >
               Produkt
@@ -201,27 +207,24 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
               <th
                 key={s.id}
                 style={{
-                  padding: 0,
+                  padding: "0 0 16px 0",
                   fontWeight: 700,
                   color: "#002d59",
                   fontSize: 13,
                   borderBottom: "2px solid #002d59",
                   verticalAlign: "bottom",
-                  textAlign: "center",
-                  height: 140,
+                  textAlign: "left",
                   position: "relative",
-                  overflow: "visible",
                 }}
               >
                 <div
                   style={{
-                    position: "absolute",
-                    bottom: 12,
-                    left: "50%",
                     whiteSpace: "nowrap",
                     transform: "rotate(-50deg)",
-                    transformOrigin: "center bottom",
-                    lineHeight: 1.3,
+                    transformOrigin: "bottom left",
+                    position: "absolute",
+                    bottom: 16,
+                    left: 8,
                   }}
                 >
                   {s.label}
