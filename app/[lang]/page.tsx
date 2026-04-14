@@ -81,11 +81,12 @@ export default async function Home({
             KORODUR Sanierung
           </p>
           <h1
-            className="text-white leading-[1.08] mb-6"
+            className="leading-[1.08] mb-6"
             style={{
               fontSize: "clamp(32px, 5vw, 54px)",
               fontWeight: 900,
               maxWidth: 650,
+              color: "#ffffff",
             }}
           >
             {dict.home.hero_title}
