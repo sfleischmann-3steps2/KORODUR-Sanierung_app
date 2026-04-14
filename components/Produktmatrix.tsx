@@ -18,21 +18,33 @@ const SPALTEN = [
   { id: "aussenbereich", label: "Außenbereich", gruppe: "Sonder" },
 ] as const;
 
+const KATEGORIEN = [
+  { id: "estrich", label: "Estriche" },
+  { id: "grundierung", label: "Grundierungen & Haftbrücken" },
+  { id: "schnellzement", label: "Schnellzemente & Mörtel" },
+  { id: "beschichtung", label: "Beschichtungen" },
+  { id: "nachbehandlung", label: "Nachbehandlung" },
+  { id: "sonstige", label: "Sonstige" },
+] as const;
+
 export default function Produktmatrix({ lang }: { lang: Locale }) {
   const filtered = produkte.filter(
     (p) => p.eignungen && p.eignungen.length > 0
   );
 
+  // Gruppiere nach Kategorie
+  const grouped = KATEGORIEN
+    .map((kat) => ({
+      ...kat,
+      produkte: filtered.filter((p) => p.kategorie === kat.id),
+    }))
+    .filter((g) => g.produkte.length > 0);
+
+  let rowIndex = 0;
+
   return (
     <div className="overflow-x-auto" style={{ WebkitOverflowScrolling: "touch" }}>
-      <table
-        style={{
-          borderCollapse: "collapse",
-          minWidth: 800,
-          width: "100%",
-          fontSize: 14,
-        }}
-      >
+      <table style={{ borderCollapse: "collapse", width: "100%", fontSize: 14 }}>
         <thead>
           <tr>
             <th
@@ -41,13 +53,13 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
                 left: 0,
                 zIndex: 2,
                 background: "#fff",
-                padding: "0 16px 12px 0",
+                padding: "0 24px 12px 0",
                 textAlign: "left",
                 fontWeight: 900,
                 color: "#002d59",
                 fontSize: 13,
-                minWidth: 180,
-                borderBottom: "2px solid #e5e5e5",
+                minWidth: 220,
+                borderBottom: "2px solid #002d59",
               }}
             >
               Produkt
@@ -56,14 +68,13 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
               <th
                 key={s.id}
                 style={{
-                  padding: "0 4px 12px",
+                  padding: "0 8px 12px",
                   fontWeight: 700,
                   color: "#002d59",
                   fontSize: 11,
-                  borderBottom: "2px solid #e5e5e5",
+                  borderBottom: "2px solid #002d59",
                   verticalAlign: "bottom",
-                  width: 48,
-                  minWidth: 48,
+                  minWidth: 56,
                 }}
               >
                 <span
@@ -82,66 +93,90 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
           </tr>
         </thead>
         <tbody>
-          {filtered.map((p, i) => (
-            <tr
-              key={p.id}
-              style={{
-                backgroundColor: i % 2 === 0 ? "#fff" : "#f5f5f6",
-              }}
-            >
-              <td
-                style={{
-                  position: "sticky",
-                  left: 0,
-                  zIndex: 1,
-                  background: i % 2 === 0 ? "#fff" : "#f5f5f6",
-                  padding: "10px 16px 10px 0",
-                  fontWeight: 700,
-                  color: "#002d59",
-                  fontSize: 13,
-                  whiteSpace: "nowrap",
-                  borderBottom: "1px solid #e5e5e5",
-                }}
-              >
-                <Link
-                  href={`/${lang}/produkte/${p.id}/`}
+          {grouped.map((gruppe) => {
+            const rows = gruppe.produkte.map((p) => {
+              const currentRow = rowIndex++;
+              return (
+                <tr
+                  key={p.id}
                   style={{
-                    color: "#002d59",
-                    textDecoration: "none",
-                    borderBottom: "1px solid #009ee3",
-                    paddingBottom: 1,
+                    backgroundColor: currentRow % 2 === 0 ? "#fff" : "rgba(245,245,246,0.45)",
                   }}
                 >
-                  {p.name}
-                </Link>
-              </td>
-              {SPALTEN.map((s) => {
-                const match = p.eignungen?.includes(s.id as typeof p.eignungen[number]);
-                return (
                   <td
-                    key={s.id}
                     style={{
-                      textAlign: "center",
-                      padding: "10px 4px",
-                      borderBottom: "1px solid #e5e5e5",
+                      position: "sticky",
+                      left: 0,
+                      zIndex: 1,
+                      background: currentRow % 2 === 0 ? "#fff" : "#f8f8f9",
+                      padding: "12px 24px 12px 16px",
+                      fontWeight: 700,
+                      color: "#002d59",
+                      fontSize: 13,
+                      whiteSpace: "nowrap",
+                      borderBottom: "1px solid #e8edf5",
                     }}
                   >
-                    {match && (
-                      <span
-                        style={{
-                          display: "inline-block",
-                          width: 12,
-                          height: 12,
-                          borderRadius: "50%",
-                          backgroundColor: "#009ee3",
-                        }}
-                      />
-                    )}
+                    <Link
+                      href={`/${lang}/produkte/${p.id}/`}
+                      style={{
+                        color: "#009ee3",
+                        textDecoration: "none",
+                      }}
+                      className="hover:underline"
+                    >
+                      {p.name}
+                    </Link>
                   </td>
-                );
-              })}
-            </tr>
-          ))}
+                  {SPALTEN.map((s) => {
+                    const match = p.eignungen?.includes(s.id as typeof p.eignungen[number]);
+                    return (
+                      <td
+                        key={s.id}
+                        style={{
+                          textAlign: "center",
+                          padding: "12px 8px",
+                          borderBottom: "1px solid #e8edf5",
+                        }}
+                      >
+                        {match && (
+                          <span
+                            style={{
+                              display: "inline-block",
+                              width: 14,
+                              height: 14,
+                              borderRadius: "50%",
+                              backgroundColor: "#009ee3",
+                            }}
+                          />
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            });
+
+            return [
+              // Kategorie-Header
+              <tr key={`header-${gruppe.id}`}>
+                <td
+                  colSpan={SPALTEN.length + 1}
+                  style={{
+                    padding: "20px 0 8px 0",
+                    fontWeight: 900,
+                    fontSize: 15,
+                    color: "#002d59",
+                    borderBottom: "1px solid #d9dada",
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {gruppe.label}
+                </td>
+              </tr>,
+              ...rows,
+            ];
+          })}
         </tbody>
       </table>
     </div>

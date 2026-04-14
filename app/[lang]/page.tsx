@@ -53,47 +53,45 @@ export default async function Home({
 
   return (
     <>
-      {/* Section 1: Hero (Split-Layout) */}
-      <section className="bg-[#002d59] text-white overflow-hidden">
+      {/* Section 1: Hero (Full-width Image) */}
+      <section className="relative text-white overflow-hidden" style={{ minHeight: 520 }}>
+        <Image
+          src={withBasePath("/images/hero.jpg")}
+          alt=""
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-[#002d59]/75" />
         <div
-          className="mx-auto grid grid-cols-1 md:grid-cols-2 gap-0 items-center"
-          style={{ maxWidth: 1320 }}
+          className="relative mx-auto flex flex-col justify-center"
+          style={{ maxWidth: 1320, padding: "100px 32px 120px", minHeight: 520 }}
         >
-          {/* Left side */}
-          <div style={{ padding: "72px 32px" }}>
-            <h1
-              className="text-white leading-[1.12] mb-6"
-              style={{
-                fontSize: "clamp(28px, 4vw, 44px)",
-                fontWeight: 900,
-              }}
-            >
-              {dict.home.hero_title}
-            </h1>
-            <p
-              className="text-white opacity-80 mb-10 leading-[1.65]"
-              style={{ fontSize: 18, maxWidth: 520 }}
-            >
-              {dict.home.hero_subtitle}
-            </p>
+          <h1
+            className="text-white leading-[1.08] mb-6"
+            style={{
+              fontSize: "clamp(30px, 5vw, 52px)",
+              fontWeight: 900,
+              maxWidth: 700,
+            }}
+          >
+            {dict.home.hero_title}
+          </h1>
+          <p
+            className="text-white opacity-80 mb-10 leading-[1.65]"
+            style={{ fontSize: 18, maxWidth: 600 }}
+          >
+            {dict.home.hero_subtitle}
+          </p>
+          <div>
             <Link
               href={`/${lang}/loesungsfinder/`}
               className="inline-block text-white no-underline rounded-[6px] bg-[#009ee3] hover:bg-[#0090d0] transition-colors duration-200"
-              style={{ padding: "16px 30px", fontWeight: 800, fontSize: 15 }}
+              style={{ padding: "16px 30px", fontWeight: 800, fontSize: 16 }}
             >
               {dict.home.hero_cta}
             </Link>
-          </div>
-          {/* Right side */}
-          <div className="relative hidden md:block" style={{ minHeight: 480 }}>
-            <Image
-              src={withBasePath("/images/hero.jpg")}
-              alt=""
-              fill
-              priority
-              className="object-cover"
-              sizes="50vw"
-            />
           </div>
         </div>
       </section>
