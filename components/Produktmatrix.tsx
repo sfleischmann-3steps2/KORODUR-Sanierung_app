@@ -201,27 +201,31 @@ export default function Produktmatrix({ lang }: { lang: Locale }) {
               <th
                 key={s.id}
                 style={{
-                  padding: "0 2px 16px",
+                  padding: 0,
                   fontWeight: 700,
                   color: "#002d59",
                   fontSize: 13,
                   borderBottom: "2px solid #002d59",
                   verticalAlign: "bottom",
-                  textAlign: "left",
-                  height: 120,
+                  textAlign: "center",
+                  height: 140,
+                  position: "relative",
+                  overflow: "visible",
                 }}
               >
-                <span
+                <div
                   style={{
-                    display: "inline-block",
+                    position: "absolute",
+                    bottom: 12,
+                    left: "50%",
                     whiteSpace: "nowrap",
-                    transform: "rotate(-45deg)",
-                    transformOrigin: "left bottom",
+                    transform: "rotate(-50deg)",
+                    transformOrigin: "center bottom",
                     lineHeight: 1.3,
                   }}
                 >
                   {s.label}
-                </span>
+                </div>
               </th>
             ))}
           </tr>
