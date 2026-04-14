@@ -85,7 +85,18 @@
     "used_in_references": "Eingesetzt in Referenzprojekten",
     "view_reference": "Referenz ansehen",
     "view_on_website": "Auf korodur.de ansehen",
-    "all_products": "Alle Produkte"
+    "all_products": "Alle Produkte",
+    "verarbeitung_title": "Verarbeitung",
+    "untergrundvorbereitung": "Untergrundvorbereitung",
+    "mischverhaeltnis": "Mischverhältnis",
+    "schichtaufbau": "Schichtaufbau",
+    "verarbeitungszeit": "Verarbeitungszeit",
+    "aushaertezeit": "Aushärtezeit",
+    "besonderheiten_verarbeitung": "Besonderheiten",
+    "tds_download": "Technisches Datenblatt herunterladen",
+    "referenzen_title": "Dieses Produkt im Einsatz",
+    "referenzen_alle": "Alle Referenzen mit diesem Produkt",
+    "cta_verarbeitung": "Fragen zur Verarbeitung? Unsere technischen Berater helfen weiter."
   },
   "sanierung": {
     "title": "Produktfinder",

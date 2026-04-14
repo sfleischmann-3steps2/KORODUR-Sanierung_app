@@ -85,7 +85,18 @@
     "used_in_references": "Zastosowany w projektach referencyjnych",
     "view_reference": "Zobacz referencję",
     "view_on_website": "Zobacz na korodur.de",
-    "all_products": "Wszystkie produkty"
+    "all_products": "Wszystkie produkty",
+    "verarbeitung_title": "Zastosowanie",
+    "untergrundvorbereitung": "Przygotowanie podłoża",
+    "mischverhaeltnis": "Proporcje mieszania",
+    "schichtaufbau": "Układ warstw",
+    "verarbeitungszeit": "Czas obróbki",
+    "aushaertezeit": "Czas utwardzania",
+    "besonderheiten_verarbeitung": "Uwagi szczególne",
+    "tds_download": "Pobierz kartę techniczną",
+    "referenzen_title": "Ten produkt w akcji",
+    "referenzen_alle": "Wszystkie referencje z tym produktem",
+    "cta_verarbeitung": "Pytania dotyczące zastosowania? Nasi doradcy techniczni chętnie pomogą."
   },
   "sanierung": {
     "title": "Wyszukiwarka produktów",

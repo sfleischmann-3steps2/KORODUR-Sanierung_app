@@ -85,7 +85,18 @@
     "used_in_references": "Utilisé dans des projets de référence",
     "view_reference": "Voir la référence",
     "view_on_website": "Voir sur korodur.de",
-    "all_products": "Tous les produits"
+    "all_products": "Tous les produits",
+    "verarbeitung_title": "Mise en oeuvre",
+    "untergrundvorbereitung": "Préparation du support",
+    "mischverhaeltnis": "Rapport de mélange",
+    "schichtaufbau": "Structure des couches",
+    "verarbeitungszeit": "Temps de mise en oeuvre",
+    "aushaertezeit": "Temps de durcissement",
+    "besonderheiten_verarbeitung": "Particularités",
+    "tds_download": "Télécharger la fiche technique",
+    "referenzen_title": "Ce produit en action",
+    "referenzen_alle": "Toutes les références avec ce produit",
+    "cta_verarbeitung": "Des questions sur la mise en oeuvre ? Nos conseillers techniques sont à votre disposition."
   },
   "sanierung": {
     "title": "Trouveur de produits",

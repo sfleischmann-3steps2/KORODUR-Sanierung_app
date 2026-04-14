@@ -183,6 +183,45 @@ export default async function ProduktDetailPage({
         </div>
       </section>
 
+      {/* Verarbeitungshinweise */}
+      {produkt.verarbeitung && (
+        <section style={{ padding: "64px 32px 72px" }}>
+          <div className="mx-auto" style={{ maxWidth: 1320 }}>
+            <h2 className="mb-6" style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 900, lineHeight: 1.15 }}>
+              {dict.produkte.verarbeitung_title}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                { label: dict.produkte.untergrundvorbereitung, value: produkt.verarbeitung.untergrundvorbereitung },
+                { label: dict.produkte.mischverhaeltnis, value: produkt.verarbeitung.mischverhaeltnis },
+                { label: dict.produkte.schichtaufbau, value: produkt.verarbeitung.schichtaufbau },
+                { label: dict.produkte.verarbeitungszeit, value: produkt.verarbeitung.verarbeitungszeit },
+                { label: dict.produkte.aushaertezeit, value: produkt.verarbeitung.aushaertezeit },
+                { label: dict.produkte.besonderheiten_verarbeitung, value: produkt.verarbeitung.besonderheiten },
+              ]
+                .filter(({ value }) => value)
+                .map(({ label, value }) => (
+                  <div key={label} className="p-5 bg-[#f5f5f6]" style={{ borderRadius: 14 }}>
+                    <div className="text-sm text-[#002d59]/72 mb-1" style={{ fontWeight: 700 }}>{label}</div>
+                    <div className="text-[#002d59]">{value}</div>
+                  </div>
+                ))}
+            </div>
+            {produkt.tdsUrl && (
+              <a
+                href={produkt.tdsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mt-6 text-[#009ee3] no-underline hover:underline"
+                style={{ fontWeight: 700 }}
+              >
+                {dict.produkte.tds_download} →
+              </a>
+            )}
+          </div>
+        </section>
+      )}
+
       {/* External link */}
       <section className="bg-[#002d59]" style={{ padding: "40px 32px" }}>
         <div className="mx-auto flex flex-col sm:flex-row items-center justify-between gap-4" style={{ maxWidth: 1320 }}>
@@ -214,16 +253,45 @@ export default async function ProduktDetailPage({
               className="mb-8"
               style={{ fontSize: "clamp(22px, 3vw, 32px)", fontWeight: 900, lineHeight: 1.15 }}
             >
-              {dict.produkte.used_in_references}
+              {dict.produkte.referenzen_title}
             </h2>
             <TileGrid columns={relatedRefs.length >= 3 ? 3 : 2}>
-              {relatedRefs.slice(0, 6).map((r) => (
+              {relatedRefs.slice(0, 3).map((r) => (
                 <ReferenceCard key={r.id} referenz={r} lang={lang} />
               ))}
             </TileGrid>
+            {relatedRefs.length > 3 && (
+              <div className="mt-8 text-center">
+                <Link
+                  href={`/${lang}/referenzen/?produkt=${encodeURIComponent(produkt.name)}`}
+                  className="text-[#009ee3] no-underline hover:underline"
+                  style={{ fontWeight: 700 }}
+                >
+                  {dict.produkte.referenzen_alle} →
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       )}
+
+      {/* CTA */}
+      <section className="bg-[#002d59]" style={{ padding: "48px 32px" }}>
+        <div className="mx-auto text-center" style={{ maxWidth: 700 }}>
+          <p className="text-lg text-white mb-4" style={{ fontWeight: 700 }}>
+            {dict.produkte.cta_verarbeitung}
+          </p>
+          <a
+            href="https://www.korodur.de/kontakt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border-2 border-white text-white hover:bg-white hover:text-[#002d59] no-underline rounded-[6px] transition-colors"
+            style={{ padding: "14px 28px", fontWeight: 800, fontSize: 15 }}
+          >
+            Berater kontaktieren
+          </a>
+        </div>
+      </section>
     </>
   );
 }

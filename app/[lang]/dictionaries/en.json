@@ -85,7 +85,18 @@
     "used_in_references": "Used in Reference Projects",
     "view_reference": "View Reference",
     "view_on_website": "View on korodur.de",
-    "all_products": "All Products"
+    "all_products": "All Products",
+    "verarbeitung_title": "Application",
+    "untergrundvorbereitung": "Substrate Preparation",
+    "mischverhaeltnis": "Mixing Ratio",
+    "schichtaufbau": "Layer Build-up",
+    "verarbeitungszeit": "Working Time",
+    "aushaertezeit": "Curing Time",
+    "besonderheiten_verarbeitung": "Special Notes",
+    "tds_download": "Download Technical Data Sheet",
+    "referenzen_title": "This Product in Action",
+    "referenzen_alle": "All references with this product",
+    "cta_verarbeitung": "Questions about application? Our technical advisors are here to help."
   },
   "sanierung": {
     "title": "Product Finder",
