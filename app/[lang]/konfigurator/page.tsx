@@ -9,7 +9,7 @@ export default function KonfiguratorRedirect() {
   const { lang } = useLocale();
 
   useEffect(() => {
-    router.replace(`/${lang}/sanierung-finden`);
+    router.replace(`/${lang}/loesungsfinder/`);
   }, [router, lang]);
 
   return null;
