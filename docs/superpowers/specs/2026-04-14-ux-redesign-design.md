@@ -130,6 +130,8 @@ Auswahl als Chips/Tags (Mehrfachauswahl):
 
 "Weiter"-Button.
 
+Hinweis: "Nicht bekannt" ist exklusiv — bei Auswahl werden andere Optionen in diesem Schritt deaktiviert.
+
 ### Schritt 3 — "Wie sieht der aktuelle Zustand aus?"
 Auswahl als Chips/Tags (Mehrfachauswahl):
 - Risse / Ausbrüche
@@ -137,7 +139,7 @@ Auswahl als Chips/Tags (Mehrfachauswahl):
 - Hohlstellen / Ablösungen
 - Beschichtungsschäden
 - Ebenheitsprobleme
-- **Nicht bekannt**
+- **Nicht bekannt** (exklusiv)
 
 ### Schritt 4 — "Gibt es besondere Anforderungen?"
 Auswahl als Chips/Tags (Mehrfachauswahl, optional):
@@ -146,8 +148,8 @@ Auswahl als Chips/Tags (Mehrfachauswahl, optional):
 - Rutschhemmung
 - Kurze Sperrzeit (schnelle Nutzung)
 - Außenbereich / Witterung
-- Keine besonderen Anforderungen
-- **Nicht bekannt**
+- Keine besonderen Anforderungen (exklusiv)
+- **Nicht bekannt** (exklusiv)
 
 ### Schritt 5 — Ergebnisse
 - Headline: "Passende Lösungen für Ihr Szenario"
