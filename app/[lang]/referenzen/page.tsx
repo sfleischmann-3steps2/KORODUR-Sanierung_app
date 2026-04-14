@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import ReferenceCard from "../../../components/ReferenceCard";
 import Breadcrumb from "../../../components/Breadcrumb";
 import { referenzen as alleReferenzen } from "../../../data/referenzen";
-import { kategorien } from "../../../data/kategorien";
 import { useLocale } from "../../../lib/LocaleContext";
 import { referenzenEN } from "../../../data/i18n/referenzen.en";
 import { referenzenFR } from "../../../data/i18n/referenzen.fr";
 import { referenzenPL } from "../../../data/i18n/referenzen.pl";
-import type { Referenz } from "../../../data/types";
+import type { Referenz, Massnahme } from "../../../data/types";
 
 // Microtop/Wasser-Referenzen aus der Hauptliste ausschließen
 const baseReferenzen = alleReferenzen.filter((r) => r.unterkategorie !== "wasser");
@@ -27,17 +27,34 @@ function localizeRef(ref: Referenz, lang: string): Referenz {
   return { ...ref, ...overrides };
 }
 
+const massnahmeLabels: Record<Massnahme, string> = {
+  "kleine-reparatur": "Kleine Reparatur",
+  "grossflaechige-sanierung": "Großflächige Sanierung",
+};
+
 type FilterState = {
-  kategorie: string;
-  unterkategorie: string;
+  anwendungsbereich: string;
+  massnahme: string;
+  produkt: string;
 };
 
 export default function ReferenzenPage() {
+  return (
+    <Suspense>
+      <ReferenzenContent />
+    </Suspense>
+  );
+}
+
+function ReferenzenContent() {
   const { lang, dict } = useLocale();
+  const searchParams = useSearchParams();
+  const initialProdukt = searchParams.get("produkt") ?? "";
 
   const [filters, setFilters] = useState<FilterState>({
-    kategorie: "",
-    unterkategorie: "",
+    anwendungsbereich: "",
+    massnahme: "",
+    produkt: initialProdukt,
   });
 
   // Lokalisierte Referenzen
@@ -46,37 +63,35 @@ export default function ReferenzenPage() {
     [lang]
   );
 
-  const verfuegbareUnterkategorien = useMemo(() => {
-    if (!filters.kategorie) return [];
-    const kat = kategorien.find((k) => k.id === filters.kategorie);
-    return kat?.unterkategorien ?? [];
-  }, [filters.kategorie]);
+  const anwendungsbereiche = useMemo(
+    () => [...new Set(referenzen.map((r) => r.anwendungsbereich))].sort(),
+    [referenzen]
+  );
+
+  const produktNamen = useMemo(
+    () => [...new Set(referenzen.flatMap((r) => r.produkte))].sort(),
+    [referenzen]
+  );
 
   const gefilterteReferenzen = useMemo(() => {
     return referenzen.filter((r) => {
-      if (filters.kategorie && r.kategorie !== filters.kategorie) return false;
-      if (filters.unterkategorie && r.unterkategorie !== filters.unterkategorie)
-        return false;
+      if (filters.anwendungsbereich && r.anwendungsbereich !== filters.anwendungsbereich) return false;
+      if (filters.massnahme && r.massnahme !== filters.massnahme) return false;
+      if (filters.produkt && !r.produkte.includes(filters.produkt)) return false;
       return true;
     });
   }, [filters, referenzen]);
 
   const updateFilter = (key: keyof FilterState, value: string) => {
-    setFilters((prev) => {
-      const next = { ...prev, [key]: value };
-      if (key === "kategorie") {
-        next.unterkategorie = "";
-      }
-      return next;
-    });
+    setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
   const resetFilters = () => {
-    setFilters({ kategorie: "", unterkategorie: "" });
+    setFilters({ anwendungsbereich: "", massnahme: "", produkt: "" });
   };
 
   const hasActiveFilters =
-    filters.kategorie || filters.unterkategorie;
+    filters.anwendungsbereich || filters.massnahme || filters.produkt;
 
   return (
     <>
@@ -116,36 +131,46 @@ export default function ReferenzenPage() {
         <div className="mx-auto sm:px-4" style={{ maxWidth: 1320 }}>
           <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
             <select
-              value={filters.kategorie}
-              onChange={(e) => updateFilter("kategorie", e.target.value)}
+              value={filters.anwendungsbereich}
+              onChange={(e) => updateFilter("anwendungsbereich", e.target.value)}
               className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
               style={{ fontWeight: 700, fontFamily: "inherit" }}
             >
               <option value="">{dict.referenzen.filter_all_areas}</option>
-              {kategorien.map((k) => (
-                <option key={k.id} value={k.id}>
-                  {dict.categories[k.id as keyof typeof dict.categories] || k.titel}
+              {anwendungsbereiche.map((ab) => (
+                <option key={ab} value={ab}>
+                  {ab.charAt(0).toUpperCase() + ab.slice(1)}
                 </option>
               ))}
             </select>
 
-            {verfuegbareUnterkategorien.length > 0 && (
-              <select
-                value={filters.unterkategorie}
-                onChange={(e) =>
-                  updateFilter("unterkategorie", e.target.value)
-                }
-                className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
-                style={{ fontWeight: 700, fontFamily: "inherit" }}
-              >
-                <option value="">{dict.referenzen.filter_all_applications}</option>
-                {verfuegbareUnterkategorien.map((u) => (
-                  <option key={u.id} value={u.id}>
-                    {u.titel}
-                  </option>
-                ))}
-              </select>
-            )}
+            <select
+              value={filters.massnahme}
+              onChange={(e) => updateFilter("massnahme", e.target.value)}
+              className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
+              style={{ fontWeight: 700, fontFamily: "inherit" }}
+            >
+              <option value="">Alle Maßnahmen</option>
+              {(Object.keys(massnahmeLabels) as Massnahme[]).map((key) => (
+                <option key={key} value={key}>
+                  {massnahmeLabels[key]}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={filters.produkt}
+              onChange={(e) => updateFilter("produkt", e.target.value)}
+              className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
+              style={{ fontWeight: 700, fontFamily: "inherit" }}
+            >
+              <option value="">{dict.referenzen.filter_all_products}</option>
+              {produktNamen.map((p) => (
+                <option key={p} value={p}>
+                  {p}
+                </option>
+              ))}
+            </select>
 
             {hasActiveFilters && (
               <button
