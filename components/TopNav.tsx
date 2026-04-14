@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import SearchOverlay from "./SearchOverlay";
-import { kategorien } from "../data/kategorien";
 import type { Locale } from "../lib/i18n";
 import type { Dictionary } from "../app/[lang]/dictionaries";
 
@@ -18,8 +17,6 @@ export default function TopNav({ lang, dict }: TopNavProps) {
   const pathname = usePathname();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [portfolioOpen, setPortfolioOpen] = useState(false);
-  const portfolioRef = useRef<HTMLDivElement>(null);
 
   // Cmd/Ctrl+K shortcut
   useEffect(() => {
@@ -33,40 +30,24 @@ export default function TopNav({ lang, dict }: TopNavProps) {
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
-  // Close portfolio dropdown on outside click
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (portfolioRef.current && !portfolioRef.current.contains(e.target as Node)) {
-        setPortfolioOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false);
-    setPortfolioOpen(false);
   }, [pathname]);
 
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) => {
+    // Home: exact match only
+    if (href === `/${lang}/`) return pathname === href || pathname === `/${lang}`;
+    // Others: prefix match
+    return pathname === href || pathname.startsWith(href);
+  };
 
   const navLinks = [
-    {
-      href: `/${lang}/sanierung-finden`,
-      label: dict.sanierung.title,
-      isCta: true,
-    },
-    {
-      href: `/${lang}/portfolio`,
-      label: dict.nav.portfolio,
-      isDropdown: true,
-    },
-    {
-      href: `/${lang}/referenzen`,
-      label: dict.nav.referenzen,
-    },
+    { href: `/${lang}/`, label: dict.nav.home },
+    { href: `/${lang}/loesungsfinder/`, label: dict.nav.loesungsfinder },
+    { href: `/${lang}/referenzen/`, label: dict.nav.referenzen },
+    { href: `/${lang}/produktmatrix/`, label: dict.nav.produktmatrix },
+    { href: `/${lang}/produkte/`, label: dict.nav.produkte },
   ];
 
   return (
@@ -102,93 +83,20 @@ export default function TopNav({ lang, dict }: TopNavProps) {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1" role="navigation" aria-label="Main navigation">
-            {navLinks.map((link) => {
-              if (link.isDropdown) {
-                return (
-                  <div key={link.href} className="relative" ref={portfolioRef}>
-                    <button
-                      onClick={() => setPortfolioOpen((prev) => !prev)}
-                      className={`flex items-center gap-1 px-4 py-2 rounded-lg bg-transparent border-none cursor-pointer text-[14px] transition-colors duration-150 ${
-                        isActive(link.href)
-                          ? "text-[#009ee3]"
-                          : "text-[#002d59] hover:bg-[#f5f5f6]"
-                      }`}
-                      style={{ fontWeight: 700, fontFamily: "inherit" }}
-                    >
-                      {link.label}
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transition-transform duration-200"
-                        style={{ transform: portfolioOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-                      >
-                        <path d="M6 9l6 6 6-6" />
-                      </svg>
-                    </button>
-
-                    {/* Dropdown */}
-                    {portfolioOpen && (
-                      <div
-                        className="absolute top-full left-0 mt-1 bg-white border border-[#e8edf5] rounded-xl shadow-lg py-2 min-w-[220px]"
-                        style={{ boxShadow: "0 12px 40px rgba(0,45,89,0.12)" }}
-                      >
-                        <Link
-                          href={`/${lang}/portfolio`}
-                          className={`block px-4 py-2.5 text-[14px] no-underline transition-colors ${
-                            pathname === `/${lang}/portfolio` || pathname === `/${lang}/portfolio/`
-                              ? "text-[#009ee3] bg-[#009ee3]/5"
-                              : "text-[#002d59] hover:bg-[#f5f5f6]"
-                          }`}
-                          style={{ fontWeight: 700 }}
-                        >
-                          {dict.portfolio.title}
-                        </Link>
-                        <div className="border-t border-[#e8edf5] my-1" />
-                        {kategorien.map((kat) => (
-                          <Link
-                            key={kat.id}
-                            href={`/${lang}/portfolio/${kat.id}`}
-                            className={`block px-4 py-2.5 text-[14px] no-underline transition-colors ${
-                              isActive(`/${lang}/portfolio/${kat.id}`)
-                                ? "text-[#009ee3] bg-[#009ee3]/5"
-                                : "text-[#002d59] hover:bg-[#f5f5f6]"
-                            }`}
-                            style={{ fontWeight: 600 }}
-                          >
-                            {dict.categories[kat.id as keyof typeof dict.categories] || kat.titel}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              }
-
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-lg text-[14px] no-underline transition-colors duration-150 ${
-                    link.isCta
-                      ? isActive(link.href)
-                        ? "bg-[#009ee3] text-white"
-                        : "bg-[#009ee3] text-white hover:bg-[#0090d0]"
-                      : isActive(link.href)
-                        ? "text-[#009ee3]"
-                        : "text-[#002d59] hover:bg-[#f5f5f6]"
-                  }`}
-                  style={{ fontWeight: 700 }}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-4 py-2 rounded-lg text-[14px] no-underline transition-colors duration-150 ${
+                  isActive(link.href)
+                    ? "text-[#009ee3]"
+                    : "text-[#002d59] hover:bg-[#f5f5f6]"
+                }`}
+                style={{ fontWeight: 700 }}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
 
           {/* Right side */}
@@ -282,55 +190,19 @@ export default function TopNav({ lang, dict }: TopNavProps) {
             </div>
 
             <nav className="p-4 flex flex-col gap-1">
-              {/* Sanierung finden - prominent */}
-              <Link
-                href={`/${lang}/sanierung-finden`}
-                className="flex items-center gap-3 bg-[#009ee3] text-white rounded-xl no-underline mb-2"
-                style={{ padding: "14px 16px", fontWeight: 700, fontSize: 15 }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                </svg>
-                {dict.sanierung.title}
-              </Link>
-
-              {/* Portfolio with subcategories */}
-              <Link
-                href={`/${lang}/portfolio`}
-                className={`flex items-center gap-3 rounded-lg no-underline text-[15px] ${
-                  isActive(`/${lang}/portfolio`) ? "text-[#009ee3]" : "text-[#002d59]"
-                }`}
-                style={{ padding: "12px 16px", fontWeight: 700 }}
-              >
-                {dict.nav.portfolio}
-              </Link>
-              <div className="ml-8 flex flex-col gap-0.5 mb-2">
-                {kategorien.map((kat) => (
-                  <Link
-                    key={kat.id}
-                    href={`/${lang}/portfolio/${kat.id}`}
-                    className={`text-[14px] rounded-lg no-underline ${
-                      isActive(`/${lang}/portfolio/${kat.id}`)
-                        ? "text-[#009ee3]"
-                        : "text-[#002d59] opacity-60"
-                    }`}
-                    style={{ padding: "8px 12px", fontWeight: 600 }}
-                  >
-                    {dict.categories[kat.id as keyof typeof dict.categories] || kat.titel}
-                  </Link>
-                ))}
-              </div>
-
-              {/* Referenzen */}
-              <Link
-                href={`/${lang}/referenzen`}
-                className={`flex items-center gap-3 rounded-lg no-underline text-[15px] ${
-                  isActive(`/${lang}/referenzen`) ? "text-[#009ee3]" : "text-[#002d59]"
-                }`}
-                style={{ padding: "12px 16px", fontWeight: 700 }}
-              >
-                {dict.nav.referenzen}
-              </Link>
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block rounded-lg no-underline text-[15px] ${
+                    isActive(link.href) ? "text-[#009ee3]" : "text-[#002d59]"
+                  }`}
+                  style={{ padding: "12px 16px", fontWeight: 700 }}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
         </div>

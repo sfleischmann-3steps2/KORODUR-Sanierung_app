@@ -1,9 +1,11 @@
 {
   "nav": {
-    "portfolio": "Portfolio",
+    "home": "Home",
+    "loesungsfinder": "Solution Finder",
     "referenzen": "References",
+    "produktmatrix": "Product Matrix",
     "produkte": "Products",
-    "home": "Home"
+    "portfolio": "Portfolio"
   },
   "home": {
     "tagline": "Your Partner for Renovation",

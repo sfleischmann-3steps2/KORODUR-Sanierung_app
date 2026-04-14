@@ -1,9 +1,11 @@
 {
   "nav": {
-    "portfolio": "Portfolio",
+    "home": "Start",
+    "loesungsfinder": "Lösungsfinder",
     "referenzen": "Referenzen",
+    "produktmatrix": "Produktmatrix",
     "produkte": "Produkte",
-    "home": "Startseite"
+    "portfolio": "Portfolio"
   },
   "home": {
     "tagline": "Ihr Partner für Sanierung",

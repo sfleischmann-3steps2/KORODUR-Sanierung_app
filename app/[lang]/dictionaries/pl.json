@@ -1,9 +1,11 @@
 {
   "nav": {
-    "portfolio": "Portfolio",
+    "home": "Start",
+    "loesungsfinder": "Znajdź rozwiązanie",
     "referenzen": "Referencje",
+    "produktmatrix": "Matryca produktów",
     "produkte": "Produkty",
-    "home": "Strona główna"
+    "portfolio": "Portfolio"
   },
   "home": {
     "tagline": "Twój partner w renowacji",
