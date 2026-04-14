@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { referenzen } from "../data/referenzen";
-import { kategorien } from "../data/kategorien";
 import { produkte } from "../data/produkte";
 import type { Dictionary } from "../app/[lang]/dictionaries";
 
@@ -42,15 +41,18 @@ export default function SearchOverlay({
   const allItems = useMemo<SearchResult[]>(() => {
     const items: SearchResult[] = [];
 
-    // Categories
-    kategorien.forEach((kat) => {
-      const label = dict.categories[kat.id as keyof typeof dict.categories] || kat.titel;
-      items.push({
-        type: "kategorie",
-        title: label,
-        subtitle: kat.beschreibung.slice(0, 80) + "...",
-        href: `/${lang}/portfolio/${kat.id}`,
-      });
+    // Neue Seiten
+    items.push({
+      type: "kategorie",
+      title: "Lösungsfinder",
+      subtitle: "In 5 Schritten zur passenden Sanierungslösung",
+      href: `/${lang}/loesungsfinder/`,
+    });
+    items.push({
+      type: "kategorie",
+      title: "Produktmatrix",
+      subtitle: "Alle Produkte und ihre Einsatzbereiche auf einen Blick",
+      href: `/${lang}/produktmatrix/`,
     });
 
     // Referenzen
