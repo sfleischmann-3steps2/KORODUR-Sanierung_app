@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb from "../../../../components/Breadcrumb";
 import ReferenceCard from "../../../../components/ReferenceCard";
+import ReferenzPdf from "../../../../components/ReferenzPdf";
 import TileGrid from "../../../../components/TileGrid";
 import { referenzen, getReferenzBySlug } from "../../../../data/referenzen";
 import { kategorien } from "../../../../data/kategorien";
@@ -70,8 +71,7 @@ export default async function ReferenzDetailPage({
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           <Breadcrumb
             items={[
-              { label: dict.portfolio.breadcrumb, href: `/${lang}/portfolio` },
-              { label: kategorieLabel, href: `/${lang}/portfolio/${referenz.kategorie}` },
+              { label: dict.referenzen.breadcrumb, href: `/${lang}/referenzen/` },
               { label: referenz.titel },
             ]}
             lang={lang}
@@ -151,6 +151,21 @@ export default async function ReferenzDetailPage({
               </span>
             )}
           </div>
+
+          <div className="flex flex-wrap gap-2 mb-10">
+            {produktDetails.map((p) => (
+              <Link
+                key={p.id}
+                href={`/${lang}/produkte/${p.id}/`}
+                className="inline-flex items-center gap-2 text-[13px] text-white no-underline rounded-[6px] hover:opacity-80 transition-opacity"
+                style={{ backgroundColor: "#009ee3", fontWeight: 700, padding: "8px 14px" }}
+              >
+                {p.name}
+              </Link>
+            ))}
+          </div>
+
+          <ReferenzPdf referenz={referenz} produkt={produktDetails[0]} />
         </div>
       </section>
 
@@ -387,16 +402,33 @@ export default async function ReferenzDetailPage({
             </TileGrid>
             <div className="text-center mt-10">
               <Link
-                href={`/${lang}/portfolio/${referenz.kategorie}`}
+                href={`/${lang}/referenzen/`}
                 className="inline-block text-white no-underline rounded-[6px] bg-[#009ee3] hover:bg-[#0090d0] transition-colors duration-200"
                 style={{ padding: "14px 28px", fontWeight: 800, fontSize: 15 }}
               >
-                {dict.detail.all_category_refs.replace("{category}", kategorieLabel)}
+                {dict.detail.related} →
               </Link>
             </div>
           </div>
         </section>
       )}
+
+      <section className="bg-[#002d59]" style={{ padding: "48px 32px" }}>
+        <div className="mx-auto text-center" style={{ maxWidth: 700 }}>
+          <p className="text-lg text-white mb-4" style={{ fontWeight: 700 }}>
+            Ähnliches Projekt? Kontaktieren Sie unsere Berater.
+          </p>
+          <a
+            href="https://www.korodur.de/kontakt/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border-2 border-white text-white hover:bg-white hover:text-[#002d59] no-underline rounded-[6px] transition-colors"
+            style={{ padding: "14px 28px", fontWeight: 800, fontSize: 15 }}
+          >
+            Berater kontaktieren
+          </a>
+        </div>
+      </section>
     </>
   );
 }
