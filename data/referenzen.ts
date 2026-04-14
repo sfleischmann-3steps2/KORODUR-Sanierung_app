@@ -1,4 +1,4 @@
-import { Referenz } from "./types";
+import type { Referenz, Anwendungsbereich, Massnahme, Belastung, Zustand, Sonderbedingung } from "./types";
 
 export const referenzen: Referenz[] = [
   // === INDUSTRIEBODEN – Schwerlast ===
@@ -29,6 +29,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/antolin.jpg",
     bildAlt: "Sanierung einer Produktionshalle bei Antolin in Ebergassing",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "kleemann-produktionshalle",
@@ -56,6 +61,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/kleemann.jpg",
     bildAlt: "Sanierung der Produktionshalle bei Kleemann in Göppingen",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast", "punktlasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "monheim-produktionsflaeche",
@@ -83,6 +93,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/monheim.jpg",
     bildAlt: "Sanierung der Produktionsfläche bei apt Extrusions in Monheim",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast", "rollende-lasten", "punktlasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
 
   {
@@ -113,6 +128,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/weag.jpg",
     bildAlt: "Sanierung des Bodens im WEAG Entsorgungsbetrieb",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "wochenend-sanierung-werkstatt",
@@ -141,6 +161,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/werkstatt-neutraubling.jpg",
     bildAlt: "Sanierte Werkstatt in Neutraubling über ein Wochenende",
+    anwendungsbereich: "werkstatt",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "strandkorbhalle-sylt",
@@ -169,6 +194,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/strandkorbhalle-sylt.jpg",
     bildAlt: "Strandkorbhalle auf Sylt mit neuem Industrieboden",
+    anwendungsbereich: "lager",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["aussenbereich"],
   },
   {
     id: "loosen-werkzeug-klausen",
@@ -195,6 +225,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/loosen-klausen.jpg",
     bildAlt: "Bodensanierung bei Loosen Werkzeug GmbH in Klausen",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
 
   // === INDUSTRIEBODEN – Dünnschicht ===
@@ -225,6 +260,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/guben.jpg",
     bildAlt: "Produktionshalle von Megaflex in Guben während der Sanierung",
+    anwendungsbereich: "produktionshalle",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "nike-store-polen",
@@ -251,6 +291,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/nike-store.jpg",
     bildAlt: "Nike Store mit TRU Self-Leveling Sichtestrich in Szczecin",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["leichte-nutzung"],
+    zustand: ["abrieb"],
+    sonderbedingungen: [],
   },
 
   {
@@ -279,6 +324,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/obstplantage-ibbenbueren.jpg",
     bildAlt: "Sanierter Boden in der Verkaufshalle der Obstplantage Ibbenbüren",
+    anwendungsbereich: "lager",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["abrieb", "ebenheitsprobleme"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "sanierung-einer-sanierung",
@@ -304,6 +354,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/sanierung-einer-sanierung.jpg",
     bildAlt: "Korrektur einer misslungenen Bodensanierung mit NEODUR Level",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["leichte-nutzung"],
+    zustand: ["ebenheitsprobleme", "beschichtungsschaeden"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
 
   // === INDUSTRIEBODEN – Schnelle Reparaturen ===
@@ -331,6 +386,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/dhl.jpg",
     bildAlt: "Sanierte Überladebrücken im DHL Logistikzentrum",
+    anwendungsbereich: "lager",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast"],
+    zustand: ["risse", "abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "lkw-waschstrasse",
@@ -358,6 +418,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/lkw-waschstrasse.jpg",
     bildAlt: "Sanierte LKW-Waschstraße mit NEODUR HE 60 rapid",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb", "beschichtungsschaeden"],
+    sonderbedingungen: ["chemikalien"],
   },
 
   {
@@ -386,6 +451,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/helipad-polen.jpg",
     bildAlt: "Sanierter Hubschrauber-Landeplatz in Płock, Polen",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["risse", "abrieb"],
+    sonderbedingungen: ["tausalz", "aussenbereich"],
   },
 
   // === INDUSTRIEBAU ===
@@ -416,6 +486,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/lyreco.jpg",
     bildAlt: "Fugensanierung bei Lyreco mit MORTAR MIX",
+    anwendungsbereich: "lager",
+    massnahme: "kleine-reparatur",
+    belastungen: ["rollende-lasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "treppenstufen-sanierung",
@@ -441,6 +516,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/treppenstufen.jpg",
     bildAlt: "Sanierte Treppenstufen mit Rapid Set Produkten",
+    anwendungsbereich: "sonstiges",
+    massnahme: "kleine-reparatur",
+    belastungen: ["leichte-nutzung"],
+    zustand: ["risse", "abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit", "aussenbereich", "tausalz"],
   },
 
   {
@@ -467,6 +547,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/sinusfugen.jpg",
     bildAlt: "Sinusfugen-Sanierung in einer Logistikhalle",
+    anwendungsbereich: "lager",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "trennfugen-bohnenkamp",
@@ -494,6 +579,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/trennfugen-bohnenkamp.jpg",
     bildAlt: "Trennfugen-Sanierung bei Bohnenkamp AG",
+    anwendungsbereich: "lager",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
   {
     id: "absenksteine-tankstelle",
@@ -520,6 +610,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/absenksteine-tankstelle.jpg",
     bildAlt: "Absenksteine-Verlegung an einer LKW-Tankstelle im Spreewald",
+    anwendungsbereich: "zufahrt",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast"],
+    zustand: ["ebenheitsprobleme"],
+    sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
   },
   {
     id: "lkw-einstellplatz-berlin",
@@ -546,6 +641,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/lkw-einstellplatz-berlin.jpg",
     bildAlt: "Sanierter LKW-Einstellplatz in einer Berliner Werkstatt",
+    anwendungsbereich: "werkstatt",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast"],
+    zustand: ["ebenheitsprobleme", "abrieb"],
+    sonderbedingungen: ["kurze-sperrzeit"],
   },
 
   // === INFRASTRUKTUR – Verkehr ===
@@ -576,6 +676,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/catania.jpg",
     bildAlt: "Sanierte Hafenfläche in Catania, Sizilien",
+    anwendungsbereich: "hafen",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["ebenheitsprobleme", "abrieb"],
+    sonderbedingungen: ["tausalz", "aussenbereich"],
   },
   {
     id: "parkhaus-flughafen-zuerich",
@@ -604,6 +709,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/zuerich-parkhaus.jpg",
     bildAlt: "Saniertes Parkhaus am Flughafen Zürich",
+    anwendungsbereich: "parkflaeche",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["rollende-lasten"],
+    zustand: ["abrieb", "beschichtungsschaeden"],
+    sonderbedingungen: ["rutschhemmung"],
   },
 
   {
@@ -632,6 +742,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/theodor-heuss-bruecke.jpg",
     bildAlt: "Theodor-Heuss-Brücke zwischen Mainz und Wiesbaden",
+    anwendungsbereich: "bruecke",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["abrieb"],
+    sonderbedingungen: ["tausalz", "rutschhemmung", "aussenbereich"],
   },
   {
     id: "autohaus-versmold",
@@ -659,6 +774,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/autohaus-versmold.jpg",
     bildAlt: "Asphalt-Sanierung am Autohaus Versmold",
+    anwendungsbereich: "zufahrt",
+    massnahme: "kleine-reparatur",
+    belastungen: ["schwerlast", "rollende-lasten"],
+    zustand: ["risse", "abrieb"],
+    sonderbedingungen: ["aussenbereich"],
   },
   {
     id: "hubschrauber-landeplatz-finnland",
@@ -684,6 +804,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/helipad-finnland.jpg",
     bildAlt: "Hubschrauber-Landeplatz am Mikkeli Central Hospital, Finnland",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["risse", "abrieb"],
+    sonderbedingungen: ["tausalz", "aussenbereich"],
   },
   {
     id: "lkw-umfahrt-darmstadt",
@@ -711,6 +836,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/lkw-umfahrt-darmstadt.jpg",
     bildAlt: "Sanierte LKW-Umfahrt in Darmstadt",
+    anwendungsbereich: "zufahrt",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: ["schwerlast"],
+    zustand: ["abrieb", "risse"],
+    sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
   },
 
   // === INFRASTRUKTUR – Wasser ===
@@ -741,6 +871,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/haidberg.jpg",
     bildAlt: "Trinkwasser-Hochbehälter Haidberg während der Sanierung",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: [],
+    zustand: ["beschichtungsschaeden"],
+    sonderbedingungen: ["chemikalien"],
   },
   {
     id: "trinkwasserbehaelter-bad-nauheim",
@@ -768,6 +903,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/bad-nauheim.jpg",
     bildAlt: "Sanierter Trinkwasserbehälter in Bad Nauheim",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: [],
+    zustand: ["beschichtungsschaeden"],
+    sonderbedingungen: ["chemikalien"],
   },
   {
     id: "trinkwasserturm-budapest",
@@ -796,6 +936,11 @@ export const referenzen: Referenz[] = [
     ],
     bild: "/images/referenzen/trinkwasserturm-budapest.jpg",
     bildAlt: "Trinkwasserturm am Stadtrand von Budapest während der Sanierung",
+    anwendungsbereich: "sonstiges",
+    massnahme: "grossflaechige-sanierung",
+    belastungen: [],
+    zustand: ["beschichtungsschaeden"],
+    sonderbedingungen: ["chemikalien"],
   },
 ];
 

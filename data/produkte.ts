@@ -1,3 +1,5 @@
+import type { Verarbeitung, Belastung, Sonderbedingung, Massnahme } from "./types";
+
 export interface Produkt {
   id: string;
   name: string;
@@ -9,6 +11,9 @@ export interface Produkt {
   technischeDaten: { label: string; wert: string }[];
   besonderheiten: string[];
   websiteUrl?: string;
+  verarbeitung?: Verarbeitung;
+  tdsUrl?: string;
+  eignungen?: (Belastung | Sonderbedingung | Massnahme)[];
 }
 
 export const produkte: Produkt[] = [

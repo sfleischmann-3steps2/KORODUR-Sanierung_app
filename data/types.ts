@@ -1,3 +1,36 @@
+// Neue Typen für Lösungsfinder-Tags
+export type Massnahme = "kleine-reparatur" | "grossflaechige-sanierung";
+
+export type Belastung =
+  | "schwerlast"
+  | "leichte-nutzung"
+  | "rollende-lasten"
+  | "punktlasten";
+
+export type Zustand =
+  | "risse"
+  | "abrieb"
+  | "hohlstellen"
+  | "beschichtungsschaeden"
+  | "ebenheitsprobleme";
+
+export type Sonderbedingung =
+  | "chemikalien"
+  | "tausalz"
+  | "rutschhemmung"
+  | "kurze-sperrzeit"
+  | "aussenbereich";
+
+export type Anwendungsbereich =
+  | "produktionshalle"
+  | "lager"
+  | "werkstatt"
+  | "zufahrt"
+  | "parkflaeche"
+  | "bruecke"
+  | "hafen"
+  | "sonstiges";
+
 export type Kategorie = "industrieboden" | "industriebau" | "infrastruktur";
 
 export type Unterkategorie =
@@ -24,6 +57,20 @@ export interface Referenz {
   vorteile: string[];
   bild: string;
   bildAlt: string;
+  anwendungsbereich: Anwendungsbereich;
+  massnahme: Massnahme;
+  belastungen: Belastung[];
+  zustand: Zustand[];
+  sonderbedingungen: Sonderbedingung[];
+}
+
+export interface Verarbeitung {
+  untergrundvorbereitung: string;
+  mischverhaeltnis: string;
+  schichtaufbau: string;
+  verarbeitungszeit: string;
+  aushaertezeit: string;
+  besonderheiten: string;
 }
 
 export interface KategorieInfo {
