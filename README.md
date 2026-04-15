@@ -12,9 +12,10 @@ Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierun
 
 - **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte), gegen KORODUR-Glossar geprüft
 - **Produktfinder** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
-- **29 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen und Produktdaten
+- **29 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
 - **19 Produkte** mit technischen Daten, Normen und Qualitätsklassen
 - **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur – jeweils mit Anwendungs-Filter
+- **Produktmatrix** – Interaktive Vergleichstabelle mit Eignungen pro Produkt
 - **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
 - **Responsive** – Desktop, Tablet, Mobile
 - **PWA-fähig** – Service Worker, Manifest
@@ -61,6 +62,7 @@ npm run dev
 │   ├── AppShell.tsx         # Layout-Wrapper
 │   ├── TopNav.tsx           # Horizontale Navigation + Mobile Drawer
 │   ├── CategoryFilterView.tsx # Wiederverwendbare Filterleiste für Kategorieseiten
+│   ├── ImageGallery.tsx     # Bildergalerie mit Grid + Lightbox (Referenz-Detail)
 │   ├── SearchOverlay.tsx    # Volltextsuche (Cmd+K)
 │   ├── LanguageSwitcher.tsx # DE/EN/FR/PL Umschalter
 │   └── ...                  # TileGrid, ReferenceCard, CategoryTile, etc.
@@ -83,6 +85,13 @@ npm run dev
 GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch gebaut und deployt.
 
 ## Status: V2 – Live
+
+### V2.2 (April 2026)
+- [x] **Bildergalerie** auf Referenz-Detailseiten: 151 Fotos aus Präsentationen extrahiert (3–8 pro Referenz)
+- [x] ImageGallery-Komponente: 3-Spalten-Grid, Lightbox mit Pfeiltasten, responsive
+- [x] Taxonomie-Vorschlag für Lösungsfinder-Qualifizierung (5 Dimensionen, K.O.-Kriterien)
+- [x] Excel-Vorlage für neue Referenzen + Produkt-Qualifizierung
+- [x] Extraktions-Scripts für Galerie-Bilder und Excel-Vorlage
 
 ### V2.1 (April 2026)
 - [x] Filterleiste für alle Portfolio-Kategorieseiten (gleiche UI wie Referenzen-Seite)
