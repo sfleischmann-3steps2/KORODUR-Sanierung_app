@@ -57,6 +57,7 @@ export interface Referenz {
   vorteile: string[];
   bild: string;
   bildAlt: string;
+  galerieBilder?: string[];
   anwendungsbereich: Anwendungsbereich;
   massnahme: Massnahme;
   belastungen: Belastung[];

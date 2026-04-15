@@ -57,7 +57,8 @@
     "norms": "Normy i certyfikaty",
     "view_on_website": "Zobacz na korodur.de",
     "related": "Więcej referencji",
-    "all_category_refs": "Wszystkie referencje {category}"
+    "all_category_refs": "Wszystkie referencje {category}",
+    "gallery": "Galeria zdjęć"
   },
   "common": {
     "reference_singular": "Referencja",

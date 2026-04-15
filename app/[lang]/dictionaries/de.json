@@ -57,7 +57,8 @@
     "norms": "Normen & Zulassungen",
     "view_on_website": "Auf korodur.de ansehen",
     "related": "Weitere Referenzen",
-    "all_category_refs": "Alle {category}-Referenzen"
+    "all_category_refs": "Alle {category}-Referenzen",
+    "gallery": "Bildergalerie"
   },
   "common": {
     "reference_singular": "Referenz",

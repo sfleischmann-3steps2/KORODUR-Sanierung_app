@@ -5,6 +5,7 @@ import Breadcrumb from "../../../../components/Breadcrumb";
 import ReferenceCard from "../../../../components/ReferenceCard";
 import ReferenzPdf from "../../../../components/ReferenzPdf";
 import TileGrid from "../../../../components/TileGrid";
+import ImageGallery from "../../../../components/ImageGallery";
 import { referenzen, getReferenzBySlug } from "../../../../data/referenzen";
 import { kategorien } from "../../../../data/kategorien";
 import { getProdukteByNames } from "../../../../data/produkte";
@@ -222,6 +223,25 @@ export default async function ReferenzDetailPage({
           </div>
         </div>
       </section>
+
+      {/* Bildergalerie */}
+      {referenz.galerieBilder && referenz.galerieBilder.length > 0 && (
+        <section style={{ padding: "64px 32px 0" }}>
+          <div className="mx-auto" style={{ maxWidth: 1320 }}>
+            <h2
+              className="mb-8"
+              style={{
+                fontSize: "clamp(22px, 3vw, 32px)",
+                fontWeight: 900,
+                lineHeight: 1.15,
+              }}
+            >
+              {dict.detail.gallery ?? "Bildergalerie"}
+            </h2>
+            <ImageGallery images={referenz.galerieBilder} alt={referenz.titel} />
+          </div>
+        </section>
+      )}
 
       {/* Vorteile */}
       <section style={{ padding: "64px 32px 72px" }}>

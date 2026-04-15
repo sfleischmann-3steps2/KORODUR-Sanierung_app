@@ -34,6 +34,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/antolin-2.jpg", "/images/referenzen/antolin-3.jpg", "/images/referenzen/antolin-4.jpg", "/images/referenzen/antolin-5.jpg", "/images/referenzen/antolin-6.jpg"],
   },
   {
     id: "kleemann-produktionshalle",
@@ -66,6 +67,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "punktlasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/kleemann-2.jpg", "/images/referenzen/kleemann-3.jpg", "/images/referenzen/kleemann-4.jpg", "/images/referenzen/kleemann-5.jpg"],
   },
   {
     id: "monheim-produktionsflaeche",
@@ -98,6 +100,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten", "punktlasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/monheim-2.jpg", "/images/referenzen/monheim-3.jpg", "/images/referenzen/monheim-4.jpg"],
   },
 
   {
@@ -133,6 +136,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/weag-2.jpg", "/images/referenzen/weag-3.jpg", "/images/referenzen/weag-4.jpg", "/images/referenzen/weag-5.jpg", "/images/referenzen/weag-6.jpg"],
   },
   {
     id: "wochenend-sanierung-werkstatt",
@@ -166,6 +170,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/werkstatt-neutraubling-2.jpg", "/images/referenzen/werkstatt-neutraubling-3.jpg", "/images/referenzen/werkstatt-neutraubling-4.jpg", "/images/referenzen/werkstatt-neutraubling-5.jpg", "/images/referenzen/werkstatt-neutraubling-6.jpg", "/images/referenzen/werkstatt-neutraubling-7.jpg"],
   },
   {
     id: "strandkorbhalle-sylt",
@@ -199,6 +204,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb"],
     sonderbedingungen: ["aussenbereich"],
+    galerieBilder: ["/images/referenzen/strandkorbhalle-sylt-2.jpg", "/images/referenzen/strandkorbhalle-sylt-3.jpg", "/images/referenzen/strandkorbhalle-sylt-4.jpg", "/images/referenzen/strandkorbhalle-sylt-5.jpg", "/images/referenzen/strandkorbhalle-sylt-6.jpg", "/images/referenzen/strandkorbhalle-sylt-7.jpg"],
   },
   {
     id: "loosen-werkzeug-klausen",
@@ -230,6 +236,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/loosen-klausen-2.jpg", "/images/referenzen/loosen-klausen-3.jpg", "/images/referenzen/loosen-klausen-4.jpg", "/images/referenzen/loosen-klausen-5.jpg", "/images/referenzen/loosen-klausen-6.jpg"],
   },
 
   // === INDUSTRIEBODEN – Dünnschicht ===
@@ -265,6 +272,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/guben-2.jpg", "/images/referenzen/guben-3.jpg", "/images/referenzen/guben-4.jpg", "/images/referenzen/guben-5.jpg", "/images/referenzen/guben-6.jpg", "/images/referenzen/guben-7.jpg"],
   },
   {
     id: "nike-store-polen",
@@ -296,6 +304,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["leichte-nutzung"],
     zustand: ["abrieb"],
     sonderbedingungen: [],
+    galerieBilder: ["/images/referenzen/nike-store-2.jpg", "/images/referenzen/nike-store-3.jpg", "/images/referenzen/nike-store-4.jpg", "/images/referenzen/nike-store-5.jpg", "/images/referenzen/nike-store-6.jpg"],
   },
 
   {
@@ -329,6 +338,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["abrieb", "ebenheitsprobleme"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/obstplantage-ibbenbueren-2.jpg", "/images/referenzen/obstplantage-ibbenbueren-3.jpg", "/images/referenzen/obstplantage-ibbenbueren-4.jpg", "/images/referenzen/obstplantage-ibbenbueren-5.jpg", "/images/referenzen/obstplantage-ibbenbueren-6.jpg", "/images/referenzen/obstplantage-ibbenbueren-7.jpg", "/images/referenzen/obstplantage-ibbenbueren-8.jpg", "/images/referenzen/obstplantage-ibbenbueren-9.jpg"],
   },
   {
     id: "sanierung-einer-sanierung",
@@ -359,6 +369,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["leichte-nutzung"],
     zustand: ["ebenheitsprobleme", "beschichtungsschaeden"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/sanierung-einer-sanierung-2.jpg", "/images/referenzen/sanierung-einer-sanierung-3.jpg", "/images/referenzen/sanierung-einer-sanierung-4.jpg", "/images/referenzen/sanierung-einer-sanierung-5.jpg"],
   },
 
   // === INDUSTRIEBODEN – Schnelle Reparaturen ===
@@ -391,6 +402,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/dhl-2.jpg", "/images/referenzen/dhl-3.jpg", "/images/referenzen/dhl-4.jpg", "/images/referenzen/dhl-5.jpg", "/images/referenzen/dhl-6.jpg"],
   },
   {
     id: "lkw-waschstrasse",
@@ -423,6 +435,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb", "beschichtungsschaeden"],
     sonderbedingungen: ["chemikalien"],
+    galerieBilder: ["/images/referenzen/lkw-waschstrasse-2.jpg", "/images/referenzen/lkw-waschstrasse-3.jpg", "/images/referenzen/lkw-waschstrasse-4.jpg", "/images/referenzen/lkw-waschstrasse-5.jpg", "/images/referenzen/lkw-waschstrasse-6.jpg"],
   },
 
   {
@@ -456,6 +469,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/helipad-polen-2.jpg", "/images/referenzen/helipad-polen-3.jpg", "/images/referenzen/helipad-polen-4.jpg", "/images/referenzen/helipad-polen-5.jpg"],
   },
 
   // === INDUSTRIEBAU ===
@@ -491,6 +505,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["rollende-lasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/lyreco-2.jpg", "/images/referenzen/lyreco-3.jpg", "/images/referenzen/lyreco-4.jpg", "/images/referenzen/lyreco-5.jpg", "/images/referenzen/lyreco-6.jpg"],
   },
   {
     id: "treppenstufen-sanierung",
@@ -521,6 +536,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["leichte-nutzung"],
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich", "tausalz"],
+    galerieBilder: ["/images/referenzen/treppenstufen-2.jpg", "/images/referenzen/treppenstufen-3.jpg", "/images/referenzen/treppenstufen-4.jpg", "/images/referenzen/treppenstufen-5.jpg", "/images/referenzen/treppenstufen-6.jpg", "/images/referenzen/treppenstufen-7.jpg"],
   },
 
   {
@@ -552,6 +568,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/sinusfugen-2.jpg", "/images/referenzen/sinusfugen-3.jpg", "/images/referenzen/sinusfugen-4.jpg", "/images/referenzen/sinusfugen-5.jpg", "/images/referenzen/sinusfugen-6.jpg", "/images/referenzen/sinusfugen-7.jpg"],
   },
   {
     id: "trennfugen-bohnenkamp",
@@ -584,6 +601,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/trennfugen-bohnenkamp-2.jpg", "/images/referenzen/trennfugen-bohnenkamp-3.jpg", "/images/referenzen/trennfugen-bohnenkamp-4.jpg", "/images/referenzen/trennfugen-bohnenkamp-5.jpg", "/images/referenzen/trennfugen-bohnenkamp-6.jpg", "/images/referenzen/trennfugen-bohnenkamp-7.jpg"],
   },
   {
     id: "absenksteine-tankstelle",
@@ -615,6 +633,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["ebenheitsprobleme"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/absenksteine-tankstelle-2.jpg", "/images/referenzen/absenksteine-tankstelle-3.jpg", "/images/referenzen/absenksteine-tankstelle-4.jpg", "/images/referenzen/absenksteine-tankstelle-5.jpg", "/images/referenzen/absenksteine-tankstelle-6.jpg", "/images/referenzen/absenksteine-tankstelle-7.jpg"],
   },
   {
     id: "lkw-einstellplatz-berlin",
@@ -646,6 +665,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["ebenheitsprobleme", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
+    galerieBilder: ["/images/referenzen/lkw-einstellplatz-berlin-2.jpg", "/images/referenzen/lkw-einstellplatz-berlin-3.jpg", "/images/referenzen/lkw-einstellplatz-berlin-4.jpg", "/images/referenzen/lkw-einstellplatz-berlin-5.jpg", "/images/referenzen/lkw-einstellplatz-berlin-6.jpg", "/images/referenzen/lkw-einstellplatz-berlin-7.jpg"],
   },
 
   // === INFRASTRUKTUR – Verkehr ===
@@ -681,6 +701,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["ebenheitsprobleme", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/catania-2.jpg", "/images/referenzen/catania-3.jpg", "/images/referenzen/catania-4.jpg", "/images/referenzen/catania-5.jpg", "/images/referenzen/catania-6.jpg", "/images/referenzen/catania-7.jpg"],
   },
   {
     id: "parkhaus-flughafen-zuerich",
@@ -714,6 +735,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["rollende-lasten"],
     zustand: ["abrieb", "beschichtungsschaeden"],
     sonderbedingungen: ["rutschhemmung"],
+    galerieBilder: ["/images/referenzen/zuerich-parkhaus-2.jpg", "/images/referenzen/zuerich-parkhaus-3.jpg", "/images/referenzen/zuerich-parkhaus-4.jpg", "/images/referenzen/zuerich-parkhaus-5.jpg", "/images/referenzen/zuerich-parkhaus-6.jpg"],
   },
 
   {
@@ -747,6 +769,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["abrieb"],
     sonderbedingungen: ["tausalz", "rutschhemmung", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/theodor-heuss-bruecke-2.jpg", "/images/referenzen/theodor-heuss-bruecke-3.jpg", "/images/referenzen/theodor-heuss-bruecke-4.jpg", "/images/referenzen/theodor-heuss-bruecke-5.jpg", "/images/referenzen/theodor-heuss-bruecke-6.jpg"],
   },
   {
     id: "autohaus-versmold",
@@ -779,6 +802,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast", "rollende-lasten"],
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["aussenbereich"],
+    galerieBilder: ["/images/referenzen/autohaus-versmold-2.jpg", "/images/referenzen/autohaus-versmold-3.jpg", "/images/referenzen/autohaus-versmold-4.jpg", "/images/referenzen/autohaus-versmold-5.jpg", "/images/referenzen/autohaus-versmold-6.jpg"],
   },
   {
     id: "hubschrauber-landeplatz-finnland",
@@ -809,6 +833,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/helipad-finnland-2.jpg", "/images/referenzen/helipad-finnland-3.jpg", "/images/referenzen/helipad-finnland-4.jpg", "/images/referenzen/helipad-finnland-5.jpg"],
   },
   {
     id: "lkw-umfahrt-darmstadt",
@@ -841,6 +866,7 @@ export const referenzen: Referenz[] = [
     belastungen: ["schwerlast"],
     zustand: ["abrieb", "risse"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
+    galerieBilder: ["/images/referenzen/lkw-umfahrt-darmstadt-2.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-3.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-4.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-5.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-6.jpg"],
   },
 
   // === INFRASTRUKTUR – Wasser ===
@@ -876,6 +902,7 @@ export const referenzen: Referenz[] = [
     belastungen: [],
     zustand: ["beschichtungsschaeden"],
     sonderbedingungen: ["chemikalien"],
+    galerieBilder: ["/images/referenzen/haidberg-2.jpg", "/images/referenzen/haidberg-3.jpg", "/images/referenzen/haidberg-4.jpg", "/images/referenzen/haidberg-5.jpg", "/images/referenzen/haidberg-6.jpg"],
   },
   {
     id: "trinkwasserbehaelter-bad-nauheim",
@@ -908,6 +935,7 @@ export const referenzen: Referenz[] = [
     belastungen: [],
     zustand: ["beschichtungsschaeden"],
     sonderbedingungen: ["chemikalien"],
+    galerieBilder: ["/images/referenzen/bad-nauheim-2.jpg", "/images/referenzen/bad-nauheim-3.jpg", "/images/referenzen/bad-nauheim-4.jpg", "/images/referenzen/bad-nauheim-5.jpg"],
   },
   {
     id: "trinkwasserturm-budapest",
@@ -941,6 +969,7 @@ export const referenzen: Referenz[] = [
     belastungen: [],
     zustand: ["beschichtungsschaeden"],
     sonderbedingungen: ["chemikalien"],
+    galerieBilder: ["/images/referenzen/trinkwasserturm-budapest-2.jpg", "/images/referenzen/trinkwasserturm-budapest-3.jpg", "/images/referenzen/trinkwasserturm-budapest-4.jpg", "/images/referenzen/trinkwasserturm-budapest-5.jpg", "/images/referenzen/trinkwasserturm-budapest-6.jpg", "/images/referenzen/trinkwasserturm-budapest-7.jpg"],
   },
 ];
 
