@@ -148,15 +148,6 @@ export const produktePL: Record<string, {
       { label: "Mostek sczepny", wert: "Nie wymagany" },
     ],
   },
-  "durop": {
-    kurzbeschreibung: "Posypka utwardzająca do powłok odpornych na ścieranie i antypoślizgowych",
-    besonderheiten: ["Antypoślizgowy", "Odporny na polerowanie", "Redukcja hałasu"],
-    technischeDaten: [
-      { label: "Uziarnienie", wert: "1–2 mm" },
-      { label: "Zastosowanie", wert: "Posypka na żywicę epoksydową" },
-      { label: "Efekt", wert: "Antypoślizgowy i odporny na polerowanie" },
-    ],
-  },
   "korocure": {
     kurzbeschreibung: "Środek pielęgnacyjny do kontrolowanej pielęgnacji powierzchni jastrychowych",
     besonderheiten: ["Kontrolowana pielęgnacja", "Do powierzchni zewnętrznych", "Redukcja pęknięć skurczowych"],

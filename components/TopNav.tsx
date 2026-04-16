@@ -17,6 +17,11 @@ export default function TopNav({ lang, dict }: TopNavProps) {
   const pathname = usePathname();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [shortcutLabel, setShortcutLabel] = useState<string | null>(null);
+
+  useEffect(() => {
+    setShortcutLabel(/Mac/.test(navigator.userAgent ?? "") ? "⌘K" : "Ctrl+K");
+  }, []);
 
   // Cmd/Ctrl+K shortcut
   useEffect(() => {
@@ -112,9 +117,11 @@ export default function TopNav({ lang, dict }: TopNavProps) {
                 <circle cx="11" cy="11" r="8" />
                 <path d="M21 21l-4.35-4.35" />
               </svg>
-              <kbd className="text-[11px] text-[#002d59] opacity-25 px-1.5 py-0.5 rounded border border-[#e8edf5]" style={{ fontWeight: 600 }}>
-                {typeof navigator !== "undefined" && /Mac/.test(navigator.userAgent ?? "") ? "⌘K" : "Ctrl+K"}
-              </kbd>
+              {shortcutLabel && (
+                <kbd className="text-[11px] text-[#002d59] opacity-25 px-1.5 py-0.5 rounded border border-[#e8edf5]" style={{ fontWeight: 600 }}>
+                  {shortcutLabel}
+                </kbd>
+              )}
             </button>
 
             {/* Mobile search */}

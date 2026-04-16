@@ -148,15 +148,6 @@ export const produkteFR: Record<string, {
       { label: "Pont d'adhérence", wert: "Non requis" },
     ],
   },
-  "durop": {
-    kurzbeschreibung: "Granulat dur de saupoudrage pour revêtements résistants à l'usure et antidérapants",
-    besonderheiten: ["Antidérapant", "Résistant au polissage", "Réduction du bruit de roulement"],
-    technischeDaten: [
-      { label: "Granulométrie", wert: "1–2 mm" },
-      { label: "Application", wert: "Saupoudrage sur résine époxy" },
-      { label: "Effet", wert: "Antidérapant & résistant au polissage" },
-    ],
-  },
   "korocure": {
     kurzbeschreibung: "Produit de cure pour le traitement contrôlé des surfaces de chape",
     besonderheiten: ["Cure contrôlée", "Adapté aux surfaces extérieures", "Réduit les fissures de retrait"],

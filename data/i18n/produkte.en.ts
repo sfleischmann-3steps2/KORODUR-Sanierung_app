@@ -148,15 +148,6 @@ export const produkteEN: Record<string, {
       { label: "Bonding agent", wert: "Not required" },
     ],
   },
-  "durop": {
-    kurzbeschreibung: "Hard aggregate broadcast material for wear and slip-resistant coatings",
-    besonderheiten: ["Slip-resistant", "Polish-resistant", "Noise-reducing"],
-    technischeDaten: [
-      { label: "Grain size", wert: "1–2 mm" },
-      { label: "Application", wert: "Broadcast on epoxy resin" },
-      { label: "Effect", wert: "Slip-resistant & polish-resistant" },
-    ],
-  },
   "korocure": {
     kurzbeschreibung: "Curing compound for controlled aftercare of screed surfaces",
     besonderheiten: ["Controlled curing", "Suitable for outdoor surfaces", "Reduces shrinkage cracks"],

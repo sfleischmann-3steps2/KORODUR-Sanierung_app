@@ -413,27 +413,6 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["grossflaechige-sanierung", "leichte-nutzung"],
   },
-  {
-    id: "durop",
-    name: "DUROP",
-    kategorie: "sonstige",
-    kurzbeschreibung: "Hartstoff-Abstreumaterial für verschleiß- und rutschfeste Beschichtungen",
-    normen: [
-      "DIN EN 13036 (Rutschfestigkeit)",
-    ],
-    technischeDaten: [
-      { label: "Korngruppe", wert: "1–2 mm" },
-      { label: "Anwendung", wert: "Abstreuung auf EP-Harz" },
-      { label: "Wirkung", wert: "Rutschhemmend & polierresistent" },
-    ],
-    besonderheiten: [
-      "Rutschhemmend",
-      "Polierresistent",
-      "Rollgeräuschreduzierend",
-    ],
-    eignungen: ["rutschhemmung", "rollende-lasten"],
-  },
-
   // === NACHBEHANDLUNG ===
   {
     id: "korocure",

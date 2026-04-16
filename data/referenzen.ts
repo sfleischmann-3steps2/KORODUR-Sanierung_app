@@ -713,7 +713,7 @@ export const referenzen: Referenz[] = [
     ort: "Zürich",
     land: "Schweiz",
     flaeche: "20.000 m²",
-    produkte: ["DUROP Hartstoff", "Epoxidharz-System"],
+    produkte: ["Epoxidharz-System"],
     herausforderungen: [
       "Parkhausbetrieb muss während der Arbeiten aufrechterhalten werden",
       "Kurze Sperrzeiten, sichere Nutzerführung während der Bauphasen",
@@ -747,7 +747,7 @@ export const referenzen: Referenz[] = [
     unterkategorie: "verkehr",
     ort: "Mainz / Wiesbaden",
     land: "Deutschland",
-    produkte: ["DUROP"],
+    produkte: [],
     herausforderungen: [
       "Dauerbelastung durch Verkehr & Schwerlast",
       "Schutz der denkmalgeschützten Altbausubstanz",

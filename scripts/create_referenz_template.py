@@ -50,7 +50,6 @@ PRODUKTE = [
     "ASPHALT REPAIR MIX",
     "MICROTOP TW",
     "TRU Self-Leveling",
-    "DUROP",
     "KOROCURE",
     "KOROMINERAL CURE",
     "KOROTEX",
