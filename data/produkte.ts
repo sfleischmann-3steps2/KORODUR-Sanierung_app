@@ -14,6 +14,7 @@ export interface Produkt {
   verarbeitung?: Verarbeitung;
   tdsUrl?: string;
   eignungen?: (Belastung | Sonderbedingung | Massnahme)[];
+  bild?: string;
 }
 
 export const produkte: Produkt[] = [
@@ -53,6 +54,7 @@ export const produkte: Produkt[] = [
     },
     tdsUrl: "https://www.korodur.de/downloads/tds-neodur-he-60-rapid.pdf",
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "chemikalien", "kurze-sperrzeit"],
+    bild: "/images/produkte/neodur-he-60-rapid.png",
   },
   {
     id: "neodur-he-65-plus",
@@ -126,6 +128,7 @@ export const produkte: Produkt[] = [
     },
     tdsUrl: "https://www.korodur.de/downloads/tds-neodur-level.pdf",
     eignungen: ["grossflaechige-sanierung", "leichte-nutzung", "rollende-lasten"],
+    bild: "/images/produkte/neodur-level.png",
   },
 
   // === GRUNDIERUNGEN / HAFTBRÜCKEN ===
@@ -148,6 +151,7 @@ export const produkte: Produkt[] = [
       "Frisch-in-frisch Verarbeitung",
     ],
     eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
+    bild: "/images/produkte/korodur-hb5-rapid.png",
   },
   {
     id: "korodur-pc",
@@ -200,6 +204,7 @@ export const produkte: Produkt[] = [
     },
     tdsUrl: "https://www.korodur.de/downloads/tds-rapid-set-cement-all.pdf",
     eignungen: ["kleine-reparatur", "kurze-sperrzeit", "aussenbereich"],
+    bild: "/images/produkte/rapid-set-cement-all.png",
   },
   {
     id: "rapid-set-mortar-mix",
@@ -223,6 +228,7 @@ export const produkte: Produkt[] = [
       "Nur mit Wasser mischen",
     ],
     eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
+    bild: "/images/produkte/rapid-set-mortar-mix.png",
   },
   {
     id: "rapid-set-concrete-mix",
@@ -244,6 +250,7 @@ export const produkte: Produkt[] = [
       "Frostbeständig",
     ],
     eignungen: ["kleine-reparatur", "schwerlast", "kurze-sperrzeit", "tausalz", "aussenbereich"],
+    bild: "/images/produkte/rapid-set-concrete-mix.png",
   },
   {
     id: "korocrete",
@@ -312,6 +319,7 @@ export const produkte: Produkt[] = [
       "Hohe Belastbarkeit",
     ],
     eignungen: ["kleine-reparatur", "grossflaechige-sanierung", "schwerlast", "rollende-lasten", "kurze-sperrzeit", "aussenbereich"],
+    bild: "/images/produkte/asphalt-repair-mix.png",
   },
   {
     id: "korodur-fscem-screed",
@@ -332,6 +340,7 @@ export const produkte: Produkt[] = [
       "Schnelle Erhärtung",
     ],
     eignungen: ["grossflaechige-sanierung", "kurze-sperrzeit"],
+    bild: "/images/produkte/korodur-fscem-screed.png",
   },
   {
     id: "neodur-he-65",
@@ -354,44 +363,9 @@ export const produkte: Produkt[] = [
       "Kraftschlüssiger Verbund",
     ],
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "aussenbereich"],
+    bild: "/images/produkte/neodur-he-65.png",
   },
 
-  // === BESCHICHTUNGEN ===
-  {
-    id: "microtop-tw",
-    name: "MICROTOP TW",
-    kategorie: "beschichtung",
-    kurzbeschreibung: "Mineralisches Trinkwasser-Beschichtungssystem nach DVGW",
-    normen: [
-      "DVGW W 300",
-      "DVGW W 347",
-      "DIN EN 1504",
-      "KTW (Kunststoff-Trinkwasser-Leitlinie)",
-    ],
-    technischeDaten: [
-      { label: "Druckfestigkeit", wert: "≥ 40 N/mm²" },
-      { label: "Haftzugfestigkeit", wert: "≥ 1,5 N/mm²" },
-      { label: "Trinkwasserzulassung", wert: "DVGW-geprüft" },
-      { label: "Verarbeitung", wert: "Nassspritzverfahren" },
-    ],
-    besonderheiten: [
-      "Rein mineralisch – keine Kunststoffadditive",
-      "DVGW-zertifiziert",
-      "Mikrosilika-vergütet",
-      "Fugenlose Oberfläche",
-      "Farblich gestaltbar",
-    ],
-    verarbeitung: {
-      untergrundvorbereitung: "Betonuntergrund mechanisch vorbereiten (Höchstdruckwasserstrahlen). Altbeschichtungen vollständig entfernen.",
-      mischverhaeltnis: "Werkseitig vorgemischt. Verarbeitung im Nassspritzverfahren mit spezieller Maschinentechnik.",
-      schichtaufbau: "Mehrlagig im Nassspritzverfahren. Mindestschichtdicke gemäß DVGW W 300.",
-      verarbeitungszeit: "Abhängig von Maschinentechnik und Behältergröße.",
-      aushaertezeit: "Nachbehandlung gemäß DVGW-Vorgaben. Wasserbefüllung nach vollständiger Aushärtung.",
-      besonderheiten: "Ausschließlich durch zertifizierte Fachbetriebe. Rein mineralisch, ohne Kunststoffadditive.",
-    },
-    tdsUrl: "https://www.korodur.de/downloads/tds-microtop-tw.pdf",
-    eignungen: ["grossflaechige-sanierung", "chemikalien"],
-  },
   {
     id: "tru-self-leveling",
     name: "TRU Self-Leveling",

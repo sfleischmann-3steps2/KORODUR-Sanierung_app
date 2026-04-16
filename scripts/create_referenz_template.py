@@ -48,7 +48,6 @@ PRODUKTE = [
     "Rapid Set CONCRETE MIX",
     "KOROCRETE Schnellbeton",
     "ASPHALT REPAIR MIX",
-    "MICROTOP TW",
     "TRU Self-Leveling",
     "KOROCURE",
     "KOROMINERAL CURE",

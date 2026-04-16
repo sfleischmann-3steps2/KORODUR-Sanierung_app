@@ -129,16 +129,6 @@ export const produkteEN: Record<string, {
       { label: "Application", wert: "Silo system / pump technology" },
     ],
   },
-  "microtop-tw": {
-    kurzbeschreibung: "Mineral drinking water coating system to DVGW standards",
-    besonderheiten: ["Purely mineral – no polymer additives", "DVGW-certified", "Microsilica-enhanced", "Seamless surface", "Colour-customisable"],
-    technischeDaten: [
-      { label: "Compressive strength", wert: "≥ 40 N/mm²" },
-      { label: "Pull-off resistance", wert: "≥ 1.5 N/mm²" },
-      { label: "Drinking water approval", wert: "DVGW-tested" },
-      { label: "Application", wert: "Wet spray method" },
-    ],
-  },
   "tru-self-leveling": {
     kurzbeschreibung: "Self-levelling design screed for aesthetically oriented floor solutions",
     besonderheiten: ["Design-oriented concrete look", "Seamless surface", "No bonding agent required", "Hygienic & easy to clean"],

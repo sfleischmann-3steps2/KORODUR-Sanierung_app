@@ -129,16 +129,6 @@ export const produkteFR: Record<string, {
       { label: "Application", wert: "Système silo / pompage" },
     ],
   },
-  "microtop-tw": {
-    kurzbeschreibung: "Système de revêtement minéral pour eau potable selon DVGW",
-    besonderheiten: ["Purement minéral – sans additifs polymères", "Certifié DVGW", "Enrichi en microsilice", "Surface sans joints", "Personnalisable en couleur"],
-    technischeDaten: [
-      { label: "Résistance à la compression", wert: "≥ 40 N/mm²" },
-      { label: "Résistance à l'arrachement", wert: "≥ 1,5 N/mm²" },
-      { label: "Agrément eau potable", wert: "Testé DVGW" },
-      { label: "Application", wert: "Projection humide" },
-    ],
-  },
   "tru-self-leveling": {
     kurzbeschreibung: "Chape autoplaçante design pour solutions de sol esthétiques",
     besonderheiten: ["Aspect béton design", "Surface sans joints", "Sans pont d'adhérence", "Hygiénique & facile d'entretien"],

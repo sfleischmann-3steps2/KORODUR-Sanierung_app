@@ -129,16 +129,6 @@ export const produktePL: Record<string, {
       { label: "Zastosowanie", wert: "System silosowy / technologia pompowa" },
     ],
   },
-  "microtop-tw": {
-    kurzbeschreibung: "Mineralny system powłokowy do wody pitnej zgodny z DVGW",
-    besonderheiten: ["Czysto mineralny – bez dodatków polimerowych", "Certyfikat DVGW", "Wzbogacony mikrokrzemionką", "Bezspoinowa powierzchnia", "Kolorystyka do wyboru"],
-    technischeDaten: [
-      { label: "Wytrzymałość na ściskanie", wert: "≥ 40 N/mm²" },
-      { label: "Wytrzymałość na odrywanie", wert: "≥ 1,5 N/mm²" },
-      { label: "Dopuszczenie do wody pitnej", wert: "Badanie DVGW" },
-      { label: "Aplikacja", wert: "Metoda natrysku mokrego" },
-    ],
-  },
   "tru-self-leveling": {
     kurzbeschreibung: "Samorozlewny jastrych designerski do estetycznych rozwiązań posadzkowych",
     besonderheiten: ["Designerski wygląd betonu", "Bezspoinowa powierzchnia", "Bez mostka sczepnego", "Higieniczny i łatwy w utrzymaniu"],

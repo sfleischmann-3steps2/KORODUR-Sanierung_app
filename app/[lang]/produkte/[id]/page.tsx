@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Breadcrumb from "../../../../components/Breadcrumb";
 import ReferenceCard from "../../../../components/ReferenceCard";
 import TileGrid from "../../../../components/TileGrid";
@@ -9,6 +10,7 @@ import { getDictionary, hasLocale } from "../../dictionaries";
 import { LOCALES } from "../../../../lib/i18n";
 import { notFound } from "next/navigation";
 import { localizeProdukt, localizeReferenzen } from "../../../../data/i18n/getLocalized";
+import { withBasePath } from "../../../../lib/basePath";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string; id: string }> }): Promise<Metadata> {
   const { lang, id } = await params;
@@ -70,36 +72,49 @@ export default async function ProduktDetailPage({
 
       {/* Header */}
       <section style={{ padding: "0 32px 56px" }}>
-        <div className="mx-auto" style={{ maxWidth: 1320 }}>
-          <div className="flex flex-wrap items-center gap-3 mb-5">
-            <span
-              className="text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
-              style={{ backgroundColor: "#009ee3", fontWeight: 700 }}
-            >
-              {categoryLabel}
-            </span>
-            {produkt.qualitaetsklasse && (
+        <div className="mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8" style={{ maxWidth: 1320 }}>
+          <div className="flex-1">
+            <div className="flex flex-wrap items-center gap-3 mb-5">
               <span
-                className="text-[#002d59] text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
-                style={{ backgroundColor: "#e8edf5", fontWeight: 700 }}
+                className="text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
+                style={{ backgroundColor: "#009ee3", fontWeight: 700 }}
               >
-                {produkt.qualitaetsklasse}
+                {categoryLabel}
               </span>
+              {produkt.qualitaetsklasse && (
+                <span
+                  className="text-[#002d59] text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
+                  style={{ backgroundColor: "#e8edf5", fontWeight: 700 }}
+                >
+                  {produkt.qualitaetsklasse}
+                </span>
+              )}
+            </div>
+            <h1
+              className="mb-3"
+              style={{ fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 900, lineHeight: 1.1 }}
+            >
+              {produkt.name}
+            </h1>
+            <p className="text-[#002d59] opacity-70 mb-0" style={{ fontSize: 20, lineHeight: 1.5, maxWidth: 700 }}>
+              {produkt.kurzbeschreibung}
+            </p>
+            {produkt.schichtdicke && (
+              <p className="text-[#009ee3] mt-3 mb-0" style={{ fontSize: 16, fontWeight: 700 }}>
+                {dict.produkte.layer_thickness}: {produkt.schichtdicke}
+              </p>
             )}
           </div>
-          <h1
-            className="mb-3"
-            style={{ fontSize: "clamp(28px, 5vw, 44px)", fontWeight: 900, lineHeight: 1.1 }}
-          >
-            {produkt.name}
-          </h1>
-          <p className="text-[#002d59] opacity-70 mb-0" style={{ fontSize: 20, lineHeight: 1.5, maxWidth: 700 }}>
-            {produkt.kurzbeschreibung}
-          </p>
-          {produkt.schichtdicke && (
-            <p className="text-[#009ee3] mt-3 mb-0" style={{ fontSize: 16, fontWeight: 700 }}>
-              {dict.produkte.layer_thickness}: {produkt.schichtdicke}
-            </p>
+          {produkt.bild && (
+            <div className="shrink-0 flex justify-center">
+              <Image
+                src={withBasePath(produkt.bild)}
+                alt={produkt.name}
+                width={180}
+                height={240}
+                className="object-contain drop-shadow-lg"
+              />
+            </div>
           )}
         </div>
       </section>
