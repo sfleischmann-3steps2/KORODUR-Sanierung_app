@@ -12,8 +12,8 @@ Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierun
 
 - **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte), gegen KORODUR-Glossar geprüft
 - **Produktfinder** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
-- **29 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
-- **19 Produkte** mit technischen Daten, Normen und Qualitätsklassen
+- **26 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
+- **16 Produkte** mit technischen Daten, Normen, Qualitätsklassen und **Produkt-Mockups**
 - **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur – jeweils mit Anwendungs-Filter
 - **Produktmatrix** – Interaktive Vergleichstabelle mit Eignungen pro Produkt
 - **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
@@ -64,11 +64,11 @@ npm run dev
 │   ├── CategoryFilterView.tsx # Wiederverwendbare Filterleiste für Kategorieseiten
 │   ├── ImageGallery.tsx     # Bildergalerie mit Grid + Lightbox (Referenz-Detail)
 │   ├── SearchOverlay.tsx    # Volltextsuche (Cmd+K)
-│   ├── LanguageSwitcher.tsx # DE/EN/FR/PL Umschalter
+│   ├── LanguageSwitcher.tsx # Flaggen-Dropdown Sprachumschalter
 │   └── ...                  # TileGrid, ReferenceCard, CategoryTile, etc.
 ├── data/
-│   ├── referenzen.ts        # 29 Referenzen (DE-Basis)
-│   ├── produkte.ts          # 19 Produkte mit technischen Daten
+│   ├── referenzen.ts        # 26 Referenzen (DE-Basis)
+│   ├── produkte.ts          # 16 Produkte mit technischen Daten + Mockup-Bildern
 │   ├── kategorien.ts        # 3 Bereiche + Unterkategorien
 │   ├── sanierung-finden.ts  # Produktfinder: Schritte + Scoring-Logik
 │   └── i18n/                # Inhalts-Übersetzungen (EN/FR/PL)
@@ -85,6 +85,16 @@ npm run dev
 GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch gebaut und deployt.
 
 ## Status: V2 – Live
+
+### V2.3 (April 2026)
+- [x] **Produkt-Mockups** auf Produktkarten und Detailseiten (10 von 16 Produkten)
+- [x] **Sprachumschalter** als Flaggen-Dropdown (skalierbar für weitere Sprachen)
+- [x] **Hero-Gradient** optimiert — mehr Bild sichtbar, Schrift weiterhin lesbar
+- [x] **Hero-Headline** aktualisiert: "Die sichere Sanierungslösung" (alle 4 Sprachen)
+- [x] DUROP entfernt (Abstreumaterial, kein eigenständiges Sanierungsprodukt)
+- [x] MICROTOP TW + 3 Trinkwasser-Referenzen entfernt (kein Sanierungsthema)
+- [x] Hydration-Mismatch (⌘K/Ctrl+K) behoben
+- [x] Notion-Produktdatenbank abgeglichen — 4 neue Produkte identifiziert (Referenzen ausstehend)
 
 ### V2.2 (April 2026)
 - [x] **Bildergalerie** auf Referenz-Detailseiten: 151 Fotos aus Präsentationen extrahiert (3–8 pro Referenz)
@@ -111,8 +121,8 @@ GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch g
 ### V1 Basis
 - [x] Next.js Projekt mit Static Export
 - [x] KORODUR Corporate Design (Gabarito, Navy/Cyan)
-- [x] 29 Referenzen mit Daten & Fotos
-- [x] 19 Produkte mit technischen Daten & Normen
+- [x] Referenzen mit Daten & Fotos
+- [x] Produkte mit technischen Daten & Normen
 - [x] Mehrsprachigkeit DE/EN/FR mit i18n-Infrastruktur
 - [x] App-Shell, Volltextsuche, Accessibility
 - [x] GitHub Pages Deployment
