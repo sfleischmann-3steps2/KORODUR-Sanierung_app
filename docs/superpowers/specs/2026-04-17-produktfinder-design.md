@@ -58,8 +58,9 @@ Die App soll vom „einfachen Renderer" zu einer Schicht in einem Produktwissen-
 
 ### 2.2 Zwei Modi, ein Scoring
 - Beide Modi rufen **dieselbe Scoring-Funktion** `berechneKandidaten(criteria, massnahme)`
-- Input-Unterschied: Wizard sammelt Kriterien linear in 4 Steps, Expert sammelt sie frei via Chip-Filter
-- Output-Unterschied: Wizard zeigt zuerst Referenzprojekte (Storytelling) dann Produkt-Kandidaten; Expert zeigt zuerst Produkt-Kandidaten (Entscheidung) dann Referenzen als Beispiele
+- **Expert ist Default in Phase 1** (internes Tool zuerst). Phase 2 dreht das um, wenn öffentlicher Traffic dazukommt.
+- Input-Unterschied: Wizard sammelt Kriterien linear in 3 Steps (Situation → Belastung → Sonderbedingung), Expert sammelt sie frei via Chip-Filter
+- Output-Unterschied: Wizard zeigt Produkt-Kandidaten **und** Referenzprojekte (Storytelling für Kunden/Einsteiger); Expert zeigt **nur Produkt-Kandidaten** — fokussiert, ohne Referenz-Sektion
 
 ### 2.3 Qualifizierungs-Skala
 **6 Stufen, symmetrisch, ohne neutrale Mitte:**
@@ -86,7 +87,7 @@ Geparkt. Diese Spec definiert nur den Contract (`data/matrix.generated.ts`). Zie
 
 ### 2.7 Aus-Scope dieser Spec
 - Tabellen-Matrix-Ansicht (heutige Form) entfällt in Phase 1 — ggf. späterer Modus 3 „Übersicht"
-- Bodenzustand-Dimension (Risse, Abrieb, …) bleibt im Wizard als Step (wirkt weiter auf Referenz-Scoring), fließt aber noch nicht in Produkt-Scoring — nach Team-Klärung in Folge-Spec
+- **Zustand-Step (Risse, Abrieb, Hohlstellen, …) fällt komplett aus dem Wizard** — weder Produkt- noch Referenz-Scoring in Phase 1. Wird nach Team-Klärung und Aufnahme in Notion-Kriterien-DB wieder eingebaut. Die Step-Definition in `data/loesungsfinder.ts` bleibt für spätere Reaktivierung erhalten, wird aber im `ProduktfinderWizard` nicht gerendert.
 - Öffentliche, vereinfachte Variante (Phase 2)
 
 ---
@@ -98,9 +99,9 @@ Geparkt. Diese Spec definiert nur den Contract (`data/matrix.generated.ts`). Zie
 │   📒 Notion  │ → │  📄 Contract         │ → │  🖥 /produktfinder               │
 │              │   │  matrix.generated.ts │   │                                  │
 │ 3 DBs:       │   │  + berechneKandidaten│   │  ┌──────────┐  ┌───────────────┐ │
-│ - Produkte   │   │                      │   │  │ Geführt  │  │ Expert (V2)   │ │
-│ - Kriterien  │   │  (Sync geparkt)      │   │  │ 4-Step   │  │ Chip-Filter + │ │
-│ - Eignungen  │   │                      │   │  │ Wizard   │  │ Kandidaten    │ │
+│ - Produkte   │   │                      │   │  │ Expert   │  │ Geführt       │ │
+│ - Kriterien  │   │  (Sync geparkt)      │   │  │ Default  │  │ 3-Step Wizard │ │
+│ - Eignungen  │   │                      │   │  │ Chips    │  │ + Referenzen  │ │
 └──────────────┘   └──────────────────────┘   │  └──────────┘  └───────────────┘ │
                                               └──────────────────────────────────┘
 ```
@@ -253,14 +254,15 @@ export function berechneKandidaten(input: KandidatenInput): ProduktKandidat[];
 ### 7.1 Seite und Modus-Toggle
 - Route: `/produktfinder`
 - Oben: Seitentitel + Intro-Text (aus Dictionary)
-- Modus-Toggle als Segmented Control: **„Geführt"** (Default) | **„Expert"**
-- Toggle-Zustand in URL-Param `?modus=expert` persistiert.
+- Modus-Toggle als Segmented Control: **„Expert"** (Default in Phase 1) | **„Geführt"**
+- Toggle-Zustand in URL-Param `?modus=gefuehrt` persistiert (Expert ist Default, daher kein Param)
+- Phase 2 (Public-Shift): Default kann auf „Geführt" zurückschalten — reine Konfigurationsänderung
 
 ### 7.2 Modus „Geführt" (Wizard)
-- Struktur wie heute: 4 Steps (Situation → Belastung → Zustand → Sonderbedingung), Fortschrittsanzeige
+- Struktur: **3 Steps** (Situation → Belastung → Sonderbedingung), Fortschrittsanzeige
 - Ergebnisseite zeigt:
-  1. **Produkt-Kandidaten** (Top 5) — aus `berechneKandidaten` (neu — Zustand-Auswahl wird ignoriert in Phase 1, siehe Aus-Scope)
-  2. **Referenzprojekte** (Top 5) — aus `berechneErgebnisse` (bleibt — nutzt Zustand-Tags weiterhin)
+  1. **Produkt-Kandidaten** (Top 5) — aus `berechneKandidaten`
+  2. **Referenzprojekte** (Top 5) — aus `berechneErgebnisse` (existierendes Scoring, Zustand-Tags werden als leer übergeben)
 - Wechsel zu Expert bleibt jederzeit möglich
 
 ### 7.3 Modus „Expert" (V2)
@@ -271,7 +273,7 @@ export function berechneKandidaten(input: KandidatenInput): ProduktKandidat[];
   - Collapsible Sektion „Mit Einschränkungen": nicht-tauglich
 - Kandidat als Card: Name (Link), Kurzbeschreibung, Rating pro ausgewähltem Kriterium, TDS-Link
 - **Hover/Tap auf Rating** → Tooltip mit `notiz`, `quelle`, `bestaetigtAm`
-- Unterhalb: **Referenzprojekte**-Sektion (kleiner)
+- **Keine Referenzprojekte-Sektion** — Expert bleibt fokussiert auf Kandidatenliste (Referenzen sind im Wizard für Einsteiger)
 - **„Stand"-Datum** oben rechts aus `generiertAm`
 
 ### 7.4 Leere Zustände
@@ -294,7 +296,7 @@ export function berechneKandidaten(input: KandidatenInput): ProduktKandidat[];
 | `components/ProduktfinderExpert.tsx`  | Neu — Chip-Filter + Kandidatenliste (V2)                              | isoliert |
 | `components/Produktmatrix.tsx`        | Entfernt                                                              | gering   |
 | `data/matrix.generated.ts`            | Neu — Typen, Daten, `berechneKandidaten`                              | isoliert |
-| `data/loesungsfinder.ts`              | Referenz-Scoring `berechneErgebnisse` bleibt. Step-Definitionen bleiben. | gering |
+| `data/loesungsfinder.ts`              | Referenz-Scoring `berechneErgebnisse` bleibt. Step-Definitionen bleiben (step3 Zustand wird in Phase 1 nicht gerendert, bleibt aber für spätere Reaktivierung). | gering |
 | `data/produkte.ts`                    | `eignungen`-Feld `@deprecated`, bleibt zunächst                       | gering   |
 | `dictionaries/*.json`                 | Matrix-Spalten-Keys entfernen, „Produktfinder"-Labels ergänzen        | mittel   |
 | `scripts/seed-matrix.ts`              | Neu — generiert initiale `matrix.generated.ts` aus `produkte.ts`      | isoliert |
@@ -336,7 +338,7 @@ export function berechneKandidaten(input: KandidatenInput): ProduktKandidat[];
 
 ## 11. Geparkt (eigene Folge-Specs)
 - **Sync-Script gegen Notion-API** — manueller Trigger + CI-Build-Hook, Fehlerbehandlung.
-- **Bodenzustand als Produkt-Scoring-Kriterium** — nach Team-Klärung; heute im Wizard vorhanden, wirkt aber nur auf Referenz-Scoring.
+- **Bodenzustand als Kriterium** — nach Team-Klärung; Step-Definition bleibt vorhanden, Reaktivierung sobald Kriterien-DB in Notion ergänzt ist. Wirkt dann sowohl auf Produkt- als auch auf Referenz-Scoring.
 - **Gewichtetes Scoring** — Kriterien mit unterschiedlichem Gewicht.
 - **Modus 3: „Übersicht" (Tabelle)** — falls Bedarf für „alle Produkte × alle Kriterien auf einen Blick" entsteht.
 - **Öffentliche Phase-2-Sicht** — vereinfachte Darstellung (3 Stufen, keine Notizen) für Endkunden.
