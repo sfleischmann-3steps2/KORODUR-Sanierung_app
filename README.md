@@ -86,6 +86,9 @@ GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch g
 
 ## Status: V2 – Live
 
+### Backlog Themen
+Commit: 0deae98c191a84ed9aded5fbff50f664f9336561 -> Sanierungssysteme (Systemdarstellung als Konzeptbasis)
+
 ### V2.3 (April 2026)
 - [x] **Produkt-Mockups** auf Produktkarten und Detailseiten (10 von 16 Produkten)
 - [x] **Sprachumschalter** als Flaggen-Dropdown (skalierbar für weitere Sprachen)
