@@ -1,5 +1,14 @@
 import type { Referenz, Anwendungsbereich, Massnahme, Belastung, Zustand, Sonderbedingung } from "./types";
 
+// ---------------------------------------------------------------------------
+// HINWEIS — 4-Step-Lösungsfinder-Migration (2026-04-22)
+// Die Felder `sanierungsart`, `anwendungsbereiche`, `zeitDringlichkeit`,
+// `zusatzfunktionen` sind aus den Alt-Feldern abgeleitet. Das Mapping ist
+// konservativ — insbesondere `anwendungsbereiche` trägt meist nur 1 Element,
+// obwohl Multi-Select vorgesehen ist. Mit Experten nachschärfen.
+// Spec: docs/superpowers/specs/2026-04-22-loesungsfinder-4step-design.md
+// ---------------------------------------------------------------------------
+
 export const referenzen: Referenz[] = [
   // === INDUSTRIEBODEN – Schwerlast ===
   {
@@ -35,6 +44,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/antolin-2.jpg", "/images/referenzen/antolin-3.jpg", "/images/referenzen/antolin-4.jpg", "/images/referenzen/antolin-5.jpg", "/images/referenzen/antolin-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "kleemann-produktionshalle",
@@ -68,6 +81,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/kleemann-2.jpg", "/images/referenzen/kleemann-3.jpg", "/images/referenzen/kleemann-4.jpg", "/images/referenzen/kleemann-5.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "monheim-produktionsflaeche",
@@ -101,6 +118,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/monheim-2.jpg", "/images/referenzen/monheim-3.jpg", "/images/referenzen/monheim-4.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
 
   {
@@ -137,6 +158,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/weag-2.jpg", "/images/referenzen/weag-3.jpg", "/images/referenzen/weag-4.jpg", "/images/referenzen/weag-5.jpg", "/images/referenzen/weag-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "wochenend-sanierung-werkstatt",
@@ -171,6 +196,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/werkstatt-neutraubling-2.jpg", "/images/referenzen/werkstatt-neutraubling-3.jpg", "/images/referenzen/werkstatt-neutraubling-4.jpg", "/images/referenzen/werkstatt-neutraubling-5.jpg", "/images/referenzen/werkstatt-neutraubling-6.jpg", "/images/referenzen/werkstatt-neutraubling-7.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "strandkorbhalle-sylt",
@@ -205,6 +234,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["aussenbereich"],
     galerieBilder: ["/images/referenzen/strandkorbhalle-sylt-2.jpg", "/images/referenzen/strandkorbhalle-sylt-3.jpg", "/images/referenzen/strandkorbhalle-sylt-4.jpg", "/images/referenzen/strandkorbhalle-sylt-5.jpg", "/images/referenzen/strandkorbhalle-sylt-6.jpg", "/images/referenzen/strandkorbhalle-sylt-7.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: [],
   },
   {
     id: "loosen-werkzeug-klausen",
@@ -237,6 +270,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/loosen-klausen-2.jpg", "/images/referenzen/loosen-klausen-3.jpg", "/images/referenzen/loosen-klausen-4.jpg", "/images/referenzen/loosen-klausen-5.jpg", "/images/referenzen/loosen-klausen-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
 
   // === INDUSTRIEBODEN – Dünnschicht ===
@@ -273,6 +310,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/guben-2.jpg", "/images/referenzen/guben-3.jpg", "/images/referenzen/guben-4.jpg", "/images/referenzen/guben-5.jpg", "/images/referenzen/guben-6.jpg", "/images/referenzen/guben-7.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "nike-store-polen",
@@ -305,6 +346,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: [],
     galerieBilder: ["/images/referenzen/nike-store-2.jpg", "/images/referenzen/nike-store-3.jpg", "/images/referenzen/nike-store-4.jpg", "/images/referenzen/nike-store-5.jpg", "/images/referenzen/nike-store-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["verkaufsraeume"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: [],
   },
 
   {
@@ -339,6 +384,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb", "ebenheitsprobleme"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/obstplantage-ibbenbueren-2.jpg", "/images/referenzen/obstplantage-ibbenbueren-3.jpg", "/images/referenzen/obstplantage-ibbenbueren-4.jpg", "/images/referenzen/obstplantage-ibbenbueren-5.jpg", "/images/referenzen/obstplantage-ibbenbueren-6.jpg", "/images/referenzen/obstplantage-ibbenbueren-7.jpg", "/images/referenzen/obstplantage-ibbenbueren-8.jpg", "/images/referenzen/obstplantage-ibbenbueren-9.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "sanierung-einer-sanierung",
@@ -370,6 +419,10 @@ export const referenzen: Referenz[] = [
     zustand: ["ebenheitsprobleme", "beschichtungsschaeden"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/sanierung-einer-sanierung-2.jpg", "/images/referenzen/sanierung-einer-sanierung-3.jpg", "/images/referenzen/sanierung-einer-sanierung-4.jpg", "/images/referenzen/sanierung-einer-sanierung-5.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: [],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
 
   // === INDUSTRIEBODEN – Schnelle Reparaturen ===
@@ -403,6 +456,10 @@ export const referenzen: Referenz[] = [
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/dhl-2.jpg", "/images/referenzen/dhl-3.jpg", "/images/referenzen/dhl-4.jpg", "/images/referenzen/dhl-5.jpg", "/images/referenzen/dhl-6.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "lkw-waschstrasse",
@@ -436,6 +493,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb", "beschichtungsschaeden"],
     sonderbedingungen: ["chemikalien"],
     galerieBilder: ["/images/referenzen/lkw-waschstrasse-2.jpg", "/images/referenzen/lkw-waschstrasse-3.jpg", "/images/referenzen/lkw-waschstrasse-4.jpg", "/images/referenzen/lkw-waschstrasse-5.jpg", "/images/referenzen/lkw-waschstrasse-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: [],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["chemikalienbestaendigkeit"],
   },
 
   {
@@ -470,6 +531,10 @@ export const referenzen: Referenz[] = [
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
     galerieBilder: ["/images/referenzen/helipad-polen-2.jpg", "/images/referenzen/helipad-polen-3.jpg", "/images/referenzen/helipad-polen-4.jpg", "/images/referenzen/helipad-polen-5.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["flugzeug"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["tausalzbestaendigkeit"],
   },
 
   // === INDUSTRIEBAU ===
@@ -506,6 +571,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/lyreco-2.jpg", "/images/referenzen/lyreco-3.jpg", "/images/referenzen/lyreco-4.jpg", "/images/referenzen/lyreco-5.jpg", "/images/referenzen/lyreco-6.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "treppenstufen-sanierung",
@@ -537,6 +606,10 @@ export const referenzen: Referenz[] = [
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich", "tausalz"],
     galerieBilder: ["/images/referenzen/treppenstufen-2.jpg", "/images/referenzen/treppenstufen-3.jpg", "/images/referenzen/treppenstufen-4.jpg", "/images/referenzen/treppenstufen-5.jpg", "/images/referenzen/treppenstufen-6.jpg", "/images/referenzen/treppenstufen-7.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: [],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: ["tausalzbestaendigkeit"],
   },
 
   {
@@ -569,6 +642,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/sinusfugen-2.jpg", "/images/referenzen/sinusfugen-3.jpg", "/images/referenzen/sinusfugen-4.jpg", "/images/referenzen/sinusfugen-5.jpg", "/images/referenzen/sinusfugen-6.jpg", "/images/referenzen/sinusfugen-7.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "trennfugen-bohnenkamp",
@@ -602,6 +679,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/trennfugen-bohnenkamp-2.jpg", "/images/referenzen/trennfugen-bohnenkamp-3.jpg", "/images/referenzen/trennfugen-bohnenkamp-4.jpg", "/images/referenzen/trennfugen-bohnenkamp-5.jpg", "/images/referenzen/trennfugen-bohnenkamp-6.jpg", "/images/referenzen/trennfugen-bohnenkamp-7.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["lager-logistik"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "absenksteine-tankstelle",
@@ -634,6 +715,10 @@ export const referenzen: Referenz[] = [
     zustand: ["ebenheitsprobleme"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
     galerieBilder: ["/images/referenzen/absenksteine-tankstelle-2.jpg", "/images/referenzen/absenksteine-tankstelle-3.jpg", "/images/referenzen/absenksteine-tankstelle-4.jpg", "/images/referenzen/absenksteine-tankstelle-5.jpg", "/images/referenzen/absenksteine-tankstelle-6.jpg", "/images/referenzen/absenksteine-tankstelle-7.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["infrastruktur-zufahrten"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
   {
     id: "lkw-einstellplatz-berlin",
@@ -666,6 +751,10 @@ export const referenzen: Referenz[] = [
     zustand: ["ebenheitsprobleme", "abrieb"],
     sonderbedingungen: ["kurze-sperrzeit"],
     galerieBilder: ["/images/referenzen/lkw-einstellplatz-berlin-2.jpg", "/images/referenzen/lkw-einstellplatz-berlin-3.jpg", "/images/referenzen/lkw-einstellplatz-berlin-4.jpg", "/images/referenzen/lkw-einstellplatz-berlin-5.jpg", "/images/referenzen/lkw-einstellplatz-berlin-6.jpg", "/images/referenzen/lkw-einstellplatz-berlin-7.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["industrie-produktion"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
 
   // === INFRASTRUKTUR – Verkehr ===
@@ -702,6 +791,10 @@ export const referenzen: Referenz[] = [
     zustand: ["ebenheitsprobleme", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
     galerieBilder: ["/images/referenzen/catania-2.jpg", "/images/referenzen/catania-3.jpg", "/images/referenzen/catania-4.jpg", "/images/referenzen/catania-5.jpg", "/images/referenzen/catania-6.jpg", "/images/referenzen/catania-7.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["infrastruktur-zufahrten"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["tausalzbestaendigkeit"],
   },
   {
     id: "parkhaus-flughafen-zuerich",
@@ -736,6 +829,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb", "beschichtungsschaeden"],
     sonderbedingungen: ["rutschhemmung"],
     galerieBilder: ["/images/referenzen/zuerich-parkhaus-2.jpg", "/images/referenzen/zuerich-parkhaus-3.jpg", "/images/referenzen/zuerich-parkhaus-4.jpg", "/images/referenzen/zuerich-parkhaus-5.jpg", "/images/referenzen/zuerich-parkhaus-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["parkdeck"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["rutschhemmung"],
   },
 
   {
@@ -770,6 +867,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb"],
     sonderbedingungen: ["tausalz", "rutschhemmung", "aussenbereich"],
     galerieBilder: ["/images/referenzen/theodor-heuss-bruecke-2.jpg", "/images/referenzen/theodor-heuss-bruecke-3.jpg", "/images/referenzen/theodor-heuss-bruecke-4.jpg", "/images/referenzen/theodor-heuss-bruecke-5.jpg", "/images/referenzen/theodor-heuss-bruecke-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["infrastruktur-zufahrten"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["tausalzbestaendigkeit", "rutschhemmung"],
   },
   {
     id: "autohaus-versmold",
@@ -803,6 +904,10 @@ export const referenzen: Referenz[] = [
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["aussenbereich"],
     galerieBilder: ["/images/referenzen/autohaus-versmold-2.jpg", "/images/referenzen/autohaus-versmold-3.jpg", "/images/referenzen/autohaus-versmold-4.jpg", "/images/referenzen/autohaus-versmold-5.jpg", "/images/referenzen/autohaus-versmold-6.jpg"],
+    sanierungsart: "punktuell",
+    anwendungsbereiche: ["infrastruktur-zufahrten"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: [],
   },
   {
     id: "hubschrauber-landeplatz-finnland",
@@ -834,6 +939,10 @@ export const referenzen: Referenz[] = [
     zustand: ["risse", "abrieb"],
     sonderbedingungen: ["tausalz", "aussenbereich"],
     galerieBilder: ["/images/referenzen/helipad-finnland-2.jpg", "/images/referenzen/helipad-finnland-3.jpg", "/images/referenzen/helipad-finnland-4.jpg", "/images/referenzen/helipad-finnland-5.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["flugzeug"],
+    zeitDringlichkeit: "normal",
+    zusatzfunktionen: ["tausalzbestaendigkeit"],
   },
   {
     id: "lkw-umfahrt-darmstadt",
@@ -867,6 +976,10 @@ export const referenzen: Referenz[] = [
     zustand: ["abrieb", "risse"],
     sonderbedingungen: ["kurze-sperrzeit", "aussenbereich"],
     galerieBilder: ["/images/referenzen/lkw-umfahrt-darmstadt-2.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-3.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-4.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-5.jpg", "/images/referenzen/lkw-umfahrt-darmstadt-6.jpg"],
+    sanierungsart: "grossflaechig",
+    anwendungsbereiche: ["infrastruktur-zufahrten"],
+    zeitDringlichkeit: "schnell",
+    zusatzfunktionen: [],
   },
 
 ];
