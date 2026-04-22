@@ -1,4 +1,13 @@
-import type { Verarbeitung, Belastung, Sonderbedingung, Massnahme } from "./types";
+import type { Verarbeitung, Belastung, Sonderbedingung, Massnahme, ZeitKategorie, Zusatzfunktion } from "./types";
+
+// ---------------------------------------------------------------------------
+// HINWEIS — 4-Step-Lösungsfinder-Migration (2026-04-22)
+// Das Feld `zeitKategorie` ist aktuell heuristisch gesetzt (Name-Matching auf
+// "rapid"/"schnell"/"ESC" + Grundierungen → "schnell", Rest → "normal").
+// Das finale Mapping muss mit Produktmanagement im Workshop bestätigt werden.
+// Ebenso `zusatzfunktionen`: aktuell leer bis auf explizit bekannte Fälle.
+// Spec: docs/superpowers/specs/2026-04-22-loesungsfinder-4step-design.md
+// ---------------------------------------------------------------------------
 
 export interface Produkt {
   id: string;
@@ -13,6 +22,17 @@ export interface Produkt {
   websiteUrl?: string;
   verarbeitung?: Verarbeitung;
   tdsUrl?: string;
+
+  // === NEU (2026-04-22): 4-Step-Lösungsfinder ===
+  /**
+   * Zeit-Kategorie des Produkts. Platzhalter "normal" bis Experten-Tagging erfolgt.
+   * TODO (Experten-Workshop): TDS-basiert pro Produkt auf schnell/mittel/normal setzen.
+   */
+  zeitKategorie: ZeitKategorie;
+  /** Zusatzfunktionen, die dieses Produkt inhärent mitbringt. Leer = keine. */
+  zusatzfunktionen?: Zusatzfunktion[];
+
+  /** @deprecated Alter Eignungs-Array, entfällt nach Migrationsabschluss. */
   eignungen?: (Belastung | Sonderbedingung | Massnahme)[];
   bild?: string;
 }
@@ -55,6 +75,8 @@ export const produkte: Produkt[] = [
     tdsUrl: "https://www.korodur.de/downloads/tds-neodur-he-60-rapid.pdf",
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "chemikalien", "kurze-sperrzeit"],
     bild: "/images/produkte/neodur-he-60-rapid.png",
+    zeitKategorie: "schnell",
+    zusatzfunktionen: ["chemikalienbestaendigkeit"],
   },
   {
     id: "neodur-he-65-plus",
@@ -92,6 +114,8 @@ export const produkte: Produkt[] = [
     },
     tdsUrl: "https://www.korodur.de/downloads/tds-neodur-he-65-plus.pdf",
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "chemikalien", "tausalz", "aussenbereich"],
+    zeitKategorie: "normal",
+    zusatzfunktionen: ["chemikalienbestaendigkeit", "tausalzbestaendigkeit"],
   },
   {
     id: "neodur-level",
@@ -129,6 +153,7 @@ export const produkte: Produkt[] = [
     tdsUrl: "https://www.korodur.de/downloads/tds-neodur-level.pdf",
     eignungen: ["grossflaechige-sanierung", "leichte-nutzung", "rollende-lasten"],
     bild: "/images/produkte/neodur-level.png",
+    zeitKategorie: "normal",
   },
 
   // === GRUNDIERUNGEN / HAFTBRÜCKEN ===
@@ -152,6 +177,7 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
     bild: "/images/produkte/korodur-hb5-rapid.png",
+    zeitKategorie: "schnell",
   },
   {
     id: "korodur-pc",
@@ -170,6 +196,7 @@ export const produkte: Produkt[] = [
       "Polymermodifiziert",
     ],
     eignungen: ["grossflaechige-sanierung"],
+    zeitKategorie: "schnell",
   },
 
   // === SCHNELLZEMENTE / MÖRTEL ===
@@ -205,6 +232,7 @@ export const produkte: Produkt[] = [
     tdsUrl: "https://www.korodur.de/downloads/tds-rapid-set-cement-all.pdf",
     eignungen: ["kleine-reparatur", "kurze-sperrzeit", "aussenbereich"],
     bild: "/images/produkte/rapid-set-cement-all.png",
+    zeitKategorie: "schnell",
   },
   {
     id: "rapid-set-mortar-mix",
@@ -229,6 +257,7 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["kleine-reparatur", "kurze-sperrzeit"],
     bild: "/images/produkte/rapid-set-mortar-mix.png",
+    zeitKategorie: "schnell",
   },
   {
     id: "rapid-set-concrete-mix",
@@ -251,6 +280,8 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["kleine-reparatur", "schwerlast", "kurze-sperrzeit", "tausalz", "aussenbereich"],
     bild: "/images/produkte/rapid-set-concrete-mix.png",
+    zeitKategorie: "schnell",
+    zusatzfunktionen: ["tausalzbestaendigkeit"],
   },
   {
     id: "korocrete",
@@ -274,6 +305,7 @@ export const produkte: Produkt[] = [
       "Hochbelastbar",
     ],
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "kurze-sperrzeit"],
+    zeitKategorie: "schnell", // TODO-Workshop: TDS deutet eher auf "mittel" (befahrbar 4–6 h)
   },
 
   {
@@ -298,6 +330,7 @@ export const produkte: Produkt[] = [
       "Pastöse Konsistenz einstellbar",
     ],
     eignungen: ["kleine-reparatur", "schwerlast", "punktlasten", "kurze-sperrzeit"],
+    zeitKategorie: "schnell",
   },
   {
     id: "asphalt-repair-mix",
@@ -320,6 +353,7 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["kleine-reparatur", "grossflaechige-sanierung", "schwerlast", "rollende-lasten", "kurze-sperrzeit", "aussenbereich"],
     bild: "/images/produkte/asphalt-repair-mix.png",
+    zeitKategorie: "normal",
   },
   {
     id: "korodur-fscem-screed",
@@ -341,6 +375,7 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["grossflaechige-sanierung", "kurze-sperrzeit"],
     bild: "/images/produkte/korodur-fscem-screed.png",
+    zeitKategorie: "normal",
   },
   {
     id: "neodur-he-65",
@@ -364,6 +399,7 @@ export const produkte: Produkt[] = [
     ],
     eignungen: ["grossflaechige-sanierung", "schwerlast", "rollende-lasten", "aussenbereich"],
     bild: "/images/produkte/neodur-he-65.png",
+    zeitKategorie: "normal",
   },
 
   {
@@ -386,6 +422,7 @@ export const produkte: Produkt[] = [
       "Hygienisch & pflegeleicht",
     ],
     eignungen: ["grossflaechige-sanierung", "leichte-nutzung"],
+    zeitKategorie: "normal",
   },
   // === NACHBEHANDLUNG ===
   {
@@ -406,6 +443,7 @@ export const produkte: Produkt[] = [
       "Reduziert Schwindrisse",
     ],
     eignungen: ["grossflaechige-sanierung", "aussenbereich"],
+    zeitKategorie: "normal",
   },
   {
     id: "koromineral-cure",
@@ -425,6 +463,7 @@ export const produkte: Produkt[] = [
       "Verbessert chemische Beständigkeit",
     ],
     eignungen: ["grossflaechige-sanierung", "chemikalien"],
+    zeitKategorie: "normal",
   },
   {
     id: "korotex",
@@ -444,6 +483,7 @@ export const produkte: Produkt[] = [
       "Sprühbare Anwendung",
     ],
     eignungen: ["grossflaechige-sanierung"],
+    zeitKategorie: "normal",
   },
 ];
 
