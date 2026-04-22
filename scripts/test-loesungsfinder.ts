@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { berechneErgebnisse, aggregiereProdukte } from "../data/loesungsfinder";
+import { berechneErgebnisse } from "../data/loesungsfinder";
 import { referenzen } from "../data/referenzen";
 import type { UserAuswahl } from "../data/loesungsfinder";
 

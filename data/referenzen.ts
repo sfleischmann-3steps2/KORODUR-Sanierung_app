@@ -1,4 +1,4 @@
-import type { Referenz, Anwendungsbereich, Massnahme, Belastung, Zustand, Sonderbedingung } from "./types";
+import type { Referenz } from "./types";
 
 // ---------------------------------------------------------------------------
 // HINWEIS — 4-Step-Lösungsfinder-Migration (2026-04-22)
