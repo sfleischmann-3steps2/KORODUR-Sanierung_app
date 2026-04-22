@@ -18,7 +18,7 @@
 |---|---|---|
 | `data/types.ts` | Alle gemeinsamen Typen | Neue Typen (`Sanierungsart`, `AnwendungsbereichKategorie`, `ZeitKategorie`, `Zusatzfunktion`) + `Referenz`/`Produkt`-Schema-Erweiterung + `@deprecated` auf Alt-Feldern |
 | `data/produkte.ts` | Produkt-Stammdaten | Alle Produkte um `zeit_kategorie` + `zusatzfunktionen` erweitert (Platzhalter) |
-| `data/referenzen.ts` | Referenz-Stammdaten | Alle Referenzen um `sanierungsart`, `anwendungsbereiche[]`, `zeit_dringlichkeit`, `zusatzfunktionen[]` erweitert (migriert aus Alt-Feldern + Platzhaltern) |
+| `data/referenzen.ts` | Referenz-Stammdaten | Alle Referenzen um `sanierungsart`, `anwendungsbereiche[]`, `zeitDringlichkeit`, `zusatzfunktionen[]` erweitert (migriert aus Alt-Feldern + Platzhaltern) |
 | `data/loesungsfinder.ts` | Step-Definitionen + Scoring | Komplett-Rewrite: 4 neue Steps, neues `berechneErgebnisse`, neue `aggregiereProdukte`-Helper |
 | `components/Loesungsfinder.tsx` | Wizard-UI | STEP_LABELS, State-Shape, Ergebnisseite neu (Referenzen-Grid + aggregierte Produktliste) |
 | `app/[lang]/loesungsfinder/page.tsx` | Route-Metadaten | „5 Schritten" → „4 Schritten" |
@@ -132,7 +132,7 @@ export interface Referenz {
   // === NEU (2026-04-22): 4-Step-Lösungsfinder-Tags ===
   sanierungsart: Sanierungsart;
   anwendungsbereiche: AnwendungsbereichKategorie[];
-  zeit_dringlichkeit: ZeitKategorie;
+  zeitDringlichkeit: ZeitKategorie;
   zusatzfunktionen: Zusatzfunktion[];
 
   // === LEGACY (werden nach vollständiger Umstellung entfernt) ===
@@ -284,7 +284,7 @@ git commit -m "feat(produkte): zeit_kategorie + zusatzfunktionen mit konservativ
 
 **Context:** Jede Referenz braucht vier neue Felder. Migration aus vorhandenen Daten:
 - `sanierungsart`: aus `massnahme` gemappt: `"kleine-reparatur"` → `"punktuell"`; `"grossflaechige-sanierung"` → `"grossflaechig"`
-- `zeit_dringlichkeit`: `"schnell"` wenn `"kurze-sperrzeit"` in `sonderbedingungen`, sonst `"normal"` (Platzhalter)
+- `zeitDringlichkeit`: `"schnell"` wenn `"kurze-sperrzeit"` in `sonderbedingungen`, sonst `"normal"` (Platzhalter)
 - `zusatzfunktionen`: Mapping aus `sonderbedingungen` — `"chemikalien"` → `"chemikalienbestaendigkeit"`, `"tausalz"` → `"tausalzbestaendigkeit"`, `"rutschhemmung"` → `"rutschhemmung"`; `"aussenbereich"` und `"kurze-sperrzeit"` werden NICHT gemappt (fließen nicht in Step 4).
 - `anwendungsbereiche`: Mapping aus altem `anwendungsbereich`-Einzelwert auf 1-elementiges Array:
   - `"produktionshalle"` → `["industrie-produktion"]`
@@ -303,7 +303,7 @@ Nach dem `import`-Block (nach Zeile 1) einfügen:
 ```ts
 // ---------------------------------------------------------------------------
 // HINWEIS — 4-Step-Lösungsfinder-Migration (2026-04-22)
-// Die Felder `sanierungsart`, `anwendungsbereiche`, `zeit_dringlichkeit`,
+// Die Felder `sanierungsart`, `anwendungsbereiche`, `zeitDringlichkeit`,
 // `zusatzfunktionen` sind aus den Alt-Feldern abgeleitet. Das Mapping ist
 // konservativ — insbesondere `anwendungsbereiche` trägt meist nur 1 Element,
 // obwohl Multi-Select vorgesehen ist. Mit Experten nachschärfen.
@@ -329,7 +329,7 @@ Für **jede** Referenz in der Datei (insgesamt ~46 Einträge; lies den komplette
   // === NEU ===
   sanierungsart: "grossflaechig",
   anwendungsbereiche: ["industrie-produktion"],
-  zeit_dringlichkeit: "schnell",      // wegen kurze-sperrzeit
+  zeitDringlichkeit: "schnell",      // wegen kurze-sperrzeit
   zusatzfunktionen: [],                // kurze-sperrzeit mappt nicht auf Zusatzfunktion
 },
 ```
@@ -337,7 +337,7 @@ Für **jede** Referenz in der Datei (insgesamt ~46 Einträge; lies den komplette
 Mapping-Regeln nochmal explizit:
 - `sanierungsart`: `massnahme === "kleine-reparatur" ? "punktuell" : "grossflaechig"`
 - `anwendungsbereiche`: Mapping aus altem Single-Wert siehe Task-Einleitung
-- `zeit_dringlichkeit`: `sonderbedingungen.includes("kurze-sperrzeit") ? "schnell" : "normal"`
+- `zeitDringlichkeit`: `sonderbedingungen.includes("kurze-sperrzeit") ? "schnell" : "normal"`
 - `zusatzfunktionen`: Map `sonderbedingungen` durch Filter:
   - `"chemikalien"` → `"chemikalienbestaendigkeit"`
   - `"tausalz"` → `"tausalzbestaendigkeit"`
@@ -469,7 +469,7 @@ export const stepZusatzfunktion: FlowStep<Zusatzfunktion> = {
 export interface UserAuswahl {
   sanierungsart: Sanierungsart;
   anwendungsbereiche: AnwendungsbereichKategorie[];
-  zeit_dringlichkeit: ZeitKategorie;
+  zeitDringlichkeit: ZeitKategorie;
   zusatzfunktionen: Zusatzfunktion[];
 }
 
@@ -533,9 +533,9 @@ export function berechneErgebnisse(
     }
 
     // Step 3: Zeit (hierarchisch, +2 wenn match)
-    if (zeitMatchesHierarchisch(auswahl.zeit_dringlichkeit, ref.zeit_dringlichkeit)) {
+    if (zeitMatchesHierarchisch(auswahl.zeitDringlichkeit, ref.zeitDringlichkeit)) {
       score += WEIGHT_ZEIT;
-      matchingTags.push(ref.zeit_dringlichkeit);
+      matchingTags.push(ref.zeitDringlichkeit);
     }
 
     // Step 4: Zusatzfunktionen (Multi-Match, +2 pro Überschneidung)
@@ -663,7 +663,7 @@ test("Harter Filter: punktuell schließt großflächige Referenzen aus", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "punktuell",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -676,7 +676,7 @@ test("Harter Filter: grossflaechig schließt punktuelle Referenzen aus", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -689,7 +689,7 @@ test("Zeit-Hierarchie: 'normal' als User matcht alle Zeit-Tags", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -708,15 +708,15 @@ test("Zeit-Hierarchie: 'schnell' als User matcht nur schnell-Referenzen", () => 
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "schnell",
+    zeitDringlichkeit: "schnell",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
-  // Referenzen mit score ≥ 2 müssen zeit_dringlichkeit "schnell" haben
+  // Referenzen mit score ≥ 2 müssen zeitDringlichkeit "schnell" haben
   for (const scored of ergebnis.referenzen) {
     if (scored.score >= 2) {
       assert.equal(
-        scored.referenz.zeit_dringlichkeit,
+        scored.referenz.zeitDringlichkeit,
         "schnell",
         `Referenz ${scored.referenz.slug} sollte schnell sein`,
       );
@@ -728,7 +728,7 @@ test("Anwendungsbereich-Scoring: Multi-Match addiert sich", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: ["industrie-produktion", "lager-logistik"],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -743,7 +743,7 @@ test("Sortierung: höchster Score zuerst", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: ["industrie-produktion"],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: ["chemikalienbestaendigkeit"],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -761,7 +761,7 @@ test("Aggregation zählt Produkt-Einsätze korrekt", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -778,7 +778,7 @@ test("Aggregation sortiert nach Häufigkeit", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
     anwendungsbereiche: [],
-    zeit_dringlichkeit: "normal",
+    zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
   const ergebnis = berechneErgebnisse(auswahl);
@@ -883,7 +883,7 @@ export default function Loesungsfinder({ lang }: LoesungsfinderProps) {
       ? {
           sanierungsart: sanierungsart[0],
           anwendungsbereiche,
-          zeit_dringlichkeit: zeitDringlichkeit[0],
+          zeitDringlichkeit: zeitDringlichkeit[0],
           zusatzfunktionen,
         }
       : null;
