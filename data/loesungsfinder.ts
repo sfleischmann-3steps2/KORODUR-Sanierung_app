@@ -1,11 +1,17 @@
-import type { Referenz, Massnahme, Belastung, Zustand, Sonderbedingung } from "./types";
+import type {
+  Referenz,
+  Sanierungsart,
+  AnwendungsbereichKategorie,
+  ZeitKategorie,
+  Zusatzfunktion,
+} from "./types";
 import { referenzen } from "./referenzen";
 import { produkte, type Produkt } from "./produkte";
 
-/* ---- Step-Definitionen ---- */
+// === Step-Definitionen ===
 
 export interface FlowOption<T extends string> {
-  id: T | "nicht-bekannt" | "keine";
+  id: T;
   label: string;
   beschreibung?: string;
 }
@@ -14,80 +20,85 @@ export interface FlowStep<T extends string> {
   id: string;
   frage: string;
   mehrfach: boolean;
-  exklusiv?: string[];
   optionen: FlowOption<T>[];
 }
 
-export const step1: FlowStep<Massnahme> = {
-  id: "situation",
+export const stepSanierungsart: FlowStep<Sanierungsart> = {
+  id: "sanierungsart",
   frage: "Was ist Ihre Situation?",
   mehrfach: false,
   optionen: [
     {
-      id: "kleine-reparatur",
-      label: "Kleine Reparatur",
-      beschreibung: "Punktuelle Schäden wie Risse, Ausbrüche oder Löcher",
+      id: "punktuell",
+      label: "Punktuelle Sanierung",
+      beschreibung: "Kosmetische oder funktionale Reparaturen wichtiger Flächen (Boden, Wand, Decke)",
     },
     {
-      id: "grossflaechige-sanierung",
+      id: "grossflaechig",
       label: "Großflächige Sanierung",
-      beschreibung: "Ganzheitliche Erneuerung eines Industriebodens",
+      beschreibung: "Sanierungsmaßnahmen bei Restrukturierung, Modernisierung, Umnutzung oder energetischer Sanierung",
     },
   ],
 };
 
-export const step2: FlowStep<Belastung> = {
-  id: "belastung",
-  frage: "Welche Belastungen muss der Boden künftig aushalten?",
+export const stepAnwendungsbereich: FlowStep<AnwendungsbereichKategorie> = {
+  id: "anwendungsbereich",
+  frage: "In welchem Bereich wird saniert?",
   mehrfach: true,
-  exklusiv: ["nicht-bekannt"],
   optionen: [
-    { id: "schwerlast", label: "Schwerlast (Stapler, LKW)" },
-    { id: "leichte-nutzung", label: "Leichte Nutzung (Fußgänger, leichte Wagen)" },
-    { id: "rollende-lasten", label: "Rollende Lasten" },
-    { id: "punktlasten", label: "Punktlasten (Regale, Maschinen)" },
-    { id: "nicht-bekannt", label: "Nicht bekannt" },
+    { id: "lager-logistik", label: "Lager & Logistik" },
+    { id: "industrie-produktion", label: "Industrie- & Produktionshalle" },
+    { id: "lebensmittel", label: "Lebensmittel" },
+    { id: "flugzeug", label: "Flugzeug (Hangar, Landebahn)" },
+    { id: "parkdeck", label: "Parkdeck / Parkhaus / Tiefgarage" },
+    { id: "infrastruktur-zufahrten", label: "Infrastruktur & Zufahrten" },
+    { id: "verkaufsraeume", label: "Verkaufsräume" },
+    { id: "schwerindustrie", label: "Schwerindustrie (Entsorgung, Kettenfahrzeuge)" },
   ],
 };
 
-export const step3: FlowStep<Zustand> = {
-  id: "zustand",
-  frage: "Wie sieht der aktuelle Zustand aus?",
-  mehrfach: true,
-  exklusiv: ["nicht-bekannt"],
+export const stepZeit: FlowStep<ZeitKategorie> = {
+  id: "zeit",
+  frage: "Wie dringlich ist die Wieder-Belastbarkeit?",
+  mehrfach: false,
   optionen: [
-    { id: "risse", label: "Risse / Ausbrüche" },
-    { id: "abrieb", label: "Abrieb / Verschleiß" },
-    { id: "hohlstellen", label: "Hohlstellen / Ablösungen" },
-    { id: "beschichtungsschaeden", label: "Beschichtungsschäden" },
-    { id: "ebenheitsprobleme", label: "Ebenheitsprobleme" },
-    { id: "nicht-bekannt", label: "Nicht bekannt" },
+    {
+      id: "schnell",
+      label: "Super dringlich",
+      beschreibung: "Fläche muss schnell wieder belastbar sein (wenige Stunden)",
+    },
+    {
+      id: "mittel",
+      label: "Enger Zeitplan",
+      beschreibung: "Zügig, aber nicht akut (1 Tag)",
+    },
+    {
+      id: "normal",
+      label: "Keine Zeitbegrenzung",
+      beschreibung: "Zeit spielt keine Rolle",
+    },
   ],
 };
 
-export const step4: FlowStep<Sonderbedingung> = {
-  id: "sonderbedingungen",
-  frage: "Gibt es besondere Anforderungen?",
+export const stepZusatzfunktion: FlowStep<Zusatzfunktion> = {
+  id: "zusatzfunktion",
+  frage: "Welche Zusatzfunktionen werden gebraucht?",
   mehrfach: true,
-  exklusiv: ["nicht-bekannt", "keine"],
   optionen: [
-    { id: "chemikalien", label: "Chemikalienbeständigkeit" },
-    { id: "tausalz", label: "Tausalzbeständigkeit" },
+    { id: "chemikalienbestaendigkeit", label: "Chemikalienbeständigkeit" },
+    { id: "tausalzbestaendigkeit", label: "Tausalzbeständigkeit" },
     { id: "rutschhemmung", label: "Rutschhemmung" },
-    { id: "kurze-sperrzeit", label: "Kurze Sperrzeit (schnelle Nutzung)" },
-    { id: "aussenbereich", label: "Außenbereich / Witterung" },
-    { id: "keine", label: "Keine besonderen Anforderungen" },
-    { id: "nicht-bekannt", label: "Nicht bekannt" },
+    { id: "fleckenabwehr", label: "Fleckenabwehr" },
   ],
 };
 
-/* ---- Scoring ---- */
+// === Scoring ===
 
-export interface UserSelection {
-  massnahme: string;
-  belastungen: string[];
-  zustand: string[];
-  sonderbedingungen: string[];
+export interface UserAuswahl {
+  sanierungsart: Sanierungsart;
+  anwendungsbereiche: AnwendungsbereichKategorie[];
+  zeitDringlichkeit: ZeitKategorie;
+  zusatzfunktionen: Zusatzfunktion[];
 }
 
 export interface ScoredReferenz {
@@ -96,71 +107,133 @@ export interface ScoredReferenz {
   matchingTags: string[];
 }
 
-export interface FlowErgebnis {
-  referenzen: ScoredReferenz[];
-  produkte: Produkt[];
+export interface AggregiertesProdukt {
+  produkt: Produkt;
+  anzahlEinsaetze: number;
+  referenzen: string[]; // Referenz-Slugs
 }
 
-export function berechneErgebnisse(auswahl: UserSelection): FlowErgebnis {
-  const scored: ScoredReferenz[] = referenzen.map((ref) => {
+export interface LoesungsfinderErgebnis {
+  referenzen: ScoredReferenz[];
+  aggregierteProdukte: AggregiertesProdukt[];
+}
+
+const WEIGHT_ANWENDUNGSBEREICH = 3;
+const WEIGHT_ZEIT = 2;
+const WEIGHT_ZUSATZFUNKTION = 2;
+
+const ZEIT_RANK: Record<ZeitKategorie, number> = {
+  schnell: 3,
+  mittel: 2,
+  normal: 1,
+};
+
+function zeitMatchesHierarchisch(
+  userAuswahl: ZeitKategorie,
+  referenzTag: ZeitKategorie,
+): boolean {
+  // Hierarchie: schnell ⊂ mittel ⊂ normal
+  // Nutzer wählt "mittel" → match bei "schnell" und "mittel"
+  // Nutzer wählt "normal" → match bei allen
+  // Nutzer wählt "schnell" → match nur bei "schnell"
+  return ZEIT_RANK[referenzTag] >= ZEIT_RANK[userAuswahl];
+}
+
+export function berechneErgebnisse(
+  auswahl: UserAuswahl,
+): LoesungsfinderErgebnis {
+  // Harter Filter: Sanierungsart muss matchen
+  const kandidaten = referenzen.filter(
+    (ref) => ref.sanierungsart === auswahl.sanierungsart,
+  );
+
+  // Scoring
+  const scored: ScoredReferenz[] = kandidaten.map((ref) => {
     let score = 0;
     const matchingTags: string[] = [];
 
-    // Massnahme (weight 3)
-    if (auswahl.massnahme !== "nicht-bekannt" && ref.massnahme === auswahl.massnahme) {
-      score += 3;
-      matchingTags.push(ref.massnahme);
-    }
-
-    // Belastungen (weight 2 each)
-    const belastungen = auswahl.belastungen.filter((b) => b !== "nicht-bekannt");
-    for (const b of belastungen) {
-      if (ref.belastungen.includes(b as Belastung)) {
-        score += 2;
-        matchingTags.push(b);
+    // Step 2: Anwendungsbereich (Multi-Match, +3 pro Überschneidung)
+    for (const ab of auswahl.anwendungsbereiche) {
+      if (ref.anwendungsbereiche.includes(ab)) {
+        score += WEIGHT_ANWENDUNGSBEREICH;
+        matchingTags.push(ab);
       }
     }
 
-    // Zustand (weight 1 each)
-    const zustand = auswahl.zustand.filter((z) => z !== "nicht-bekannt");
-    for (const z of zustand) {
-      if (ref.zustand.includes(z as Zustand)) {
-        score += 1;
-        matchingTags.push(z);
-      }
+    // Step 3: Zeit (hierarchisch, +2 wenn match)
+    if (zeitMatchesHierarchisch(auswahl.zeitDringlichkeit, ref.zeitDringlichkeit)) {
+      score += WEIGHT_ZEIT;
+      matchingTags.push(ref.zeitDringlichkeit);
     }
 
-    // Sonderbedingungen (weight 2 each)
-    const sonder = auswahl.sonderbedingungen.filter(
-      (s) => s !== "nicht-bekannt" && s !== "keine"
-    );
-    for (const s of sonder) {
-      if (ref.sonderbedingungen.includes(s as Sonderbedingung)) {
-        score += 2;
-        matchingTags.push(s);
+    // Step 4: Zusatzfunktionen (Multi-Match, +2 pro Überschneidung)
+    for (const zf of auswahl.zusatzfunktionen) {
+      if (ref.zusatzfunktionen.includes(zf)) {
+        score += WEIGHT_ZUSATZFUNKTION;
+        matchingTags.push(zf);
       }
     }
 
     return { referenz: ref, score, matchingTags };
   });
 
-  // Sort descending, only matches with score > 0
+  // Sortierung: Score desc, dann Slug asc (stabiler Tiebreaker — kein Datum-Feld vorhanden)
   const sortiert = scored
     .filter((s) => s.score > 0)
-    .sort((a, b) => b.score - a.score);
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return a.referenz.slug.localeCompare(b.referenz.slug);
+    });
 
-  // Extract unique products from top references
-  const produktNamen = new Set<string>();
-  for (const s of sortiert.slice(0, 10)) {
-    for (const p of s.referenz.produkte) {
-      produktNamen.add(p);
-    }
-  }
-
-  const matchedProdukte = produkte.filter((p) => produktNamen.has(p.name));
+  // Produkt-Aggregation aus Top-5
+  const topN = sortiert.slice(0, 5);
+  const aggregierteProdukte = aggregiereProdukte(topN);
 
   return {
     referenzen: sortiert,
-    produkte: matchedProdukte,
+    aggregierteProdukte,
   };
+}
+
+export function aggregiereProdukte(
+  topReferenzen: ScoredReferenz[],
+): AggregiertesProdukt[] {
+  const produktMap = new Map<string, { anzahl: number; referenzen: string[] }>();
+
+  for (const scored of topReferenzen) {
+    for (const produktName of scored.referenz.produkte) {
+      const existing = produktMap.get(produktName);
+      if (existing) {
+        existing.anzahl += 1;
+        existing.referenzen.push(scored.referenz.slug);
+      } else {
+        produktMap.set(produktName, {
+          anzahl: 1,
+          referenzen: [scored.referenz.slug],
+        });
+      }
+    }
+  }
+
+  // Map zu AggregiertesProdukt[] — nur Produkte, die auch im Katalog existieren
+  const result: AggregiertesProdukt[] = [];
+  for (const [produktName, meta] of produktMap.entries()) {
+    const produkt = produkte.find((p) => p.name === produktName);
+    if (!produkt) continue; // Referenz nennt Produkt, das nicht (mehr) im Katalog ist
+    result.push({
+      produkt,
+      anzahlEinsaetze: meta.anzahl,
+      referenzen: meta.referenzen,
+    });
+  }
+
+  // Sortierung: Anzahl desc, dann Name asc
+  result.sort((a, b) => {
+    if (b.anzahlEinsaetze !== a.anzahlEinsaetze) {
+      return b.anzahlEinsaetze - a.anzahlEinsaetze;
+    }
+    return a.produkt.name.localeCompare(b.produkt.name);
+  });
+
+  return result;
 }
