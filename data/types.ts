@@ -91,6 +91,7 @@ export interface Referenz {
   // === NEU (2026-04-22): 4-Step-Lösungsfinder-Tags ===
   sanierungsart: Sanierungsart;
   anwendungsbereiche: AnwendungsbereichKategorie[];
+  /** Wie schnell die Wiederbelastbarkeit im Projekt historisch erforderlich war. Nicht verwechseln mit `Produkt.zeitKategorie` (Produkt-Eigenschaft). */
   zeitDringlichkeit: ZeitKategorie;
   zusatzfunktionen: Zusatzfunktion[];
 
