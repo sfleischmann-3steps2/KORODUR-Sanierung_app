@@ -1,12 +1,39 @@
-// Neue Typen für Lösungsfinder-Tags
+// === NEU: 4-Step-Lösungsfinder (2026-04-22) ===
+
+export type Sanierungsart = "punktuell" | "grossflaechig";
+
+export type AnwendungsbereichKategorie =
+  | "lager-logistik"
+  | "industrie-produktion"
+  | "lebensmittel"
+  | "flugzeug"
+  | "parkdeck"
+  | "infrastruktur-zufahrten"
+  | "verkaufsraeume"
+  | "schwerindustrie";
+
+export type ZeitKategorie = "schnell" | "mittel" | "normal";
+
+export type Zusatzfunktion =
+  | "chemikalienbestaendigkeit"
+  | "tausalzbestaendigkeit"
+  | "rutschhemmung"
+  | "fleckenabwehr";
+// Hinweis: weitere Zusatzfunktionen werden nach Experten-Abstimmung ergänzt.
+
+// === LEGACY: werden durch neue Felder ersetzt, bleiben noch im Einsatz ===
+
+/** @deprecated Wird durch `Sanierungsart` (punktuell/grossflaechig) ersetzt. */
 export type Massnahme = "kleine-reparatur" | "grossflaechige-sanierung";
 
+/** @deprecated Alte Lösungsfinder-Dimension, entfällt in 4-Step-Wizard. */
 export type Belastung =
   | "schwerlast"
   | "leichte-nutzung"
   | "rollende-lasten"
   | "punktlasten";
 
+/** @deprecated Alte Lösungsfinder-Dimension, entfällt komplett. */
 export type Zustand =
   | "risse"
   | "abrieb"
@@ -14,6 +41,7 @@ export type Zustand =
   | "beschichtungsschaeden"
   | "ebenheitsprobleme";
 
+/** @deprecated Wird durch `Zusatzfunktion` ersetzt. */
 export type Sonderbedingung =
   | "chemikalien"
   | "tausalz"
@@ -21,6 +49,7 @@ export type Sonderbedingung =
   | "kurze-sperrzeit"
   | "aussenbereich";
 
+/** @deprecated Alter Single-Select-Anwendungsbereich (an Referenz), wird durch `anwendungsbereiche[]` ersetzt. */
 export type Anwendungsbereich =
   | "produktionshalle"
   | "lager"
@@ -58,10 +87,23 @@ export interface Referenz {
   bild: string;
   bildAlt: string;
   galerieBilder?: string[];
+
+  // === NEU (2026-04-22): 4-Step-Lösungsfinder-Tags ===
+  sanierungsart: Sanierungsart;
+  anwendungsbereiche: AnwendungsbereichKategorie[];
+  zeitDringlichkeit: ZeitKategorie;
+  zusatzfunktionen: Zusatzfunktion[];
+
+  // === LEGACY (werden nach vollständiger Umstellung entfernt) ===
+  /** @deprecated Nutze `anwendungsbereiche[]`. */
   anwendungsbereich: Anwendungsbereich;
+  /** @deprecated Nutze `sanierungsart`. */
   massnahme: Massnahme;
+  /** @deprecated Entfällt. */
   belastungen: Belastung[];
+  /** @deprecated Entfällt. */
   zustand: Zustand[];
+  /** @deprecated Nutze `zusatzfunktionen`. */
   sonderbedingungen: Sonderbedingung[];
 }
 
