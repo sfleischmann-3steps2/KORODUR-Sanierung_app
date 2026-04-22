@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Lösungsfinder",
   description:
-    "Finden Sie in 5 Schritten die passende Sanierungslösung für Ihren Industrieboden.",
+    "Finden Sie in 4 Schritten die passende Sanierungslösung für Ihren Industrieboden.",
 };
 
 export default async function LoesungsfinderPage({
