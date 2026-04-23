@@ -1,0 +1,62 @@
+# Notion-Writeback-Log · 2026-04-22T22:15:17.314400
+# Gesamt geschrieben: 56 Einträge (alle 🟢 mit mindestens einem sicheren Vorschlagswert)
+# Nicht geschrieben (von Experten zu klären): ESCADA Foyer (🔴), Brauerei Bernard (🟡), Tiefbau-Betonreparatur (🔵), 6 untagged (⚪)
+#
+# Format: [OK] <uuid> | <title> | <gesetzte Felder>
+
+[OK] 2e9670e1-9e1a-81ff-9fff-e683d407a903 | Aalto-Universität Dipoli, Espoo (2017) | Sanierungsart=Großflächig; Zusatzfunktion=[Fleckenabwehr]
+[OK] 2e9670e1-9e1a-81d1-b149-c3cde9f3464f | Altstadt Pflaster, Esslingen (2021) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e9670e1-9e1a-81ea-8759-f7fa9db3998c | Altstadt Pflaster, Lenningen (2018) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e8670e1-9e1a-813f-ad90-d1881d39fce1 | Antolin, Ebergassing (2018) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle]; Dringlichkeit=Schnell
+[OK] 2e8670e1-9e1a-811e-8fb8-d80c02dbf467 | apt Extrusions, Monheim am Rhein (2021/2022) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-816f-9a34-c63cde9e7ef0 | Autohaus Asphaltsanierung, Versmold (2023) | Einsatzbereich=[Industrie- & Produktionshalle]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81a5-93ec-c8eb30ccf827 | Barmenia Parkhaus, Wuppertal (2015) | Sanierungsart=Großflächig; Einsatzbereich=[Parkdeck]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8104-b93a-c7f30c4d50cc | Bohnenkamp, Essenbach (2019) | Sanierungsart=Punktuell; Einsatzbereich=[Lager & Logistik]
+[OK] 2e9670e1-9e1a-817f-a606-ee867755a88c | Bonsai Group, Guernsey (2015) | Sanierungsart=Großflächig; Einsatzbereich=[Verkaufsräume]; Zusatzfunktion=[Fleckenabwehr]
+[OK] 2e8670e1-9e1a-8140-a6ce-e026aaf876ff | Brückensanierung, Amberg (2012) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit, Rutschhemmung]
+[OK] 2e8670e1-9e1a-815a-a2a5-e1893c5fb99b | Burger King, Münster-Hiltrup (2021) | Sanierungsart=Großflächig; Einsatzbereich=[Lebensmittel, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-8130-a61a-fc2d883ff34c | Decathlon, Dortmund-Aplerbeck (2023) | Sanierungsart=Großflächig; Einsatzbereich=[Verkaufsräume]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8180-8a06-f8e7d4ec5df0 | DHL Paketzentrum, Ottendorf-Okrilla (2017) | Sanierungsart=Punktuell; Einsatzbereich=[Lager & Logistik, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-8198-a3c7-e38a9af81bcb | Fahrbahnsanierung, Wien (2020) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-812f-aff4-cb1d4d973a57 | Familie Lerch / Zwicker, Marktoberdorf (2018) | Zusatzfunktion=[Tausalzbeständigkeit, Rutschhemmung]
+[OK] 2e8670e1-9e1a-8176-8522-e12227517411 | FH Lichtschacht, Nürnberg (2012) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81af-9ce3-d9f5b97662bf | Fraport, Frankfurt/Main (2012) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik, Flugzeug, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell
+[OK] 2e8670e1-9e1a-819b-b176-dfbee05ca791 | Hafen-Zufahrt, Catania (2024) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik, Infrastruktur & Zufahrten, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81cd-a0e1-d9ee790448e2 | Hochbehälter Krottenbach, Nürnberg (2009) | Sanierungsart=Großflächig; Einsatzbereich=[Trinkwasser]
+[OK] 2e9670e1-9e1a-813c-927c-d09d15918039 | John Lewis Lager, Stevenage (2013) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik, Verkaufsräume]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8174-b03d-dab359cde19c | Kleemann, Göppingen | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-81cf-9ab2-ea684bc90b4c | Kläranlage, Nakło (2014) | Sanierungsart=Punktuell; Einsatzbereich=[Verkaufsräume, Trinkwasser]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit]
+[OK] 2e9670e1-9e1a-8180-812b-d193e55102c8 | KORODUR Demo, Bochum-Wattenscheid (2012) | Sanierungsart=Punktuell; Einsatzbereich=[Lager & Logistik, Industrie- & Produktionshalle]; Dringlichkeit=Schnell
+[OK] 2e8670e1-9e1a-8161-8631-db99661ecf9b | Kraftwerk, Bergamo (2011) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle]; Dringlichkeit=Mittel
+[OK] 2e9670e1-9e1a-8110-a72f-e9a31fb80151 | Kreisverkehr, Göppingen (2021) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e9670e1-9e1a-81e0-87bf-cfb47972a4d7 | Lebensmittel-Discounter Fugensanierung, Norddeutschland (2021) | Einsatzbereich=[Lager & Logistik, Lebensmittel]; Dringlichkeit=Schnell
+[OK] 2e8670e1-9e1a-810e-b7a8-db96f9ca697d | Linnenbecker, Bad Oeynhausen (2022) | Einsatzbereich=[Lager & Logistik, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81fe-abbc-f2f21a2a0b06 | LKW-Tankstelle, Luckau (2021) | Einsatzbereich=[Lager & Logistik, Infrastruktur & Zufahrten, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit]
+[OK] 2e8670e1-9e1a-81a6-9257-e47c10f72d11 | Megaflex Schaumstoff, Guben (2020) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8131-b141-f84d83456258 | Naturex, Burgdorf (2013) | Sanierungsart=Großflächig; Einsatzbereich=[Lebensmittel]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit]
+[OK] 2e8670e1-9e1a-8107-894e-d05098f58578 | Olympiastadion Berlin (2023) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle, Infrastruktur & Zufahrten]; Dringlichkeit=Mittel; Zusatzfunktion=[Tausalzbeständigkeit, Fleckenabwehr]
+[OK] 2e8670e1-9e1a-811d-a7dd-f459b49a543e | Oélie/Saur, Saint-Étienne (2024) | Sanierungsart=Punktuell; Einsatzbereich=[Parkdeck, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit, Rutschhemmung]
+[OK] 2e9670e1-9e1a-81d4-9377-cd41cb2324ef | Parkhaus Freiburger Münster, Freiburg | Sanierungsart=Großflächig; Einsatzbereich=[Lebensmittel, Parkdeck, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e8670e1-9e1a-817b-a2fa-dc78e865ab24 | Parkplatzsanierung, Metzingen (2017) | Sanierungsart=Punktuell; Einsatzbereich=[Parkdeck, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81be-a950-cf96934dc8bc | Pflastersanierung Altstadt, Amberg (2019) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit, Rutschhemmung]
+[OK] 2e8670e1-9e1a-8151-928d-c32851441ff8 | Pflastersanierung Innenstadt, Crailsheim (2023) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e8670e1-9e1a-81a1-bf32-c152beefadab | Restaurant Härg, Tallinn (2023) | Sanierungsart=Punktuell; Einsatzbereich=[Lebensmittel, Infrastruktur & Zufahrten]; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 34a670e1-9e1a-810d-8eb9-f2e07a01e391 | Sanierung LKW-Zufahrt Logistikzentrum Spedition Brummer, Sankt Marienkirchen (Österreich) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit, Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-816a-aeb0-e9b81f27d87f | Schachtregulierung Fahrbahn, Nittenau (2019) | Sanierungsart=Punktuell; Einsatzbereich=[Lager & Logistik, Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-816b-a98f-e5dd42fd8c25 | SNCF, Bordeaux (2016) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8140-a614-ff3d59b0e580 | Strandhaus, Bahía de Kino (2018) | Sanierungsart=Großflächig
+[OK] 2e8670e1-9e1a-813e-9395-df46adc28ed0 | Straßenbau Dieckmann, Versmold (2021) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik, Industrie- & Produktionshalle, Infrastruktur & Zufahrten]
+[OK] 2e9670e1-9e1a-81a1-8e0e-ffd937d2d879 | TEXACO Tankfläche, Arnheim (2018) | Sanierungsart=Großflächig; Einsatzbereich=[Infrastruktur & Zufahrten, Verkaufsräume]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit]
+[OK] 2e9670e1-9e1a-8125-9c78-d8d7cf5818f3 | Torschwelle Lagerhalle (unbekannter Ort) (2017) | Sanierungsart=Großflächig; Einsatzbereich=[Lager & Logistik]; Dringlichkeit=Schnell
+[OK] 2e9670e1-9e1a-8112-bbf9-e7be0e7e2001 | Treppensanierung (unbekannter Ort) (2016) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e8670e1-9e1a-81a8-a68a-e079fb0b6103 | Treppensanierung Gehweg, Esslingen (2015) | Sanierungsart=Punktuell; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit, Rutschhemmung]
+[OK] 2e9670e1-9e1a-81e1-ae70-e190e46831df | Trinkwasserbehälter, Budapest (2012) | Sanierungsart=Großflächig; Einsatzbereich=[Trinkwasser]; Dringlichkeit=Mittel; Zusatzfunktion=[Chemikalienbeständigkeit]
+[OK] 2e9670e1-9e1a-81ec-97ba-cf1675568469 | Trinkwasserbehälter, Puchheim (2010) | Sanierungsart=Großflächig; Einsatzbereich=[Trinkwasser]; Zusatzfunktion=[Chemikalienbeständigkeit, Fleckenabwehr]
+[OK] 2e8670e1-9e1a-8130-846d-edb802c21ad6 | WEAG Recycling, Köngen (2023) | Sanierungsart=Großflächig; Einsatzbereich=[Infrastruktur & Zufahrten, Schwerindustrie]; Dringlichkeit=Schnell; Zusatzfunktion=[Chemikalienbeständigkeit, Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-8181-80dc-fb156b613afe | Weingut am Nil, Kallstadt (2015) | Sanierungsart=Großflächig; Einsatzbereich=[Lebensmittel, Verkaufsräume]; Zusatzfunktion=[Chemikalienbeständigkeit, Rutschhemmung, Fleckenabwehr]
+[OK] 2e9670e1-9e1a-8166-ba97-c81eb08e5b39 | Wellpappenfabrik Gross, Versmold (2013) | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle, Lebensmittel]; Dringlichkeit=Schnell
+[OK] 2e8670e1-9e1a-81f0-829e-f54a1cff6dc9 | Werkstattboden-Sanierung, Neutraubling (2022) | Sanierungsart=Großflächig; Einsatzbereich=[Infrastruktur & Zufahrten]; Dringlichkeit=Schnell; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e8670e1-9e1a-8115-89bc-f83314237222 | WIRTGEN Produktionshallen, weltweit | Sanierungsart=Großflächig; Einsatzbereich=[Industrie- & Produktionshalle, Infrastruktur & Zufahrten]; Dringlichkeit=Mittel
+[OK] 2e8670e1-9e1a-8117-b1cc-d5ac6ddab24f | Wurstträgerbrunnen, Versmold (2024) | Sanierungsart=Punktuell; Dringlichkeit=Schnell; Zusatzfunktion=[Rutschhemmung]
+[OK] 2e8670e1-9e1a-8194-a2b6-e6ce5171f8b8 | Zentralkrankenhaus, Mikkeli (2018) | Sanierungsart=Punktuell; Einsatzbereich=[Flugzeug, Infrastruktur & Zufahrten]; Zusatzfunktion=[Tausalzbeständigkeit]
+[OK] 2e9670e1-9e1a-81b0-b1db-d893c70f89f4 | Zumbrink Landwirtschaft, Beeskow (2019) | Dringlichkeit=Schnell
