@@ -11,10 +11,10 @@ Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierun
 ## Features
 
 - **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte), gegen KORODUR-Glossar geprüft
-- **Produktfinder** – 3-Schritte-Assistent: Bereich → Maßnahme → Zeitrahmen → Produktempfehlung
-- **26 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
+- **Lösungsfinder** – 4-Schritt-Assistent: Sanierungsart → Einsatzbereich → Dringlichkeit → Zusatzfunktion → Referenzen + Produkte
+- **51 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
 - **16 Produkte** mit technischen Daten, Normen, Qualitätsklassen und **Produkt-Mockups**
-- **3 Portfolio-Bereiche** – Industrieboden, Industriebau, Infrastruktur – jeweils mit Anwendungs-Filter
+- **Einsatzbereich-Filter** über alle Referenzen (8 Bereiche: Lager & Logistik, Industrie & Produktion, Lebensmittel, Flugzeug, Parkdeck, Infrastruktur & Zufahrten, Verkaufsräume, Schwerindustrie)
 - **Produktmatrix** – Interaktive Vergleichstabelle mit Eignungen pro Produkt
 - **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
 - **Responsive** – Desktop, Tablet, Mobile
@@ -38,14 +38,10 @@ npm run dev
 
 ```
 /[lang]/
-├── Startseite (Hero, Stats, Warum Sanierung, Referenz-Highlights, Portfolio)
-├── sanierung-finden/ (Produktfinder: 3-Schritte-Assistent → Empfehlung + Referenzen)
-├── portfolio/
-│   ├── industrieboden/ (Filter: Schwerlast / Dünnschicht / Schnelle Reparaturen)
-│   ├── industriebau/ (Filter: Fugen / Schnelle Reparaturen)
-│   └── infrastruktur/ (Verkehr)
-├── referenzen/ (Filterliste nach Bereich + Anwendung)
-└── produkte/ (Produktübersicht + Detail-Seiten)
+├── Startseite (Hero, Referenz-Highlights, Lösungsfinder-Teaser, Außenflächen)
+├── loesungsfinder/ (4-Schritt-Wizard → Matching-Referenzen + aggregierte Produkte)
+├── referenzen/ (Filter: Sanierungsart · Einsatzbereich · Dringlichkeit · Produkt)
+└── produkte/ (Produktübersicht + Produktmatrix + Detail-Seiten)
 ```
 
 ## Projektstruktur
@@ -53,25 +49,32 @@ npm run dev
 ```
 ├── app/[lang]/              # Locale-prefixed Routes (de/en/fr/pl)
 │   ├── page.tsx             # Startseite
-│   ├── sanierung-finden/    # Produktfinder (3-Schritte-Assistent)
-│   ├── portfolio/           # Portfolio mit Filter-Kategorieseiten
+│   ├── loesungsfinder/      # 4-Schritt-Wizard
 │   ├── referenzen/          # Referenz-Übersicht + Detail
 │   ├── produkte/            # Produktübersicht + Detail
 │   └── dictionaries/        # UI-Strings (de/en/fr/pl.json)
 ├── components/
 │   ├── AppShell.tsx         # Layout-Wrapper
 │   ├── TopNav.tsx           # Horizontale Navigation + Mobile Drawer
-│   ├── CategoryFilterView.tsx # Wiederverwendbare Filterleiste für Kategorieseiten
+│   ├── Loesungsfinder.tsx   # 4-Step-Wizard mit Scoring-UI
+│   ├── ReferenceCard.tsx    # Referenz-Karte mit Einsatzbereich-Badge
 │   ├── ImageGallery.tsx     # Bildergalerie mit Grid + Lightbox (Referenz-Detail)
 │   ├── SearchOverlay.tsx    # Volltextsuche (Cmd+K)
-│   ├── LanguageSwitcher.tsx # Flaggen-Dropdown Sprachumschalter
-│   └── ...                  # TileGrid, ReferenceCard, CategoryTile, etc.
+│   └── ...                  # LanguageSwitcher, TileGrid, etc.
 ├── data/
-│   ├── referenzen.ts        # 26 Referenzen (DE-Basis)
+│   ├── referenzen.ts        # 51 Referenzen (DE-Basis, 26 historisch + 25 aus Notion-Import)
 │   ├── produkte.ts          # 16 Produkte mit technischen Daten + Mockup-Bildern
-│   ├── kategorien.ts        # 3 Bereiche + Unterkategorien
-│   ├── sanierung-finden.ts  # Produktfinder: Schritte + Scoring-Logik
+│   ├── loesungsfinder.ts    # 4-Step-Definitionen + Scoring-Logik
+│   ├── types.ts             # Referenz-Interface: sanierungsart/einsatzbereiche/
+│   │                        #   zeitDringlichkeit/zusatzfunktionen
 │   └── i18n/                # Inhalts-Übersetzungen (EN/FR/PL)
+├── scripts/
+│   ├── validate-referenzen.ts       # CI-Check: Enum-Werte, Pflichtfelder, Slugs
+│   ├── test-loesungsfinder.ts       # Scoring-Smoke-Test
+│   ├── match-app-notion.py          # Matching-Report App ↔ Notion-DB
+│   ├── build-delta-payloads.py      # Baut Notion-Writeback-Payloads
+│   ├── import-notion-referenzen.py  # Importiert Notion-Einträge in referenzen.ts
+│   └── cleanup-referenzen.py        # Einmalige Datenmodell-Migration
 ├── lib/
 │   ├── i18n.ts              # Locale-Typen, LOCALES Konstante
 │   ├── LocaleContext.tsx    # Client-Context für Locale + Dictionary
@@ -88,6 +91,15 @@ GitHub Pages via GitHub Actions – bei jedem Push auf `main` wird automatisch g
 
 ### Backlog Themen
 Commit: 0deae98c191a84ed9aded5fbff50f664f9336561 -> Sanierungssysteme (Systemdarstellung als Konzeptbasis)
+
+### V2.4 (April 2026)
+- [x] **Notion-Reconciliation** – App ↔ Notion-Referenzverzeichnis konsolidiert
+  - 18 App-Refs fehlten in Notion → dort als Pages mit Strukturfeldern nachgelegt
+  - 25 Notion-Refs fehlten in App → in `data/referenzen.ts` importiert (Bilder als Platzhalter)
+  - Neue Gesamtzahl: **51 Referenzen**
+- [x] **Taxonomie-Refactor** – alte 3er-Kategorisierung (Industrieboden/Industriebau/Infrastruktur + Unterkategorien) durch Lösungsfinder-Taxonomie ersetzt; einziges Modell für alle Referenz-Dimensionen
+- [x] **Filter `/referenzen`** – Sanierungsart · Einsatzbereich · Dringlichkeit · Produkt (homogen mit Lösungsfinder)
+- [x] `validate-referenzen.ts` als CI-tauglicher Enum-/Pflichtfeld-Validator
 
 ### V2.3 (April 2026)
 - [x] **Produkt-Mockups** auf Produktkarten und Detailseiten (10 von 16 Produkten)
