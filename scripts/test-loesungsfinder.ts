@@ -23,7 +23,7 @@ console.log("\n=== berechneErgebnisse ===");
 test("Harter Filter: punktuell schließt großflächige Referenzen aus", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "punktuell",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
@@ -36,7 +36,7 @@ test("Harter Filter: punktuell schließt großflächige Referenzen aus", () => {
 test("Harter Filter: grossflaechig schließt punktuelle Referenzen aus", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
@@ -49,7 +49,7 @@ test("Harter Filter: grossflaechig schließt punktuelle Referenzen aus", () => {
 test("Zeit-Hierarchie: 'normal' als User matcht alle Zeit-Tags", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
@@ -67,7 +67,7 @@ test("Zeit-Hierarchie: 'normal' als User matcht alle Zeit-Tags", () => {
 test("Zeit-Hierarchie: 'schnell' als User matcht nur schnell-Referenzen", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "schnell",
     zusatzfunktionen: [],
   };
@@ -86,7 +86,7 @@ test("Zeit-Hierarchie: 'schnell' als User matcht nur schnell-Referenzen", () => 
 test("Anwendungsbereich-Scoring: Multi-Match addiert sich", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: ["industrie-produktion", "lager-logistik"],
+    einsatzbereiche: ["industrie-produktion", "lager-logistik"],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
@@ -97,7 +97,7 @@ test("Anwendungsbereich-Scoring: Multi-Match addiert sich", () => {
 test("Sortierung: höchster Score zuerst", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: ["industrie-produktion"],
+    einsatzbereiche: ["industrie-produktion"],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: ["chemikalienbestaendigkeit"],
   };
@@ -115,7 +115,7 @@ console.log("\n=== aggregiereProdukte ===");
 test("Aggregation zählt Produkt-Einsätze korrekt", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };
@@ -131,7 +131,7 @@ test("Aggregation zählt Produkt-Einsätze korrekt", () => {
 test("Aggregation sortiert nach Häufigkeit", () => {
   const auswahl: UserAuswahl = {
     sanierungsart: "grossflaechig",
-    anwendungsbereiche: [],
+    einsatzbereiche: [],
     zeitDringlichkeit: "normal",
     zusatzfunktionen: [],
   };

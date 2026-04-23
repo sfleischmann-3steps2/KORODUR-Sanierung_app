@@ -32,13 +32,12 @@ export default async function Home({
     .map((slug) => getReferenzBySlug(slug))
     .filter((r): r is NonNullable<typeof r> => r !== undefined);
 
-  // Outdoor references: sonderbedingungen includes "aussenbereich" or anwendungsbereich is "zufahrt"/"parkflaeche"
+  // Outdoor references: Einsatzbereiche enthalten Infrastruktur/Zufahrten oder Parkdeck
   const outdoorRefs = referenzen
     .filter(
       (r) =>
-        r.sonderbedingungen?.includes("aussenbereich") ||
-        r.anwendungsbereich === "zufahrt" ||
-        r.anwendungsbereich === "parkflaeche"
+        r.einsatzbereiche.includes("infrastruktur-zufahrten") ||
+        r.einsatzbereiche.includes("parkdeck")
     )
     .slice(0, 2);
 

@@ -9,10 +9,12 @@ import { useLocale } from "../../../lib/LocaleContext";
 import { referenzenEN } from "../../../data/i18n/referenzen.en";
 import { referenzenFR } from "../../../data/i18n/referenzen.fr";
 import { referenzenPL } from "../../../data/i18n/referenzen.pl";
-import type { Referenz, Massnahme } from "../../../data/types";
-
-// Microtop/Wasser-Referenzen aus der Hauptliste ausschließen
-const baseReferenzen = alleReferenzen.filter((r) => r.unterkategorie !== "wasser");
+import type {
+  Referenz,
+  Sanierungsart,
+  EinsatzbereichKategorie,
+  ZeitKategorie,
+} from "../../../data/types";
 
 const translationMap: Record<string, Record<string, Partial<Referenz>>> = {
   en: referenzenEN as Record<string, Partial<Referenz>>,
@@ -27,14 +29,32 @@ function localizeRef(ref: Referenz, lang: string): Referenz {
   return { ...ref, ...overrides };
 }
 
-const massnahmeLabels: Record<Massnahme, string> = {
-  "kleine-reparatur": "Kleine Reparatur",
-  "grossflaechige-sanierung": "Großflächige Sanierung",
+const sanierungsartLabels: Record<Sanierungsart, string> = {
+  punktuell: "Punktuelle Sanierung",
+  grossflaechig: "Großflächige Sanierung",
+};
+
+const einsatzbereichLabels: Record<EinsatzbereichKategorie, string> = {
+  "lager-logistik": "Lager & Logistik",
+  "industrie-produktion": "Industrie & Produktion",
+  "lebensmittel": "Lebensmittel",
+  "flugzeug": "Flugzeug",
+  "parkdeck": "Parkdeck",
+  "infrastruktur-zufahrten": "Infrastruktur & Zufahrten",
+  "verkaufsraeume": "Verkaufsräume",
+  "schwerindustrie": "Schwerindustrie",
+};
+
+const dringlichkeitLabels: Record<ZeitKategorie, string> = {
+  schnell: "Schnell",
+  mittel: "Mittel",
+  normal: "Normal",
 };
 
 type FilterState = {
-  anwendungsbereich: string;
-  massnahme: string;
+  sanierungsart: string;
+  einsatzbereich: string;
+  dringlichkeit: string;
   produkt: string;
 };
 
@@ -52,19 +72,19 @@ function ReferenzenContent() {
   const initialProdukt = searchParams.get("produkt") ?? "";
 
   const [filters, setFilters] = useState<FilterState>({
-    anwendungsbereich: "",
-    massnahme: "",
+    sanierungsart: "",
+    einsatzbereich: "",
+    dringlichkeit: "",
     produkt: initialProdukt,
   });
 
-  // Lokalisierte Referenzen
   const referenzen = useMemo(
-    () => baseReferenzen.map((r) => localizeRef(r, lang)),
+    () => alleReferenzen.map((r) => localizeRef(r, lang)),
     [lang]
   );
 
-  const anwendungsbereiche = useMemo(
-    () => [...new Set(referenzen.map((r) => r.anwendungsbereich))].sort(),
+  const vorhandeneEinsatzbereiche = useMemo(
+    () => [...new Set(referenzen.flatMap((r) => r.einsatzbereiche))].sort(),
     [referenzen]
   );
 
@@ -75,8 +95,13 @@ function ReferenzenContent() {
 
   const gefilterteReferenzen = useMemo(() => {
     return referenzen.filter((r) => {
-      if (filters.anwendungsbereich && r.anwendungsbereich !== filters.anwendungsbereich) return false;
-      if (filters.massnahme && r.massnahme !== filters.massnahme) return false;
+      if (filters.sanierungsart && r.sanierungsart !== filters.sanierungsart) return false;
+      if (
+        filters.einsatzbereich &&
+        !r.einsatzbereiche.includes(filters.einsatzbereich as EinsatzbereichKategorie)
+      )
+        return false;
+      if (filters.dringlichkeit && r.zeitDringlichkeit !== filters.dringlichkeit) return false;
       if (filters.produkt && !r.produkte.includes(filters.produkt)) return false;
       return true;
     });
@@ -87,11 +112,11 @@ function ReferenzenContent() {
   };
 
   const resetFilters = () => {
-    setFilters({ anwendungsbereich: "", massnahme: "", produkt: "" });
+    setFilters({ sanierungsart: "", einsatzbereich: "", dringlichkeit: "", produkt: "" });
   };
 
   const hasActiveFilters =
-    filters.anwendungsbereich || filters.massnahme || filters.produkt;
+    filters.sanierungsart || filters.einsatzbereich || filters.dringlichkeit || filters.produkt;
 
   return (
     <>
@@ -101,7 +126,6 @@ function ReferenzenContent() {
         </div>
       </section>
 
-      {/* Header */}
       <section style={{ padding: "0 32px 48px" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           <h1
@@ -123,7 +147,6 @@ function ReferenzenContent() {
         </div>
       </section>
 
-      {/* Filters */}
       <section
         className="bg-[#f5f5f6] sticky top-0 z-30"
         style={{ padding: "16px 16px", borderBottom: "1px solid #e8edf5" }}
@@ -131,29 +154,43 @@ function ReferenzenContent() {
         <div className="mx-auto sm:px-4" style={{ maxWidth: 1320 }}>
           <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
             <select
-              value={filters.anwendungsbereich}
-              onChange={(e) => updateFilter("anwendungsbereich", e.target.value)}
+              value={filters.sanierungsart}
+              onChange={(e) => updateFilter("sanierungsart", e.target.value)}
               className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
               style={{ fontWeight: 700, fontFamily: "inherit" }}
             >
-              <option value="">{dict.referenzen.filter_all_areas}</option>
-              {anwendungsbereiche.map((ab) => (
-                <option key={ab} value={ab}>
-                  {ab.charAt(0).toUpperCase() + ab.slice(1)}
+              <option value="">Alle Sanierungsarten</option>
+              {(Object.keys(sanierungsartLabels) as Sanierungsart[]).map((key) => (
+                <option key={key} value={key}>
+                  {sanierungsartLabels[key]}
                 </option>
               ))}
             </select>
 
             <select
-              value={filters.massnahme}
-              onChange={(e) => updateFilter("massnahme", e.target.value)}
+              value={filters.einsatzbereich}
+              onChange={(e) => updateFilter("einsatzbereich", e.target.value)}
               className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
               style={{ fontWeight: 700, fontFamily: "inherit" }}
             >
-              <option value="">Alle Maßnahmen</option>
-              {(Object.keys(massnahmeLabels) as Massnahme[]).map((key) => (
+              <option value="">{dict.referenzen.filter_all_areas}</option>
+              {vorhandeneEinsatzbereiche.map((key) => (
                 <option key={key} value={key}>
-                  {massnahmeLabels[key]}
+                  {einsatzbereichLabels[key]}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={filters.dringlichkeit}
+              onChange={(e) => updateFilter("dringlichkeit", e.target.value)}
+              className="text-[14px] text-[#002d59] bg-white border border-[#d9dada] rounded-[8px] px-4 py-2.5 cursor-pointer outline-none focus:border-[#009ee3]"
+              style={{ fontWeight: 700, fontFamily: "inherit" }}
+            >
+              <option value="">Alle Dringlichkeiten</option>
+              {(Object.keys(dringlichkeitLabels) as ZeitKategorie[]).map((key) => (
+                <option key={key} value={key}>
+                  {dringlichkeitLabels[key]}
                 </option>
               ))}
             </select>
@@ -189,7 +226,6 @@ function ReferenzenContent() {
         </div>
       </section>
 
-      {/* Results */}
       <section style={{ padding: "48px 32px 88px" }}>
         <div className="mx-auto" style={{ maxWidth: 1320 }}>
           {gefilterteReferenzen.length > 0 ? (

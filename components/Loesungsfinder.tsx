@@ -8,7 +8,7 @@ import ProgressBar from "@/components/ProgressBar";
 import ReferenceCard from "@/components/ReferenceCard";
 import {
   stepSanierungsart,
-  stepAnwendungsbereich,
+  stepEinsatzbereich,
   stepZeit,
   stepZusatzfunktion,
   berechneErgebnisse,
@@ -16,13 +16,13 @@ import {
 } from "@/data/loesungsfinder";
 import type {
   Sanierungsart,
-  AnwendungsbereichKategorie,
+  EinsatzbereichKategorie,
   ZeitKategorie,
   Zusatzfunktion,
 } from "@/data/types";
 import Link from "next/link";
 
-const STEP_LABELS = ["Sanierungsart", "Anwendungsbereich", "Zeit", "Zusatzfunktion", "Ergebnisse"];
+const STEP_LABELS = ["Sanierungsart", "Einsatzbereich", "Zeit", "Zusatzfunktion", "Ergebnisse"];
 
 interface LoesungsfinderProps {
   lang: Locale;
@@ -32,15 +32,15 @@ interface LoesungsfinderProps {
 export default function Loesungsfinder({ lang }: LoesungsfinderProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [sanierungsart, setSanierungsart] = useState<Sanierungsart[]>([]);
-  const [anwendungsbereiche, setAnwendungsbereiche] = useState<AnwendungsbereichKategorie[]>([]);
+  const [einsatzbereiche, setEinsatzbereiche] = useState<EinsatzbereichKategorie[]>([]);
   const [zeitDringlichkeit, setZeitDringlichkeit] = useState<ZeitKategorie[]>([]);
   const [zusatzfunktionen, setZusatzfunktionen] = useState<Zusatzfunktion[]>([]);
 
-  const steps = [stepSanierungsart, stepAnwendungsbereich, stepZeit, stepZusatzfunktion];
-  const selections: string[][] = [sanierungsart, anwendungsbereiche, zeitDringlichkeit, zusatzfunktionen];
+  const steps = [stepSanierungsart, stepEinsatzbereich, stepZeit, stepZusatzfunktion];
+  const selections: string[][] = [sanierungsart, einsatzbereiche, zeitDringlichkeit, zusatzfunktionen];
   const setters: ((v: string[]) => void)[] = [
     (v) => setSanierungsart(v as Sanierungsart[]),
-    (v) => setAnwendungsbereiche(v as AnwendungsbereichKategorie[]),
+    (v) => setEinsatzbereiche(v as EinsatzbereichKategorie[]),
     (v) => setZeitDringlichkeit(v as ZeitKategorie[]),
     (v) => setZusatzfunktionen(v as Zusatzfunktion[]),
   ];
@@ -53,7 +53,7 @@ export default function Loesungsfinder({ lang }: LoesungsfinderProps) {
     sanierungsart.length > 0 && zeitDringlichkeit.length > 0
       ? {
           sanierungsart: sanierungsart[0],
-          anwendungsbereiche,
+          einsatzbereiche,
           zeitDringlichkeit: zeitDringlichkeit[0],
           zusatzfunktionen,
         }
@@ -67,9 +67,9 @@ export default function Loesungsfinder({ lang }: LoesungsfinderProps) {
       label: stepSanierungsart.optionen.find((o) => o.id === id)?.label ?? id,
       step: 0,
     })),
-    ...anwendungsbereiche.map((id) => ({
+    ...einsatzbereiche.map((id) => ({
       id,
-      label: stepAnwendungsbereich.optionen.find((o) => o.id === id)?.label ?? id,
+      label: stepEinsatzbereich.optionen.find((o) => o.id === id)?.label ?? id,
       step: 1,
     })),
     ...zeitDringlichkeit.map((id) => ({

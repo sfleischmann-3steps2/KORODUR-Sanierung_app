@@ -66,11 +66,6 @@
     "home": "Start",
     "back": "Wstecz"
   },
-  "categories": {
-    "industrieboden": "Posadzki przemysłowe",
-    "industriebau": "Budownictwo przemysłowe",
-    "infrastruktur": "Infrastruktura"
-  },
   "produkte": {
     "breadcrumb": "Produkty",
     "title": "Wszystkie produkty",

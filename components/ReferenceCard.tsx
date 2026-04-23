@@ -2,14 +2,50 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Referenz } from "../data/types";
+import { Referenz, EinsatzbereichKategorie } from "../data/types";
 import { withBasePath } from "../lib/basePath";
 
-const categoryLabels: Record<string, Record<string, string>> = {
-  de: { industrieboden: "Industrieboden", industriebau: "Industriebau", infrastruktur: "Infrastruktur" },
-  en: { industrieboden: "Industrial Flooring", industriebau: "Structural Renovation", infrastruktur: "Infrastructure" },
-  fr: { industrieboden: "Sols industriels", industriebau: "Rénovation structurelle", infrastruktur: "Infrastructure" },
-  pl: { industrieboden: "Posadzki przemysłowe", industriebau: "Budownictwo przemysłowe", infrastruktur: "Infrastruktura" },
+const einsatzbereichLabels: Record<string, Record<EinsatzbereichKategorie, string>> = {
+  de: {
+    "lager-logistik": "Lager & Logistik",
+    "industrie-produktion": "Industrie & Produktion",
+    "lebensmittel": "Lebensmittel",
+    "flugzeug": "Flugzeug",
+    "parkdeck": "Parkdeck",
+    "infrastruktur-zufahrten": "Infrastruktur & Zufahrten",
+    "verkaufsraeume": "Verkaufsräume",
+    "schwerindustrie": "Schwerindustrie",
+  },
+  en: {
+    "lager-logistik": "Warehouse & Logistics",
+    "industrie-produktion": "Industrial & Production",
+    "lebensmittel": "Food Processing",
+    "flugzeug": "Aviation",
+    "parkdeck": "Parking Deck",
+    "infrastruktur-zufahrten": "Infrastructure & Access",
+    "verkaufsraeume": "Retail",
+    "schwerindustrie": "Heavy Industry",
+  },
+  fr: {
+    "lager-logistik": "Entrepôts & Logistique",
+    "industrie-produktion": "Industrie & Production",
+    "lebensmittel": "Agroalimentaire",
+    "flugzeug": "Aviation",
+    "parkdeck": "Parking",
+    "infrastruktur-zufahrten": "Infrastructure & Accès",
+    "verkaufsraeume": "Commerce",
+    "schwerindustrie": "Industrie lourde",
+  },
+  pl: {
+    "lager-logistik": "Magazyn i logistyka",
+    "industrie-produktion": "Przemysł i produkcja",
+    "lebensmittel": "Przemysł spożywczy",
+    "flugzeug": "Lotnictwo",
+    "parkdeck": "Parking",
+    "infrastruktur-zufahrten": "Infrastruktura i dojazdy",
+    "verkaufsraeume": "Handel",
+    "schwerindustrie": "Przemysł ciężki",
+  },
 };
 
 export default function ReferenceCard({
@@ -19,7 +55,8 @@ export default function ReferenceCard({
   referenz: Referenz;
   lang?: string;
 }) {
-  const label = categoryLabels[lang]?.[referenz.kategorie] ?? referenz.kategorie;
+  const primary = referenz.einsatzbereiche[0];
+  const label = primary ? einsatzbereichLabels[lang]?.[primary] ?? primary : "";
 
   return (
     <Link href={`/${lang}/referenzen/${referenz.slug}`} className="no-underline group block">
@@ -46,12 +83,14 @@ export default function ReferenceCard({
           />
         </div>
         <div className="p-6 flex flex-col gap-3">
-          <span
-            className="self-start text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
-            style={{ backgroundColor: "#009ee3", fontWeight: 700 }}
-          >
-            {label}
-          </span>
+          {label && (
+            <span
+              className="self-start text-white text-[11px] uppercase tracking-wider px-3 py-1 rounded-[4px]"
+              style={{ backgroundColor: "#009ee3", fontWeight: 700 }}
+            >
+              {label}
+            </span>
+          )}
           <h3 className="text-[#002d59] text-[18px] m-0 leading-tight" style={{ fontWeight: 900 }}>
             {referenz.titel}
           </h3>

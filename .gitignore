@@ -5,3 +5,7 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .superpowers/
+
+# Lokale Zwischen-Artefakte (Reconciliation-Pipeline)
+docs/cache/
+Sanierungsprodukte_db.zip

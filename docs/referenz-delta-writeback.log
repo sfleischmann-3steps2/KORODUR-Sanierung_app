@@ -1,0 +1,44 @@
+# Delta-Writeback Log (Schritt 2)
+
+**Datum:** 2026-04-23
+**Ziel-Datasource:** `2e7670e1-9e1a-80d1-b73d-000b26167428` (🚧 Referenzverzeichnis)
+**Anzahl angelegt:** 18 neue Notion-Pages
+**Status pro Page:** `durch AI bearbeitet` — wartet auf RV-Review
+
+## Notion ↔ App-Slug Mapping
+
+| App-Slug | Notion-Page-ID | Notion-URL |
+|---|---|---|
+| `nike-store-polen` | `34b670e1-9e1a-8116-b7d6-d080c3f731e9` | https://www.notion.so/34b670e19e1a8116b7d6d080c3f731e9 |
+| `strandkorbhalle-sylt` | `34b670e1-9e1a-8184-9edc-d2c3255b2b65` | https://www.notion.so/34b670e19e1a81849edcd2c3255b2b65 |
+| `loosen-werkzeug-klausen` | `34b670e1-9e1a-81b2-b9f5-fb085e8ebbfc` | https://www.notion.so/34b670e19e1a81b2b9f5fb085e8ebbfc |
+| `obstplantage-ibbenbueren` | `34b670e1-9e1a-81d6-bd43-f371c027c101` | https://www.notion.so/34b670e19e1a81d6bd43f371c027c101 |
+| `sanierung-einer-sanierung` | `34b670e1-9e1a-81eb-8514-f94dc2c023c7` | https://www.notion.so/34b670e19e1a81eb8514f94dc2c023c7 |
+| `lkw-waschstrasse` | `34b670e1-9e1a-81b2-8a47-d788e3506acd` | https://www.notion.so/34b670e19e1a81b28a47d788e3506acd |
+| `helipad-sanierung-polen` | `34b670e1-9e1a-812e-a25b-f80ccef39b96` | https://www.notion.so/34b670e19e1a812ea25bf80ccef39b96 |
+| `fugensanierung-lyreco` | `34b670e1-9e1a-81bf-8136-da266136581e` | https://www.notion.so/34b670e19e1a81bf8136da266136581e |
+| `treppenstufen-sanierung` | `34b670e1-9e1a-819a-a6d5-f56c6cc486bb` | https://www.notion.so/34b670e19e1a819aa6d5f56c6cc486bb |
+| `sinusfugen-sanierung` | `34b670e1-9e1a-8145-abed-d3b1be45fe3c` | https://www.notion.so/34b670e19e1a8145abedd3b1be45fe3c |
+| `trennfugen-bohnenkamp` | `34b670e1-9e1a-8141-860b-cbfa7344ef4e` | https://www.notion.so/34b670e19e1a8141860bcbfa7344ef4e |
+| `absenksteine-tankstelle` | `34b670e1-9e1a-81ae-811d-dd3be616f0f8` | https://www.notion.so/34b670e19e1a81ae811ddd3be616f0f8 |
+| `lkw-einstellplatz-berlin` | `34b670e1-9e1a-815a-9736-f7db9f6b754c` | https://www.notion.so/34b670e19e1a815a9736f7db9f6b754c |
+| `parkhaus-flughafen-zuerich` | `34b670e1-9e1a-8148-89fc-cbf4a947b11e` | https://www.notion.so/34b670e19e1a814889fccbf4a947b11e |
+| `theodor-heuss-bruecke` | `34b670e1-9e1a-818a-8d3c-e143845130a9` | https://www.notion.so/34b670e19e1a818a8d3ce143845130a9 |
+| `autohaus-versmold` | `34b670e1-9e1a-8192-8104-c68694aeb6d7` | https://www.notion.so/34b670e19e1a81928104c68694aeb6d7 |
+| `hubschrauber-landeplatz-finnland` | `34b670e1-9e1a-81a7-8bb7-d5c390a78f96` | https://www.notion.so/34b670e19e1a81a78bb7d5c390a78f96 |
+| `lkw-umfahrt-darmstadt` | `34b670e1-9e1a-8179-abae-c551ec7e8ef4` | https://www.notion.so/34b670e19e1a8179abaec551ec7e8ef4 |
+
+## Bekannte Mapping-Anomalien
+
+**App-Produkte ohne direkte Notion-Multi-Select-Entsprechung** — wurden NICHT als Tag gesetzt, stehen stattdessen im Feld `weitere Hinweise, die nur wir kennen`:
+
+- `KORODUR FSCem Screed` → kommt vor in: `obstplantage-ibbenbueren`
+- `Epoxidharz-System` → kommt vor in: `parkhaus-flughafen-zuerich` (und implizit theodor-heuss-bruecke, das aber ohnehin keine Produkte hatte)
+
+**Empfehlung:** Diese beiden als neue Optionen im Notion-Multi-Select `eingesetzte KORODUR Produkte` ergänzen, dann via `update-page` nachträglich setzen.
+
+**Schema-Hinweis:** `Ort` heißt in Notion mittlerweile `Archiv: Ort` (es gibt zusätzlich ein neues `Place`-Feld vom Typ `place`, das wir hier nicht befüllt haben). Falls `Place` perspektivisch befüllt werden soll, muss das in einem separaten Update-Schritt erfolgen (Adresse + Lat/Lon).
+
+## Rollback
+
+Falls eine Page entfernt werden muss: in Notion direkt löschen oder per `mcp__claude_ai_Notion__notion-update-page` (verschieben in Trash via API ist nicht direkt unterstützt — manuell in Notion löschen). Die Pages sind über die obigen IDs identifizierbar.

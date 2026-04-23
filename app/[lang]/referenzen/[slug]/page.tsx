@@ -7,8 +7,51 @@ import ReferenzPdf from "../../../../components/ReferenzPdf";
 import TileGrid from "../../../../components/TileGrid";
 import ImageGallery from "../../../../components/ImageGallery";
 import { referenzen, getReferenzBySlug } from "../../../../data/referenzen";
-import { kategorien } from "../../../../data/kategorien";
 import { getProdukteByNames } from "../../../../data/produkte";
+import type { EinsatzbereichKategorie } from "../../../../data/types";
+
+const einsatzbereichLabels: Record<string, Record<EinsatzbereichKategorie, string>> = {
+  de: {
+    "lager-logistik": "Lager & Logistik",
+    "industrie-produktion": "Industrie & Produktion",
+    "lebensmittel": "Lebensmittel",
+    "flugzeug": "Flugzeug",
+    "parkdeck": "Parkdeck",
+    "infrastruktur-zufahrten": "Infrastruktur & Zufahrten",
+    "verkaufsraeume": "Verkaufsräume",
+    "schwerindustrie": "Schwerindustrie",
+  },
+  en: {
+    "lager-logistik": "Warehouse & Logistics",
+    "industrie-produktion": "Industrial & Production",
+    "lebensmittel": "Food Processing",
+    "flugzeug": "Aviation",
+    "parkdeck": "Parking Deck",
+    "infrastruktur-zufahrten": "Infrastructure & Access",
+    "verkaufsraeume": "Retail",
+    "schwerindustrie": "Heavy Industry",
+  },
+  fr: {
+    "lager-logistik": "Entrepôts & Logistique",
+    "industrie-produktion": "Industrie & Production",
+    "lebensmittel": "Agroalimentaire",
+    "flugzeug": "Aviation",
+    "parkdeck": "Parking",
+    "infrastruktur-zufahrten": "Infrastructure & Accès",
+    "verkaufsraeume": "Commerce",
+    "schwerindustrie": "Industrie lourde",
+  },
+  pl: {
+    "lager-logistik": "Magazyn i logistyka",
+    "industrie-produktion": "Przemysł i produkcja",
+    "lebensmittel": "Przemysł spożywczy",
+    "flugzeug": "Lotnictwo",
+    "parkdeck": "Parking",
+    "infrastruktur-zufahrten": "Infrastruktura i dojazdy",
+    "verkaufsraeume": "Handel",
+    "schwerindustrie": "Przemysł ciężki",
+  },
+};
 import { withBasePath } from "../../../../lib/basePath";
 import { getDictionary, hasLocale } from "../../dictionaries";
 import { LOCALES } from "../../../../lib/i18n";
@@ -55,14 +98,20 @@ export default async function ReferenzDetailPage({
 
   const referenz = await localizeReferenz(baseReferenz, lang as "de" | "en" | "fr");
 
-  const kategorieLabel =
-    dict.categories[referenz.kategorie as keyof typeof dict.categories] ||
-    referenz.kategorie;
+  const primaryEinsatzbereich = referenz.einsatzbereiche[0];
+  const kategorieLabel = primaryEinsatzbereich
+    ? einsatzbereichLabels[lang]?.[primaryEinsatzbereich] ?? primaryEinsatzbereich
+    : "";
   const baseProduktDetails = getProdukteByNames(referenz.produkte);
   const produktDetails = await localizeProdukte(baseProduktDetails, lang as "de" | "en" | "fr");
 
+  // Related = teilt mindestens einen Einsatzbereich
   const baseRelated = referenzen
-    .filter((r) => r.kategorie === referenz.kategorie && r.slug !== referenz.slug)
+    .filter(
+      (r) =>
+        r.slug !== referenz.slug &&
+        r.einsatzbereiche.some((e) => referenz.einsatzbereiche.includes(e))
+    )
     .slice(0, 3);
   const related = await localizeReferenzen(baseRelated, lang as "de" | "en" | "fr");
 

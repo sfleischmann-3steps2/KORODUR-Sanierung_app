@@ -66,11 +66,6 @@
     "home": "Accueil",
     "back": "Retour"
   },
-  "categories": {
-    "industrieboden": "Sols industriels",
-    "industriebau": "Rénovation structurelle",
-    "infrastruktur": "Infrastructure"
-  },
   "produkte": {
     "breadcrumb": "Produits",
     "title": "Tous les produits",

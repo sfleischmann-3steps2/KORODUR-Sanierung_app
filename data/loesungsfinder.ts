@@ -1,7 +1,7 @@
 import type {
   Referenz,
   Sanierungsart,
-  AnwendungsbereichKategorie,
+  EinsatzbereichKategorie,
   ZeitKategorie,
   Zusatzfunktion,
 } from "./types";
@@ -41,8 +41,8 @@ export const stepSanierungsart: FlowStep<Sanierungsart> = {
   ],
 };
 
-export const stepAnwendungsbereich: FlowStep<AnwendungsbereichKategorie> = {
-  id: "anwendungsbereich",
+export const stepEinsatzbereich: FlowStep<EinsatzbereichKategorie> = {
+  id: "einsatzbereich",
   frage: "In welchem Bereich wird saniert?",
   mehrfach: true,
   optionen: [
@@ -96,7 +96,7 @@ export const stepZusatzfunktion: FlowStep<Zusatzfunktion> = {
 
 export interface UserAuswahl {
   sanierungsart: Sanierungsart;
-  anwendungsbereiche: AnwendungsbereichKategorie[];
+  einsatzbereiche: EinsatzbereichKategorie[];
   zeitDringlichkeit: ZeitKategorie;
   zusatzfunktionen: Zusatzfunktion[];
 }
@@ -118,7 +118,7 @@ export interface LoesungsfinderErgebnis {
   aggregierteProdukte: AggregiertesProdukt[];
 }
 
-const WEIGHT_ANWENDUNGSBEREICH = 3;
+const WEIGHT_EINSATZBEREICH = 3;
 const WEIGHT_ZEIT = 2;
 const WEIGHT_ZUSATZFUNKTION = 2;
 
@@ -152,10 +152,10 @@ export function berechneErgebnisse(
     let score = 0;
     const matchingTags: string[] = [];
 
-    // Step 2: Anwendungsbereich (Multi-Match, +3 pro Überschneidung)
-    for (const ab of auswahl.anwendungsbereiche) {
-      if (ref.anwendungsbereiche.includes(ab)) {
-        score += WEIGHT_ANWENDUNGSBEREICH;
+    // Step 2: Einsatzbereich (Multi-Match, +3 pro Überschneidung)
+    for (const ab of auswahl.einsatzbereiche) {
+      if (ref.einsatzbereiche.includes(ab)) {
+        score += WEIGHT_EINSATZBEREICH;
         matchingTags.push(ab);
       }
     }

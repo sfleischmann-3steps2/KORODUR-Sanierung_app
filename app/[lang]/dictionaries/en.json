@@ -66,11 +66,6 @@
     "home": "Home",
     "back": "Back"
   },
-  "categories": {
-    "industrieboden": "Industrial Flooring",
-    "industriebau": "Structural Renovation",
-    "infrastruktur": "Infrastructure"
-  },
   "produkte": {
     "breadcrumb": "Products",
     "title": "All Products",

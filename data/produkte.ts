@@ -1,4 +1,12 @@
-import type { Verarbeitung, Belastung, Sonderbedingung, Massnahme, ZeitKategorie, Zusatzfunktion } from "./types";
+import type { Verarbeitung, ZeitKategorie, Zusatzfunktion } from "./types";
+
+// Produktmatrix-interne Filter-Taxonomie (aus Produktsicht). Bewusst separat
+// von der Referenz-Taxonomie: Referenzen nutzen Einsatzbereich/Sanierungsart/
+// Dringlichkeit/Zusatzfunktion, Produkte behalten ihr eigenes `eignungen`-
+// Matrix-Schema. Spätere Harmonisierung möglich.
+export type Belastung = "schwerlast" | "leichte-nutzung" | "rollende-lasten" | "punktlasten";
+export type Sonderbedingung = "chemikalien" | "tausalz" | "rutschhemmung" | "kurze-sperrzeit" | "aussenbereich";
+export type Massnahme = "kleine-reparatur" | "grossflaechige-sanierung";
 
 // ---------------------------------------------------------------------------
 // HINWEIS — 4-Step-Lösungsfinder-Migration (2026-04-22)
