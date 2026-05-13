@@ -13,7 +13,7 @@ Verfügbar in: [Deutsch](https://sfleischmann-3steps2.github.io/KORODUR-Sanierun
 - **4 Sprachen** – DE / EN / FR / PL, komplett übersetzt (UI + Inhalte), gegen KORODUR-Glossar geprüft
 - **Lösungsfinder** – 4-Schritt-Assistent: Sanierungsart → Einsatzbereich → Dringlichkeit → Zusatzfunktion → Referenzen + Produkte
 - **51 Referenzprojekte** mit Herausforderungen, Lösung, Vorteilen, Produktdaten und **Bildergalerie** (3–8 Fotos pro Referenz, Lightbox mit Pfeiltasten)
-- **16 Produkte** mit technischen Daten, Normen, Qualitätsklassen und **Produkt-Mockups**
+- **17 Produkte** mit technischen Daten, Normen, Qualitätsklassen und **Produkt-Mockups**
 - **Einsatzbereich-Filter** über alle Referenzen (8 Bereiche: Lager & Logistik, Industrie & Produktion, Lebensmittel, Flugzeug, Parkdeck, Infrastruktur & Zufahrten, Verkaufsräume, Schwerindustrie)
 - **Produktmatrix** – Interaktive Vergleichstabelle mit Eignungen pro Produkt
 - **Volltextsuche** (Cmd/Ctrl+K) über Referenzen, Kategorien und Produkte
