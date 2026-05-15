@@ -1,0 +1,204 @@
+{
+  "_meta": {
+    "tds_stand_overall": "Mai 2026 (TDS-Stände 08/2020 bis 04/2026 — siehe per-product 'stand')",
+    "kategorien_8": ["Lager & Logistik", "Industrie & Produktion", "Lebensmittel", "Flugzeug", "Parkdeck", "Infrastruktur & Zufahrten", "Verkaufsräume", "Schwerindustrie"],
+    "fl_werte": ["punktuell", "grossflaechig", "beides", "?"],
+    "zeit_werte": ["ja", "nein", "?"],
+    "eb_werte": ["H", "M", "", "?"]
+  },
+  "produkte": [
+    {
+      "id": 1, "name": "NEODUR HE 60 rapid", "stand": "03/2025",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "H", "industrie": "H", "lebensmittel": "", "flugzeug": "H", "parkdeck": "H", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": "M"},
+      "anmerkung": "TDS 03/2025: 'Verbundestrich ab 10 mm für höchste Beanspruchung, z. B. Parkhäuser, Industriehallen, Montagehallen, Flugzeughallen, Werkstätten, Hochregallager'. Begehbar 3 h, nutzbar 24 h.",
+      "tds_zitate": [
+        "Industrieboden für höchste Beanspruchung, z. B. Parkhäuser, Industriehallen, Montagehallen, Flugzeughallen, Werkstätten, Hochregallager und sonstige Industrieflächen mit stärkster Beanspruchung.",
+        "begehbar nach ca. 3 Stunden, nutzbar nach ca. 24 Stunden",
+        "Für die Herstellung und Sanierung schnell nutzbarer Verbundestriche"
+      ]
+    },
+    {
+      "id": 2, "name": "NEODUR HE 65 Plus", "stand": "11/2025",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "H", "industrie": "H", "lebensmittel": "M", "flugzeug": "H", "parkdeck": "H", "infrastruktur": "H", "verkaufsraeume": "", "schwerindustrie": "M"},
+      "anmerkung": "TDS 11/2025: Verbundestrich gem. DIN 18560-7. Industrieböden + WHG-Anwendungen (Waschplätze, Tankstellen, Hafen). Frost-/tausalzbeständig.",
+      "tds_zitate": [
+        "Parkhäuser, Industriehallen, Montagehallen, Flugzeughallen, Werkstätten, Hochregallager und sonstige Industrieflächen mit stärkster Beanspruchung für innen und außen.",
+        "Geeignet für die Herstellung flüssigkeitsdichter Beschichtungen, nach WHG für Waschplätze, Abfüllanlagen, Auffangbehälter, Tankstellen, Feuerwehrgerätehaus, Gefahrgutumschlagsflächen, Hafen, Kläranlagen, Industrie etc.",
+        "frost- und tausalzbeständig"
+      ]
+    },
+    {
+      "id": 3, "name": "NEODUR Level", "stand": "08/2025",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "H", "industrie": "H", "lebensmittel": "", "flugzeug": "", "parkdeck": "H", "infrastruktur": "", "verkaufsraeume": "H", "schwerindustrie": ""},
+      "anmerkung": "TDS 08/2025: Selbstverlaufender Dünnestrich 4–30 mm, pumpfähig. Begehbar 3 h, leicht belastbar 24 h. Nur Innen.",
+      "tds_zitate": [
+        "Für die Herstellung direkter Nutzschichten im Innenbereich, … als Industriebodenbelag für Neubau und Sanierung, z. B. von Technik- und Lagerräumen, Produktionshallen, Tiefgaragen, Verkaufsräumen usw.",
+        "begehbar nach ca. 3 Std., leicht belastbar nach ca. 24 Std., voll belastbar nach ca. 3 Tagen",
+        "schnellerhärtend"
+      ]
+    },
+    {
+      "id": 4, "name": "KORODUR HB 5 rapid", "stand": "03/2022",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 03/2022: Systemkomponente — schnellerhärtende Haftbrücke für NEODUR HE 60 rapid + FSCem Schnellestriche. Einsatzbereiche aus Zielestrich übernehmen.",
+      "tds_zitate": [
+        "Für die Herstellung von schnellerhärtenden Verbundestrichsystemen, z. B. NEODUR HE 60 rapid, KORODUR FSCem Screed, mit KORODUR FSCem erstellte Schnell-/Sichtestriche auf erhärtetem Beton. Für innen und außen.",
+        "schnellerhärtend"
+      ]
+    },
+    {
+      "id": 5, "name": "KORODUR PC", "stand": "02/2026",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 02/2026: Grundierung für selbstverlaufende Beschichtungen (NEODUR Level, LevelFlor). Einsatzbereiche aus Zielbeschichtung übernehmen.",
+      "tds_zitate": [
+        "speziell als Grundierung von zementären Untergründen für selbstverlaufende Beschichtungen wie NEODUR Level, NEODUR Level AU und LevelFlor",
+        "innen und außen"
+      ]
+    },
+    {
+      "id": 6, "name": "Rapid Set CEMENT ALL", "stand": "10/2022",
+      "flaeche": "punktuell",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "M", "lebensmittel": "M", "flugzeug": "", "parkdeck": "", "infrastruktur": "M", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 10/2022: Multi-Reparaturmörtel 0–100 mm. Belastbar nach 60 min. Universell — TDS nennt keine konkreten Branchen; ab 10 mm Bodendicke wird MORTAR MIX empfohlen.",
+      "tds_zitate": [
+        "multifunktionaler Schnellreparaturmörtel geeignet für Betoninstandsetzung, Vergussarbeiten, Verankerung und Injektion, Spachteln, Schalungsarbeiten und Bodenbeschichtungen (ab 10 mm empfehlen wir MORTAR-MIX)",
+        "Belastbar nach ca. 60 Minuten",
+        "innen und außen, auch in Nassbereichen"
+      ]
+    },
+    {
+      "id": 7, "name": "Rapid Set MORTAR MIX", "stand": "04/2024",
+      "flaeche": "beides",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "M", "flugzeug": "", "parkdeck": "", "infrastruktur": "H", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 04/2024: Schnellreparaturmörtel 10–150 mm. Belastbar 60 min. Explizit für Fahrbahn-Reparaturen + einschichtige Außenputze.",
+      "tds_zitate": [
+        "multifunktionaler Schnellreparaturmörtel geeignet für Betoninstandsetzung, Reparatur von Stuck und Putz, einschichtige Außenputze, Ausgleichsschichten, Schalungsarbeiten sowie für die Reparatur von Fahrbahnen",
+        "Belastbar nach ca. 60 Minuten",
+        "innen und außen, auch in Nassbereichen"
+      ]
+    },
+    {
+      "id": 8, "name": "Rapid Set CONCRETE MIX", "stand": "04/2026",
+      "flaeche": "beides",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "M", "industrie": "H", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "H", "verkaufsraeume": "", "schwerindustrie": "M"},
+      "anmerkung": "TDS 04/2026: Schnellbeton 50–600 mm. Belastbar 60 min. Explizit Industrieböden + Fahrbahnen + Maschinenfundamente.",
+      "tds_zitate": [
+        "geeignet für Betoninstandsetzung, für Reparatur und Bau von Gehwegen, Fahrbahnen, Beton- und Maschinenfundamente, Schalungsarbeiten sowie Industrieböden",
+        "Belastbar nach ca. 60 Minuten",
+        "innen und außen, auch in Nassbereichen"
+      ]
+    },
+    {
+      "id": 9, "name": "KOROCRETE Schnellbeton", "stand": "09/2021",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "M", "industrie": "M", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "M", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 09/2021: Schnellbeton (C35/45–C50/60) mit volumetrischer Mischtechnik vor Ort. Verkehrsfreigabe ab 6 h. TDS nennt keine konkreten Branchen.",
+      "tds_zitate": [
+        "Für die Herstellung von schnell nutzbaren Betonböden im Innen- und Außenbereich. Sanierung von Betonböden mit hoher Dauerhaftigkeit.",
+        "aufgrund der hohen Frühfestigkeit bereits nach 6 Stunden [belastbar]"
+      ]
+    },
+    {
+      "id": 10, "name": "Rapid Set MORTAR MIX DUR", "stand": "",
+      "flaeche": "?",
+      "zeit_schnell": "?",
+      "einsatzbereiche": {"lager": "?", "industrie": "?", "lebensmittel": "?", "flugzeug": "?", "parkdeck": "?", "infrastruktur": "?", "verkaufsraeume": "?", "schwerindustrie": "?"},
+      "anmerkung": "KEIN eigenes TDS verfügbar. Beschrieben nur als MORTAR MIX-Variante mit DIN-1100-Verschleißträger 'für Bodensanierungen > 15 mm auf Anfrage'. Vor PDF-Erstellung bei Frank/Richard klären.",
+      "tds_zitate": [
+        "Bei hohem Schleifverschleiß ist MORTAR MIX auch in der Qualität MORTAR MIX DUR mit Verschleißträger gem. DIN 1100 Gruppe A (KORODUR VS 0/5) für Bodensanierungen > 15 mm auf Anfrage lieferbar. (Quelle: MORTAR MIX TDS S.1)"
+      ]
+    },
+    {
+      "id": 11, "name": "ASPHALT REPAIR MIX", "stand": "09/2024",
+      "flaeche": "beides",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "M", "lebensmittel": "", "flugzeug": "", "parkdeck": "M", "infrastruktur": "H", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 09/2024: Asphalt-Reparaturmaterial 30–600 mm. Verkehrsfreigabe nach 30 min. Schlaglöcher (punktuell) + Verkehrsflächen (großflächig).",
+      "tds_zitate": [
+        "ideal für die schnelle, einfache und dauerhafte Beseitigung von Schlaglöchern im Asphalt … für die Reparatur von Straßenschäden, Frostaufbrüchen, Grundstücks- und Garageneinfahrten, Parkplätzen, Gehwegen, industriellen Verkehrsflächen",
+        "Verkehrsfreigabe bereits nach ca. 30 Minuten"
+      ]
+    },
+    {
+      "id": 12, "name": "KORODUR FSCem Screed", "stand": "11/2021",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 11/2021: Schnellestrich-Trockenmörtel CT-C40-F6, 15–120 mm. Begehbar 4 h. Ausgleichsestrich/Untergrund für Hartstoff- und Sichtestriche. TDS nennt keine konkreten Branchen.",
+      "tds_zitate": [
+        "Herstellung von schnell belegbaren Zementestrichen z. B. als Ausgleichsestrich bis max. 120 mm Schichtdicke im Innen- und Außenbereich",
+        "Als Untergrund zur Verlegung von KORODUR/NEODUR Hartstoffestrichen, KORODUR Sichtestrichen, Beschichtungen, Fliesen …",
+        "Begehbar nach ca. 4 Stunden"
+      ]
+    },
+    {
+      "id": 13, "name": "NEODUR HE 65", "stand": "03/2025",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "H", "industrie": "H", "lebensmittel": "", "flugzeug": "H", "parkdeck": "H", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": "M"},
+      "anmerkung": "TDS 03/2025: Hartstoffestrich gem. DIN 18560-7. Frisch-in-frisch oder auf Haftbrücke. Identische Anwendungsfelder wie HE 60 rapid, aber keine Schnellaushärtung.",
+      "tds_zitate": [
+        "Für die Herstellung hochbeanspruchbarer Industrieböden, z. B. Parkhäuser, Industriehallen, Montagehallen, Flugzeughallen, Werkstätten, Hochregallager und sonstige Industrieflächen mit stärkster Beanspruchung.",
+        "Schichtdicke nach Beanspruchungsgruppen gem. DIN 18560-7"
+      ]
+    },
+    {
+      "id": 14, "name": "TRU Self-Leveling", "stand": "10/2022",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "ja",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "M", "flugzeug": "M", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "H", "schwerindustrie": ""},
+      "anmerkung": "TDS 10/2022: Selbstverlaufender Sichtestrich 5–35 mm, schleifbar. Begehbar 2–3 h. Designboden für repräsentative Räume. 'Flughäfen' = Terminal-Lounges (M).",
+      "tds_zitate": [
+        "Für attraktives, einzigartiges Design von Verkaufsräumen, Restaurants, Foyers, Museen, Bürogebäuden, Schulen, Flughäfen sowie allen anderen repräsentativen Räumen.",
+        "nach 2 - 3 Stunden begehbar, nach 24 Stunden schleifbar bis Hochglanzoptik"
+      ]
+    },
+    {
+      "id": 15, "name": "KOROCURE", "stand": "08/2020",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 08/2020: Temporärer Verdunstungsschutz / Zwischen-Nachbehandlung des jungen Betons. Hilfsprodukt — Einsatzbereiche aus Zielboden ableiten.",
+      "tds_zitate": [
+        "Schutz des jungen Betons gemäß DIN EN 13670 / DIN 1045-3",
+        "Erfolgt der Einsatz primär als Grundierung für nachfolgende Hartstoffbeschichtungen ist KOROCURE unmittelbar nach Begehbarkeit des Betons aufzutragen."
+      ]
+    },
+    {
+      "id": 16, "name": "KOROMINERAL CURE", "stand": "10/2023",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 10/2023: Kombinierte Nachbehandlung + Silikatisierung. Hilfsprodukt für KORODUR Industrieböden — Einsatzbereiche aus Zielboden ableiten.",
+      "tds_zitate": [
+        "Nachbehandlung von frisch hergestellten KORODUR Industrieböden, Betonflächen und zementgebundenen Estrichen gem. DIN 18353 und DIN 18560",
+        "schützt langfristig gegen Feuchtigkeit, Schmutz und Abnutzung"
+      ]
+    },
+    {
+      "id": 17, "name": "KOROTEX", "stand": "08/2020",
+      "flaeche": "grossflaechig",
+      "zeit_schnell": "nein",
+      "einsatzbereiche": {"lager": "", "industrie": "", "lebensmittel": "", "flugzeug": "", "parkdeck": "", "infrastruktur": "", "verkaufsraeume": "", "schwerindustrie": ""},
+      "anmerkung": "TDS 08/2020: Nachbehandlungsmittel auf Acrylharzbasis. Hilfsprodukt — Einsatzbereiche aus Zielboden ableiten.",
+      "tds_zitate": [
+        "Nachbehandlung von frisch hergestellten KORODUR Industrieböden, Betonflächen und zementgebundenen Estrichen",
+        "hohe Sperrwirkung / hoher Verdunstungsschutz"
+      ]
+    }
+  ]
+}

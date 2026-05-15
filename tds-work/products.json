@@ -1,0 +1,138 @@
+[
+  {
+    "id": 1,
+    "name": "NEODUR HE 60 rapid",
+    "slug": "neodur-he-60-rapid",
+    "stand": "03/2025",
+    "pdf": "https://www.korodur.de/wp-content/uploads/NEODUR_HE_60_rapid_de.pdf",
+    "filename": "01_NEODUR_HE_60_rapid.pdf"
+  },
+  {
+    "id": 2,
+    "name": "NEODUR HE 65 Plus",
+    "slug": "neodur-he-65-plus",
+    "stand": "11/2025",
+    "pdf": "https://www.korodur.de/wp-content/uploads/NEODUR_HE_65_Plus_de.pdf",
+    "filename": "02_NEODUR_HE_65_Plus.pdf"
+  },
+  {
+    "id": 3,
+    "name": "NEODUR Level",
+    "slug": "neodur-level",
+    "stand": "08/2025",
+    "pdf": "https://www.korodur.de/wp-content/uploads/NEODUR_Level_de.pdf",
+    "filename": "03_NEODUR_Level.pdf"
+  },
+  {
+    "id": 4,
+    "name": "KORODUR HB 5 rapid",
+    "slug": "korodur-hb-5-rapid",
+    "stand": "03/2022",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KORODUR_HB_5_rapid_de.pdf",
+    "filename": "04_KORODUR_HB_5_rapid.pdf"
+  },
+  {
+    "id": 5,
+    "name": "KORODUR PC",
+    "slug": "korodur-pc",
+    "stand": "02/2026",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KORODUR_PC_de.pdf",
+    "filename": "05_KORODUR_PC.pdf"
+  },
+  {
+    "id": 6,
+    "name": "Rapid Set CEMENT ALL",
+    "slug": "rapid-set-cement-all",
+    "stand": "10/2022",
+    "pdf": "https://www.korodur.de/wp-content/uploads/2025/03/Cement_All_de.pdf",
+    "filename": "06_Rapid_Set_CEMENT_ALL.pdf"
+  },
+  {
+    "id": 7,
+    "name": "Rapid Set MORTAR MIX",
+    "slug": "rapid-set-mortar-mix",
+    "stand": "04/2024",
+    "pdf": "https://www.korodur.de/wp-content/uploads/2025/03/Mortar_Mix_de.pdf",
+    "filename": "07_Rapid_Set_MORTAR_MIX.pdf"
+  },
+  {
+    "id": 8,
+    "name": "Rapid Set CONCRETE MIX",
+    "slug": "concrete-mix",
+    "stand": "04/2021",
+    "pdf": "https://www.korodur.de/wp-content/uploads/Concrete_Mix_de.pdf",
+    "filename": "08_Rapid_Set_CONCRETE_MIX.pdf"
+  },
+  {
+    "id": 9,
+    "name": "KOROCRETE Schnellbeton",
+    "slug": "korocrete",
+    "stand": "09/2021",
+    "pdf": "https://www.korodur.de/wp-content/uploads/2023/02/KOROCRETE_Schnellbeton_de.pdf",
+    "filename": "09_KOROCRETE_Schnellbeton.pdf"
+  },
+  {
+    "id": 10,
+    "name": "Rapid Set MORTAR MIX DUR",
+    "slug": "rapid-set-mortar-mix-dur",
+    "stand": "",
+    "pdf": "",
+    "filename": "10_Rapid_Set_MORTAR_MIX_DUR.pdf"
+  },
+  {
+    "id": 11,
+    "name": "ASPHALT REPAIR MIX",
+    "slug": "asphalt-repair-mix",
+    "stand": "09/2024",
+    "pdf": "https://www.korodur.de/wp-content/uploads/Asphalt-Repair-Mix_de.pdf",
+    "filename": "11_ASPHALT_REPAIR_MIX.pdf"
+  },
+  {
+    "id": 12,
+    "name": "KORODUR FSCem Screed",
+    "slug": "korodur-fscem-screed",
+    "stand": "11/2021",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KORODUR_FSCem_Screed_de.pdf",
+    "filename": "12_KORODUR_FSCem_Screed.pdf"
+  },
+  {
+    "id": 13,
+    "name": "NEODUR HE 65",
+    "slug": "neodur-he-65",
+    "stand": "03/2025",
+    "pdf": "https://www.korodur.de/wp-content/uploads/NEODUR_HE_65_de.pdf",
+    "filename": "13_NEODUR_HE_65.pdf"
+  },
+  {
+    "id": 14,
+    "name": "TRU Self-Leveling",
+    "slug": "tru-self-leveling",
+    "stand": "10/2022",
+    "pdf": "https://www.korodur.de/wp-content/uploads/TRU_Self_Leveling_de.pdf",
+    "filename": "14_TRU_Self_Leveling.pdf"
+  },
+  {
+    "id": 15,
+    "name": "KOROCURE",
+    "slug": "korocure",
+    "stand": "08/2020",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KOROCURE_de.pdf",
+    "filename": "15_KOROCURE.pdf"
+  },
+  {
+    "id": 16,
+    "name": "KOROMINERAL CURE",
+    "slug": "koromineral-cure",
+    "stand": "10/2023",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KOROMINERAL_CURE_de.pdf",
+    "filename": "16_KOROMINERAL_CURE.pdf"
+  },
+  {
+    "id": 17,
+    "name": "KOROTEX",
+    "slug": "korotex",
+    "stand": "08/2020",
+    "pdf": "https://www.korodur.de/wp-content/uploads/KOROTEX_de-1.pdf",
+    "filename": "17_KOROTEX.pdf"
+  }
+]
