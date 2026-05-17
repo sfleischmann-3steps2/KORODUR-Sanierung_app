@@ -832,7 +832,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Flüssigkeitsdichte Betonsanierung einer Tankstelle nach CUR-63-Empfehlung für LAU-Anlagen. Instandsetzung an der Autobah",
     ort: "Arnheim",
     land: "Niederlande",
-    produkte: [],
+    produkte: ["Rapid Set CONCRETE MIX"],
     herausforderungen: [
       "Der verwendete Beton muss eine hohe Flüssigkeitsdichte aufweisen, um den Anforderungen für LAU-Anlagen zu entsprechen und eine Beständigkeit nach dem CUR-Empfehlung 63 zu garantieren.",
     ],
@@ -875,7 +875,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Sanierung eines stark abgenutzten Schwellenbereichs mit offenliegender Armierung. Schnelle Reparatur ohne Beeinträchtigu",
     ort: "",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set MORTAR MIX"],
     herausforderungen: [
       "Schnelle und nachhaltige Reparatur der beschädigten Betonschicht, ohne den Verkehr zur Lagerhalle zu beeinträchtigen.",
     ],
@@ -938,7 +938,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Umgestaltung eines zweispurigen Kreisverkehrs zur Verbesserung der Verkehrssicherheit. Großpflaster wurde als Fahrspur n",
     ort: "Göppingen",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set MORTAR MIX"],
     herausforderungen: [
       "Die Pflasterung erhöhte die Wahrnehmung der Fahrspur und führte insbesondere an den Ein- und Ausfahrten zu beengten und brenzligen Verkehrssituationen.",
     ],
@@ -959,7 +959,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Zeitnahe Sanierung schadhafter Ortbeton- und Fertigteile mit teilweise offener Armierung. Wiederherstellung der Standsic",
     ort: "Wuppertal",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL", "Rapid Set MORTAR MIX"],
     herausforderungen: [
       "Schadhafte Stellen in Ortbeton- und Fertigteilen, teilweise mit offener Armierung, die zeitnah saniert werden mussten.",
     ],
@@ -981,7 +981,7 @@ export const referenzen: Referenz[] = [
     ort: "Stevenage",
     land: "UK",
     flaeche: "1000 Laufmeter",
-    produkte: ["Rapid Set Cement All"],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Die Hochregalstapler hatten über 20 Jahre dieselbe Bahn genutzt, was zur Bildung einer tiefen Rinne führte, die den Verkehr beeinträchtigte.",
     ],
@@ -1003,7 +1003,7 @@ export const referenzen: Referenz[] = [
     ort: "Frankfurt/Main",
     land: "Deutschland",
     flaeche: "100",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Die Sanierung musste innerhalb kürzester Zeit erfolgen, inklusive der geforderten WHG-Beschichtung.",
     ],
@@ -1024,7 +1024,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Beseitigung gefährlicher Unebenheiten in U-Bahn-Zugängen während nächtlicher Arbeiten. Vorbereitung auf die neue Hochges",
     ort: "Bordeaux",
     land: "Frankreich",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Während der Bauarbeiten kam es zu Absenkungen der Gänge zu den U-Bahn-Stationen, was zahlreiche Unebenheiten und Verletzungsgefahr für Fahrgäste verursachte. Die Reparaturen mussten während der Nachtstunden (0.00 bis 05.00 Uhr) durchgeführt werden.",
     ],
@@ -1090,7 +1090,7 @@ export const referenzen: Referenz[] = [
     ort: "weltweit (Deutschland, Europa, Naher Osten, China, Asien, Australien)",
     land: "Andorra",
     flaeche: "> 150.000 m²",
-    produkte: [],
+    produkte: ["NEODUR HE 65"],
     herausforderungen: [
       "Extreme mechanische Belastung durch Maschinen mit Gleiskettenantrieb bis 500 Tonnen. Höchster Verschleißwiderstand bei gleichzeitig hoher Biegezugfestigkeit. Langfristige Nutzung unter kontinuierlicher Beanspruchung.",
     ],
@@ -1111,7 +1111,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Sanierung einer stark belasteten Betoneinfassung am letzten Uni-Tag vor den Sommerferien. Schnelle Reparatur unter Witte",
     ort: "Nürnberg",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Hohe mechanische Belastung durch Schwerverkehr, Einwirkung von Witterungseinflüssen und Schadstoffen, sowie enge zeitliche Vorgaben für die Sanierung am letzten Uni-Tag vor den Sommerferien.",
     ],
@@ -1133,7 +1133,7 @@ export const referenzen: Referenz[] = [
     ort: "Nakło",
     land: "Polen",
     flaeche: "ca. 180 m²",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Permanente Exposition gegenüber aggressivem Fäkalwasser. Belüftungseinrichtung nicht mehr funktionsfähig. Schnelle Reparatur zur Vermeidung von Stillstandszeiten erforderlich.",
     ],
@@ -1154,7 +1154,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Brückensanierung mit Ausgleich von Gefälleunterschieden bis 100 mm auf den Fußwegen. Fertigstellung innerhalb von neun M",
     ort: "Amberg",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL"],
     herausforderungen: [
       "Einhaltung eines engen Zeitplans von neun Monaten, Ausgleich von Gefälleunterschieden von 0 bis 100 mm auf den Fußwegen, präzise Modellierung der Sockelleisten am Brückengeländer unter anspruchsvollen baulichen Rahmenbedingungen.",
     ],
@@ -1196,7 +1196,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Anpassung von 28 Kanalschächten an das neue Fahrbahnniveau bei einer Straßensanierung. Schnellhärtender Reparaturmörtel ",
     ort: "Nittenau",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set MORTAR MIX"],
     herausforderungen: [
       "Anpassung von 28 Kanalschächten an höheres Fahrbahnniveau, Notwendigkeit eines schnellhärtenden, volumenstabilen Reparaturmörtels, Zeitdruck für den schnellen Einbau des neuen Asphalts.",
     ],
@@ -1217,7 +1217,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Sanierung einzelner Treppenstufen mit Frost- und Tausalzschäden im öffentlichen Gehweg. Schnelle Wiederherstellung der G",
     ort: "Esslingen",
     land: "Deutschland",
-    produkte: [],
+    produkte: ["Rapid Set CEMENT ALL", "Rapid Set MORTAR MIX"],
     herausforderungen: [
       "Hohe Beanspruchung durch Frost und Tausalz, sanierung einzelner Stufen in einer öffentlichen Anlage, und Durchführung der Arbeiten unter Zeitdruck um die Gehwegnutzung schnell wiederherzustellen.",
     ],
@@ -1303,7 +1303,7 @@ export const referenzen: Referenz[] = [
     untertitel: "Städtische Gehwegsanierung mit Schnellreparaturmörtel. Rutschfeste, optisch angepasste Oberfläche – nach 30 Minuten wied",
     ort: "Saint-Étienne",
     land: "Frankreich",
-    produkte: [],
+    produkte: ["ASPHALT REPAIR MIX"],
     herausforderungen: [
       "Schnelle Wiederfreigabe für Fußgänger und Verkehr erforderlich. Rutschfeste Oberfläche gefordert. Optische Anpassung an bestehenden Gehwegbelag gewünscht.",
     ],
